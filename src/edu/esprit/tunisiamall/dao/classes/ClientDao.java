@@ -1,0 +1,366 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package edu.esprit.tunisiamall.dao.classes;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import edu.esprit.tunisiamall.entities.Client;
+import edu.esprit.tunisiamall.entities.ResponsableEnseigne;
+import edu.esprit.tunisiamall.technique.DataSource;
+
+
+/**
+ *
+ * @author dali
+ */
+public class ClientDao {
+    
+        private Connection connection;
+         public ClientDao() {
+        this.connection= DataSource.getInstance().getConnection();
+    }
+  
+
+
+
+    public void delete(Client c) {
+   
+        try {
+            String req3= "delete from user"
+                    + " where ID="+c.getId();
+            Statement ste = this.connection.createStatement();
+            ste.executeUpdate(req3);
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+
+    public List<Client> Display() {
+        List<Client> liste=new ArrayList<Client>();
+     Client clt ;
+    
+        String req4= "select `LOGIN`,`NOM`,`PRENOM`,`MAIL`,`ADRESSE`,`ETAT` from user where ROLE='CLIENT' AND ETAT=2";
+        System.out.println("HELLO");
+        try {
+            Statement ste = this.connection.createStatement();
+            ResultSet res =  ste.executeQuery(req4);
+            while (res.next()) {
+                System.out.println(res.getString("LOGIN"));
+               clt= new Client(
+                       res.getString("LOGIN"),
+                       res.getString("NOM"),
+                       res.getString("PRENOM"),
+                       res.getString("MAIL"),
+                       res.getString("ADRESSE"),
+                       res.getInt("ETAT")
+                       );
+               liste.add(clt);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
+    }
+
+    
+    
+    public void Block(Client cl) {
+            try {
+                String requette = "UPDATE USER SET ETAT=? WHERE LOGIN =?";
+                PreparedStatement ps = this.connection.prepareStatement(requette);
+                ps.setInt(1, 1);
+                ps.setString(2, cl.getLogin());
+                ps.executeUpdate();
+            } catch (SQLException ex) {
+                Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    
+    
+    
+    
+     public void DEBlock(Client cl) {
+          try {
+                String requette = "UPDATE USER SET ETAT=? WHERE LOGIN =?";
+                PreparedStatement ps = this.connection.prepareStatement(requette);
+                ps.setInt(1, 2);
+                ps.setString(2, cl.getLogin());
+                ps.executeUpdate();
+            } catch (SQLException ex) {
+                Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+}
+     
+     
+     
+     
+     
+     public List<Client> Display1() {
+        List<Client> liste=new ArrayList<Client>();
+     Client clt ;
+    
+        String req4= "select `LOGIN`,`NOM`,`PRENOM`,`MAIL`,`ADRESSE`,`ETAT` from user where ROLE='CLIENT' AND ETAT=1";
+        
+        try {
+            Statement ste = this.connection.createStatement();
+            ResultSet res1 =  ste.executeQuery(req4);
+            while (res1.next()) {
+               clt= new Client(
+                       res1.getString("LOGIN"),
+                       res1.getString("NOM"),
+                       res1.getString("PRENOM"),
+                       res1.getString("MAIL"),
+                       res1.getString("ADRESSE"),
+                       res1.getInt("ETAT")
+                       );
+               liste.add(clt);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
+    }
+
+    
+     
+     
+     
+     
+     /**** Fatma Jaafar *****/
+     
+     
+     
+     
+    public void add(Client cl) {
+         try {
+            
+            String req1 = "insert into user( `NOM`, `PRENOM`, `LOGIN`, `PASSWORD`, `MAIL`, `ADRESSE`, `ETAT`, `ROLE`,`SEXE`) "
+                    + "values( '"+cl.getNom()+"','"+cl.getPrenom()+"','"+cl.getLogin()+"','"+cl.getPassword()+"','"+cl.getEmail()+"','"+cl.getAdresse()+"','1','CLIENT','"+cl.getSexe()+"')";
+             System.out.println(req1);
+             PreparedStatement prepp = this.connection.prepareStatement(req1);
+               prepp.execute();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
+ 
+
+   
+    public Client researchclient(String a) {
+       int resultat=0;
+       Client e = null;
+        String req4= "SELECT * FROM  user  where login='"+a+"'  ";
+      
+            ResultSet res = null  ;
+        try {
+            System.out.println(req4);
+              Statement ste = this.connection.createStatement();
+          res =  ste.executeQuery(req4);
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+             while (res.next()) {
+                e= new Client();
+                e.setLogin(res.getString("login"));
+                
+                //String reference, String Nom, String type, String photo, String description, Marque marque
+              
+                
+                
+            }  } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(resultat);
+         return e;}
+    
+    
+    
+     public int researchid(String a) {
+       int resultat=0;
+        String req4= "SELECT ID FROM  user  where login='"+a+"'  ";
+      
+            ResultSet res = null  ;
+        try {
+            System.out.println(req4);
+              Statement ste = this.connection.createStatement();
+        res =  ste.executeQuery(req4);
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            while (res.next()) {
+                resultat=res.getInt("ID");
+                       
+                
+                
+            }  } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(resultat);
+         return resultat;}
+//    
+//public void updateClient(Client c) {
+//       int resultat=0;
+//        String req4= "UPDATE `user` SET `NOM`='"+c.getNom()+"',`PRENOM`='"+c.getPrenom()+"',`LOGIN`='"+c.getLogin()+"',`PASSWORD`='"+c.getPassword()+"',`MAIL`='"+c.getEmail()+"',`ADRESSE`='"+c.getAdresse()+"' WHERE ID='"+c.getId()+"'";
+//      
+//            //ResultSet res = null  ;
+//        try {
+//            System.out.println(req4);
+//         PreparedStatement ps = this.connection.prepareStatement(req4);
+//                
+//                ps.executeUpdate();
+//           System.out.println("updated");
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+//       }}
+//
+//    public void DELETE(Client p) {
+//
+//        try {
+//            String sql = "DELETE FROM  User WHERE id=" + p.getId();
+//          
+// PreparedStatement ps = this.connection.prepareStatement(sql);
+//                
+//                ps.executeUpdate();
+//            System.out.println("deleted");
+//
+//        } catch (SQLException ex) {
+//            System.out.println("nope !!!");
+//        }
+//
+//    }
+
+    
+    public void updateNom(String nom, int id) {
+             String req4= "update user set nom='"+nom+"' where ID='"+id+"'";
+            System.out.println(req4);
+            //ResultSet res = null  ;
+        try {
+            System.out.println(req4);
+            PreparedStatement ps = this.connection.prepareStatement(req4);
+                
+                ps.executeUpdate();
+           System.out.println("updated");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+    
+   
+    public void updatePrenom(String prenom, int id) {
+             String req4= "update user set prenom='"+prenom+"' where ID='"+id+"'";
+            System.out.println(req4);
+            //ResultSet res = null  ;
+        try {
+            System.out.println(req4);
+            PreparedStatement ps = this.connection.prepareStatement(req4);
+                
+                ps.executeUpdate();
+           System.out.println("updated");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+    
+    public void updateLogin(String login, int id) {
+             String req4= "update user set LOGIN='"+login+"' where ID='"+id+"'";
+            System.out.println(req4);
+            //ResultSet res = null  ;
+        try {
+            System.out.println(req4);
+            PreparedStatement ps = this.connection.prepareStatement(req4);
+                
+                ps.executeUpdate();
+           System.out.println("updated");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+     public void updateMail(String mail, int id) {
+             String req4= "update user set MAIL='"+mail+"' where ID='"+id+"'";
+            System.out.println(req4);
+            //ResultSet res = null  ;
+        try {
+            System.out.println(req4);
+         PreparedStatement ps = this.connection.prepareStatement(req4);
+                
+                ps.executeUpdate();
+           System.out.println("updated");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+ public void updateAsresse(String adresse, int id) {
+             String req4= "update user set ADRESSE='"+adresse+"' where ID='"+id+"'";
+            System.out.println(req4);
+            //ResultSet res = null  ;
+        try {
+            System.out.println(req4);
+          PreparedStatement ps = this.connection.prepareStatement(req4);
+                
+                ps.executeUpdate();
+           System.out.println("updated");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+       }
+    }
+ 
+   
+     public Client chercherclientID(int id) {
+
+      Client etd =null ;
+        String req4= "select * from user where ID="+id;
+         System.out.println(req4);
+        try {
+            
+              Statement ste = this.connection.createStatement();
+            ResultSet res =  ste.executeQuery(req4);
+           res.next();
+           //String nom, String prenom, String email, String sexe, int id, String login, String password
+           //(String nom, String prenom, String email, String sexe, String Adresse, String login, String password) 
+               etd= new Client(res.getString("nom"),res.getString("prenom"),res.getString("MAIL"),res.getString("sexe"),res.getString("ADRESSE"),res.getInt("id"),res.getString("login"),res.getString("password"));
+                       
+                      
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return etd;
+    }
+    
+      
+     
+     
+     
+     
+     
+} 
+  
+   
+
+
+
+    
