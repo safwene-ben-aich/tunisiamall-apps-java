@@ -17,6 +17,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import edu.esprit.tunisiamall.utils.SHA;
+import java.io.UnsupportedEncodingException;
+import java.security.SecureRandom;
+import java.util.Random;
+import javax.xml.bind.DatatypeConverter;
 
 /**
  *
@@ -35,6 +40,7 @@ public class ResponsableEnseigneDAO implements IResponsableEnseigneDAO{
     
    @Override
        public ResponsableEnseigne findResponsableEnseigneById(int id){
+           System.out.println("L'ID EST : "+id);
          ResponsableEnseigne responsableEnseigneToDisplay = new ResponsableEnseigne();
           String req ="SELECT * FROM USER WHERE ID=?"; 
            try {
@@ -47,10 +53,10 @@ public class ResponsableEnseigneDAO implements IResponsableEnseigneDAO{
             responsableEnseigneToDisplay.setNom(resultat.getString("NOM"));
             responsableEnseigneToDisplay.setPrenom(resultat.getString("PRENOM"));
             responsableEnseigneToDisplay.setSexe(resultat.getString("SEXE"));
-            responsableEnseigneToDisplay.setLogin(resultat.getString("LOGIN"));
-            responsableEnseigneToDisplay.setPassword(resultat.getString("PASSWORD"));
+            responsableEnseigneToDisplay.setLogin(resultat.getString("USERNAME"));
+            responsableEnseigneToDisplay.setPassword("Crypté");
             responsableEnseigneToDisplay.setQRCode(resultat.getString("QRCODE"));
-            responsableEnseigneToDisplay.setMail(resultat.getString("MAIL"));
+            responsableEnseigneToDisplay.setMail(resultat.getString("EMAIL"));
             responsableEnseigneToDisplay.setAdresse(resultat.getString("ADRESSE"));
             responsableEnseigneToDisplay.setTelephone(resultat.getString("TELEPHONE"));
             responsableEnseigneToDisplay.setRole(resultat.getString("ROLE"));
@@ -106,6 +112,26 @@ public class ResponsableEnseigneDAO implements IResponsableEnseigneDAO{
         }
         return -1;
        }
+       @Override
+       public String getUserSalt(String username){
+           System.out.println("HEEEEEEEEEEEEEEEEEEEEEEEEEEY");
+        try {
+            String requette  = "SELECT * FROM USER WHERE USERNAME=?";
+            PreparedStatement ps = this.connection.prepareStatement(requette);
+            ps.setString(1, username);
+            ResultSet result = ps.executeQuery();
+            result.first();
+            return (result.getString("SALT"));
+        } catch (SQLException ex) {
+            Logger.getLogger(ResponsableEnseigneDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            return null;
+       }
+       
+       
+       
+       
+       
        
     /**** METHODES MANIPULATION RESPONSABLE ENSEIGNE PARTIE ADMIN DALI ***/
     @Override
@@ -136,25 +162,36 @@ public class ResponsableEnseigneDAO implements IResponsableEnseigneDAO{
     public void add(ResponsableEnseigne r) {
           
         
-        
+        SHA sha = new SHA();
+        String salt = sha.getStringSalt();
             try {
 //            String req1 = "insert into user (CIN,NOM,PRENOM,LOGIN,PASSWORD,MAIL,ADRESSE,TELEPHONE,ROLE,ETAT) "
 //                    + "values('"+c.getCin()+"','"+c.getNom()+"','"+c.getPrenom()+"','"+c.getLogin()+"','"+c.getPassword()+"',"+c.getMail()+"','"+c.getAdresse()+"','"+c.getTelephone()+"','"+c.getRole()+"',"+c.getEtat()+")";
-            String req1="insert into user (CIN,NOM,PRENOM,SEXE,LOGIN,PASSWORD,QRCODE,MAIL,ADRESSE,TELEPHONE,IMAGE,ROLE,ETAT) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String req1="INSERT INTO USER (CIN,NOM,PRENOM,SEXE,USERNAME,USERNAME_CANONICAL,PASSWORD,QRCODE,EMAIL,EMAIL_canonical,ENABLED,SALT,LOCKED,EXPIRED,ROLES,CREDENTIALS_EXPIRED,ADRESSE,TELEPHONE,IMAGE,ROLE,ETAT) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement prepp = this.connection.prepareStatement(req1);
-            prepp.setString(1, r.getCin());
-            prepp.setString(2, r.getNom());
-            prepp.setString(3, r.getPrenom());
-            prepp.setString(4, r.getSexe());
-            prepp.setString(5, r.getLogin());
-            prepp.setString(6, r.getPassword());
-            prepp.setString(7, r.getQRCode());
-            prepp.setString(8, r.getMail());
-            prepp.setString(9, r.getAdresse());
-            prepp.setString(10, r.getTelephone());
-            prepp.setString(11, r.getImage());
-            prepp.setString(12, "RESPONSABLE");
-            prepp.setInt   (13, r.getEtat());
+            
+            prepp.setString(1,  r.getCin());
+            prepp.setString(2,  r.getNom());
+            prepp.setString(3,  r.getPrenom());
+            prepp.setString(4,  r.getSexe());
+            prepp.setString(5,  r.getLogin());
+            prepp.setString(6,  r.getLogin()+"canonical");
+            prepp.setString(7,  sha.get_SHA_512_SecurePassword(r.getPassword(), salt));
+            prepp.setString(8,  r.getQRCode());
+            prepp.setString(9,  r.getMail());
+            prepp.setString(10, r.getMail()+"canonincal");
+            prepp.setInt(11, 1);
+            prepp.setString(12,salt);
+            prepp.setInt(13, 0);
+            prepp.setInt(14, 0);
+            prepp.setInt(15, 0);
+            prepp.setInt(16, 0);
+            prepp.setString(17, r.getAdresse());
+            prepp.setString(18, r.getTelephone());
+            prepp.setString(19, r.getImage());
+            prepp.setString(20, "RESPONSABLE");
+            prepp.setInt   (21, r.getEtat());
+            
             prepp.execute();
             System.out.println("Insert Done");
         } catch (SQLException ex) {
@@ -200,10 +237,10 @@ public class ResponsableEnseigneDAO implements IResponsableEnseigneDAO{
                             res.getString("NOM"),
                             res.getString("PRENOM"),
                             res.getString("SEXE"),
-                            res.getString("LOGIN"),
+                            res.getString("USERNAME"),
                             res.getString("PASSWORD"),
                             res.getString("QRCODE"),
-                            res.getString("MAIL"),
+                            res.getString("EMAIL"),
                             res.getString("ADRESSE"),
                             res.getString("TELEPHONE"),
                             res.getString("IMAGE"),

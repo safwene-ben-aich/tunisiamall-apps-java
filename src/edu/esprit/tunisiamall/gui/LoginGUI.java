@@ -139,10 +139,18 @@ public class LoginGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         Login login = new Login();
-        login.setLogin(this.UsernamejTextField.getText());
+        login.setUsername(this.UsernamejTextField.getText());
         login.setPassword(String.valueOf(this.passwordjTextField.getPassword()));
         LoginDAO loginDAO = new LoginDAO();
        // System.out.println(loginDAO.checkUser(login)[1]);
+       
+        
+        //loginDAO.testMethode();
+        
+        
+        
+     
+        
         if (loginDAO.checkUser(login)[0].equals("RESPONSABLE")){
             
             this.setVisible(false);
@@ -163,14 +171,9 @@ public class LoginGUI extends javax.swing.JFrame {
             this.setVisible(false);
             HomeClientfatma f= new HomeClientfatma();
            f.loginclient.setText(UsernamejTextField.getText()); 
-  
-   f.setVisible(true);
+           f.setVisible(true);
             return;
-               
-        
         }
-        
-      
         
         
 

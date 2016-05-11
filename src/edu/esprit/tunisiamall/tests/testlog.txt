@@ -8,3 +8,13 @@ Vous avez modifié un produit de référence EAN-13:6194009710443 le 2016/03/23 
 Vous avez modifié un produit de référence EAN-13:6194009710443 le 2016/03/23 14:49:17
 Vous avez modifié un produit de référence EAN-13:6192008320434 le 2016/03/23 14:50:13
 Vous avez modifié un produit de référence EAN-13:6192008320434 le 2016/03/23 14:50:35
+Vous avez envoyé une demande modification 2016/05/11 00:51:00
+Vous avez envoyé une demande modification 2016/05/11 00:52:21
+Vous avez envoyé une demande modification 2016/05/11 00:57:29
+Vous avez envoyé une demande modification 2016/05/11 00:58:54
+Vous avez envoyé une demande modification 2016/05/11 01:01:04
+vous avez supprimé un produit 2016/05/11 01:07:13
+vous avez supprimé un produit 2016/05/11 01:11:13
+vous avez supprimé un produit 2016/05/11 01:12:06
+Vous avez ajouté un produit de référence EAN-8:61940024 le 2016/05/11 01:15:01
+Vous avez modifié un produit de référence EAN-8:61940024 le 2016/05/11 01:15:15
