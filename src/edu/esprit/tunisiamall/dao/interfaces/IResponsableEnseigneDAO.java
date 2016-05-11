@@ -20,6 +20,7 @@ public interface IResponsableEnseigneDAO {
     public void add(ResponsableEnseigne r);
     public void delete(int id);
     List <ResponsableEnseigne> Display();
+    String getUserSalt(String username);
     
     
     

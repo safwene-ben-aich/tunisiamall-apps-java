@@ -14,6 +14,7 @@ public interface ILoginDAO {
 
     String[] checkUser(Login login);
     String[] checkQRCode(Login login);
+    void testMethode();
     
 
 }

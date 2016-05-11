@@ -368,7 +368,7 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
                      this.changeStateInterfaceResponsable(false);
                    
                      String indicationSexe="";
-                     if (responsableEnseigneToDisplay.getSexe().equals("HOMME")){
+                     if (responsableEnseigneToDisplay.getSexe().toUpperCase().equals("HOMME")){
                          indicationSexe = "Mr.";
                      }
                      else {
@@ -440,13 +440,13 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
    
         boolean state = true;
       
-        if (!Pattern.matches("[a-zA-Z_]+",this.nomResponsableEnseigneTextField.getText())){
+        if (!Pattern.matches("[a-zA-Z_ ]+",this.nomResponsableEnseigneTextField.getText())){
             
             this.nomResponsableEnseigneTextField.setBackground(Color.red);
             state =false;
         }
         
-         if (!Pattern.matches("[a-zA-Z_]+",this.prenomResponsableEnseigneTextField.getText())){
+         if (!Pattern.matches("[a-zA-Z_ ]+",this.prenomResponsableEnseigneTextField.getText())){
             this.prenomResponsableEnseigneTextField.setBackground(Color.red);
             state=false;
          }
@@ -460,7 +460,7 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
             state=false;
           }
         
-        if (!Pattern.matches("[0-9]+",this.TelephoneResponsableEnseigneTextField.getText()) || (this.TelephoneResponsableEnseigneTextField.getText().length()!=8) ){
+        if (!Pattern.matches("[0-9]+",this.TelephoneResponsableEnseigneTextField.getText()) || ((this.TelephoneResponsableEnseigneTextField.getText().length()!=8) && (this.TelephoneResponsableEnseigneTextField.getText().length()!=13 ))){
             this.TelephoneResponsableEnseigneTextField.setBackground(Color.red);
             state=false;
         }
@@ -1752,7 +1752,13 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         ResponsableEnseigneDAO responsableEnseigneDAO = new ResponsableEnseigneDAO();
         
         this.responsableEnseigne = responsableEnseigneDAO.findResponsableEnseigneById(this.idResponsableEnseigne);
+
+        if (this.imageResponsableEnseingePath == null){
+            this.imageResponsableEnseingePath = this.responsableEnseigne.getImage();
+        }        
+        else{
         this.responsableEnseigne.setImage(imageResponsableEnseingePath);
+        }
         this.responsableEnseigne.setCin(this.cinResponsableEnseigneTextField.getText());
         this.responsableEnseigne.setNom(this.nomResponsableEnseigneTextField.getText());
         this.responsableEnseigne.setPrenom(this.prenomResponsableEnseigneTextField.getText());

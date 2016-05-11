@@ -11,22 +11,22 @@ package edu.esprit.tunisiamall.entities;
  */
 public class Login {
     
-    private String login;
+    private String username;
     private String password;
     private String QRCode;
 
     /**
-     * @return the login
+     * @return the username
      */
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
     /**
-     * @param login the login to set
+     * @param username  the login to set
      */
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     /**
@@ -61,7 +61,7 @@ public class Login {
    @Override 
    public String toString()
    {
-       return "Classe login => login est : "+this.getLogin()+"Password est : "+this.getPassword()+"Le QRCode est : "+this.getQRCode()+"\n";
+       return "Classe login => username est : "+this.getUsername()+"Password est : "+this.getPassword()+"Le QRCode est : "+this.getQRCode()+"\n";
    }
     
     
