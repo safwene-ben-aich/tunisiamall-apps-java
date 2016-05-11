@@ -211,6 +211,11 @@ public class Produit {
        this.quantite = quantite;
        this.quantiteVendu = quantiteVendu;
     }
+
+    public Produit(int id, String nom) {
+        this.id = id;
+        this.nom = nom;
+    }
     
     
         

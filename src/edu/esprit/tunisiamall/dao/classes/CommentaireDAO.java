@@ -42,7 +42,7 @@ public class CommentaireDAO {
         Client e;
         Produit p;
         Commentaire c;
-        String req4= "SELECT u.login , c.commentaire ,c.id , p.nom , p.reference FROM `commentaires` c inner join user u on u.id=c.idclient inner join produit p on p.id= c.idproduit where p.reference='"+reference+"' order by id desc limit 5 ";
+        String req4= "SELECT u.username , c.commentaire ,c.id , p.nom , p.reference FROM `commentaires` c inner join user u on u.id=c.idclient inner join produit p on p.id= c.idproduit where p.reference='"+reference+"' order by id desc limit 5 ";
       
             ResultSet res = null  ;
         try {
@@ -54,7 +54,7 @@ public class CommentaireDAO {
         try {
             while (res.next()) {
                 e= new Client();
-                e.setLogin(res.getString("u.login"));
+                e.setLogin(res.getString("u.username"));
                 //String reference, String Nom, String type, String photo, String description, Marque marque
                 p=new Produit();
                 p.setReference(res.getString("p.reference"));
