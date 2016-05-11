@@ -17,6 +17,7 @@ import java.util.logging.Logger;
 import edu.esprit.tunisiamall.entities.Client;
 import edu.esprit.tunisiamall.entities.ResponsableEnseigne;
 import edu.esprit.tunisiamall.technique.DataSource;
+import edu.esprit.tunisiamall.utils.SHA;
 
 
 /**
@@ -50,15 +51,15 @@ public class ClientDao {
         List<Client> liste=new ArrayList<Client>();
      Client clt ;
     
-        String req4= "select `LOGIN`,`NOM`,`PRENOM`,`MAIL`,`ADRESSE`,`ETAT` from user where ROLE='CLIENT' AND ETAT=2";
+        String req4= "select `username`,`NOM`,`PRENOM`,`email`,`ADRESSE`,`ETAT` from user where ROLE='CLIENT' AND ETAT=2";
         System.out.println("HELLO");
         try {
             Statement ste = this.connection.createStatement();
             ResultSet res =  ste.executeQuery(req4);
             while (res.next()) {
-                System.out.println(res.getString("LOGIN"));
+                System.out.println(res.getString("username"));
                clt= new Client(
-                       res.getString("LOGIN"),
+                       res.getString("username"),
                        res.getString("NOM"),
                        res.getString("PRENOM"),
                        res.getString("MAIL"),
@@ -78,7 +79,7 @@ public class ClientDao {
     
     public void Block(Client cl) {
             try {
-                String requette = "UPDATE USER SET ETAT=? WHERE LOGIN =?";
+                String requette = "UPDATE USER SET ETAT=? WHERE username =?";
                 PreparedStatement ps = this.connection.prepareStatement(requette);
                 ps.setInt(1, 1);
                 ps.setString(2, cl.getLogin());
@@ -93,7 +94,7 @@ public class ClientDao {
     
      public void DEBlock(Client cl) {
           try {
-                String requette = "UPDATE USER SET ETAT=? WHERE LOGIN =?";
+                String requette = "UPDATE USER SET ETAT=? WHERE username =?";
                 PreparedStatement ps = this.connection.prepareStatement(requette);
                 ps.setInt(1, 2);
                 ps.setString(2, cl.getLogin());
@@ -111,14 +112,14 @@ public class ClientDao {
         List<Client> liste=new ArrayList<Client>();
      Client clt ;
     
-        String req4= "select `LOGIN`,`NOM`,`PRENOM`,`MAIL`,`ADRESSE`,`ETAT` from user where ROLE='CLIENT' AND ETAT=1";
+        String req4= "select `username`,`NOM`,`PRENOM`,`email`,`ADRESSE`,`ETAT` from user where ROLE='CLIENT' AND ETAT=1";
         
         try {
             Statement ste = this.connection.createStatement();
             ResultSet res1 =  ste.executeQuery(req4);
             while (res1.next()) {
                clt= new Client(
-                       res1.getString("LOGIN"),
+                       res1.getString("email"),
                        res1.getString("NOM"),
                        res1.getString("PRENOM"),
                        res1.getString("MAIL"),
@@ -145,18 +146,65 @@ public class ClientDao {
      
      
     public void add(Client cl) {
-         try {
+//         try {
+//            
+//            String req1 = "insert into user( `NOM`, `PRENOM`, `email`, `PASSWORD`, `EMAIL`, `ADRESSE`, `ETAT`, `ROLE`,`SEXE`) "
+//                    + "values( '"+cl.getNom()+"','"+cl.getPrenom()+"','"+cl.getLogin()+"','"+cl.getPassword()+"','"+cl.getEmail()+"','"+cl.getAdresse()+"','1','CLIENT','"+cl.getSexe()+"')";
+//             System.out.println(req1);
+//             PreparedStatement prepp = this.connection.prepareStatement(req1);
+//               prepp.execute();
+//            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//         
+//         
+         
+          SHA sha = new SHA();
+        String salt = sha.getStringSalt();
+            try {
+//            String req1 = "insert into user (CIN,NOM,PRENOM,LOGIN,PASSWORD,MAIL,ADRESSE,TELEPHONE,ROLE,ETAT) "
+//                    + "values('"+c.getCin()+"','"+c.getNom()+"','"+c.getPrenom()+"','"+c.getLogin()+"','"+c.getPassword()+"',"+c.getMail()+"','"+c.getAdresse()+"','"+c.getTelephone()+"','"+c.getRole()+"',"+c.getEtat()+")";
+            String req1="INSERT INTO USER (NOM,PRENOM,SEXE,USERNAME,USERNAME_CANONICAL,PASSWORD,EMAIL,EMAIL_canonical,ENABLED,SALT,LOCKED,EXPIRED,ROLES,CREDENTIALS_EXPIRED,ROLE,ETAT) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement prepp = this.connection.prepareStatement(req1);
             
-            String req1 = "insert into user( `NOM`, `PRENOM`, `LOGIN`, `PASSWORD`, `MAIL`, `ADRESSE`, `ETAT`, `ROLE`,`SEXE`) "
-                    + "values( '"+cl.getNom()+"','"+cl.getPrenom()+"','"+cl.getLogin()+"','"+cl.getPassword()+"','"+cl.getEmail()+"','"+cl.getAdresse()+"','1','CLIENT','"+cl.getSexe()+"')";
-             System.out.println(req1);
-             PreparedStatement prepp = this.connection.prepareStatement(req1);
-               prepp.execute();
+           
+            prepp.setString(1,  cl.getNom());
+            prepp.setString(2,  cl.getPrenom());
+            prepp.setString(3,  cl.getSexe());
+            prepp.setString(4,  cl.getLogin());
+            prepp.setString(5,  cl.getLogin()+"canonical");
+            prepp.setString(6,  sha.get_SHA_512_SecurePassword(cl.getPassword(), salt));
+    
+            prepp.setString(7,  cl.getEmail());
+            prepp.setString(8, cl.getEmail()+"canonincal");
+            prepp.setInt(9, 1);
+            prepp.setString(10,salt);
+            prepp.setInt(11, 0);
+            prepp.setInt(12, 0);
+            prepp.setInt(13, 0);
+            prepp.setInt(14, 0);
+          
+            prepp.setString(15, "CLIENT");
+            prepp.setInt   (16,1);
             
+            prepp.execute();
+            System.out.println("Insert Done");
         } catch (SQLException ex) {
-            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ResponsableEnseigneDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
     }
 
  
@@ -165,7 +213,7 @@ public class ClientDao {
     public Client researchclient(String a) {
        int resultat=0;
        Client e = null;
-        String req4= "SELECT * FROM  user  where login='"+a+"'  ";
+        String req4= "SELECT * FROM  user  where username='"+a+"'  ";
       
             ResultSet res = null  ;
         try {
@@ -178,7 +226,7 @@ public class ClientDao {
         try {
              while (res.next()) {
                 e= new Client();
-                e.setLogin(res.getString("login"));
+                e.setLogin(res.getString("username"));
                 
                 //String reference, String Nom, String type, String photo, String description, Marque marque
               
@@ -194,7 +242,7 @@ public class ClientDao {
     
      public int researchid(String a) {
        int resultat=0;
-        String req4= "SELECT ID FROM  user  where login='"+a+"'  ";
+        String req4= "SELECT ID FROM  user  where username='"+a+"'  ";
       
             ResultSet res = null  ;
         try {
@@ -283,7 +331,7 @@ public class ClientDao {
     }
     
     public void updateLogin(String login, int id) {
-             String req4= "update user set LOGIN='"+login+"' where ID='"+id+"'";
+             String req4= "update user set username='"+login+"' where ID='"+id+"'";
             System.out.println(req4);
             //ResultSet res = null  ;
         try {
@@ -298,7 +346,7 @@ public class ClientDao {
        }
     }
      public void updateMail(String mail, int id) {
-             String req4= "update user set MAIL='"+mail+"' where ID='"+id+"'";
+             String req4= "update user set EMAIL='"+mail+"' where ID='"+id+"'";
             System.out.println(req4);
             //ResultSet res = null  ;
         try {
@@ -341,7 +389,7 @@ public class ClientDao {
            res.next();
            //String nom, String prenom, String email, String sexe, int id, String login, String password
            //(String nom, String prenom, String email, String sexe, String Adresse, String login, String password) 
-               etd= new Client(res.getString("nom"),res.getString("prenom"),res.getString("MAIL"),res.getString("sexe"),res.getString("ADRESSE"),res.getInt("id"),res.getString("login"),res.getString("password"));
+               etd= new Client(res.getString("nom"),res.getString("prenom"),res.getString("EMAIL"),res.getString("sexe"),res.getString("ADRESSE"),res.getInt("ID"),res.getString("login"),res.getString("password"));
                        
                       
             

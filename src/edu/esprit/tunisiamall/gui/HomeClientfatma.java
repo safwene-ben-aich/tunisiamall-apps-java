@@ -53,15 +53,19 @@ import src.Pack_Serveur.Server;
 import edu.esprit.tunisiamall.JTableModels.TheModal;
 import edu.esprit.tunisiamall.JTableModels.TheModal1;
 import edu.esprit.tunisiamall.dao.classes.ClientDao;
+import edu.esprit.tunisiamall.dao.classes.CommentDAO;
 import edu.esprit.tunisiamall.dao.classes.CommentaireDAO;
 import edu.esprit.tunisiamall.dao.classes.PanierDAO;
 import edu.esprit.tunisiamall.dao.classes.ProduitDAO;
+import edu.esprit.tunisiamall.dao.classes.ThreadDAO;
 import edu.esprit.tunisiamall.entities.Client;
 import edu.esprit.tunisiamall.entities.Commentaire;
 import edu.esprit.tunisiamall.entities.Panier;
 import edu.esprit.tunisiamall.entities.Produit;
 import edu.esprit.tunisiamall.utils.Mail;
 import edu.esprit.tunisiamall.utils.MailConstruction;
+import edu.esprit.tunisiamall.entities.Comment;
+import edu.esprit.tunisiamall.entities.Thread;
 /**
  *
  * @author Fatma Jaafar
@@ -2310,14 +2314,28 @@ ClientDao edao = new ClientDao();
 int idc=edao.researchid(loginclient.getText());
 ProduitDAO pdao= new ProduitDAO();
 int idp= pdao.researchid(reference.getText());
-CommentaireDAO padao= new CommentaireDAO();
+CommentDAO padao= new CommentDAO();
 Client cl= new Client();
 cl.setId(idc);
-Produit pr = new Produit();
+Thread pr = new Thread();
 pr.setId(idp);
+
 String description = commentaaire.getText();
-Commentaire c = new Commentaire(cl,pr,description);
-padao.add(c);
+Comment c = new Comment(cl,pr,description);
+        ThreadDAO thdao= new ThreadDAO();
+       int idthread= thdao.researchid(idp);
+       if (idthread==0){
+      
+       thdao.add(idp);
+       
+       thdao.updatenumcomments(pr);
+       }
+       else if (idthread!=0){
+       
+       thdao.updatenumcomments(pr);
+        padao.add(c);
+       }
+
 JOptionPane.showMessageDialog(rootPane,"commentaire ajouté");
      affichercommentaires();
 commentaaire.setText("");
@@ -2325,56 +2343,119 @@ commentaaire.setText("");
     }//GEN-LAST:event_commentaaireActionPerformed
 
     private void supp1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supp1MouseClicked
-    Commentaire c;
-        c = new Commentaire(Integer.parseInt(c1.getText()));
+    Comment c;
+        c = new Comment(Integer.parseInt(c1.getText()));
         System.out.println(c1.getText());
         
-        CommentaireDAO cdao= new CommentaireDAO();
-        cdao.DELETE(c);
+        CommentDAO cdao= new CommentDAO();
+        int threadid=cdao.researchthread(Integer.parseInt(c1.getText()));
+        Thread thread = new Thread(threadid);
+        ThreadDAO thdao= new ThreadDAO();
+        int numcomments=thdao.researchnumcomments(threadid);
+        
+        if (numcomments==1){
+        thdao.updatenumcommentsdelete1(thread);
+         cdao.DELETE(c);
+        }
+        else if (numcomments!=1){
+        thdao.updatenumcommentsdelete2(thread);
+         cdao.DELETE(c);
+        }
          affichercommentaires();
          supp1.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_supp1MouseClicked
 
     private void supp2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supp2MouseClicked
-Commentaire c;
-        c = new Commentaire(Integer.parseInt(c1.getText()));
+ System.out.println("-------------------------------------------------------------");
+        Comment c;
+        c = new Comment(Integer.parseInt(c2.getText()));
         System.out.println(c2.getText());
         
-        CommentaireDAO cdao= new CommentaireDAO();
-        cdao.DELETE(c);
+        CommentDAO cdao= new CommentDAO();
+        int threadid=cdao.researchthread(Integer.parseInt(c2.getText()));
+        Thread thread = new Thread(threadid);
+        ThreadDAO thdao= new ThreadDAO();
+        int numcomments=thdao.researchnumcomments(threadid);
+        
+        if (numcomments==1){
+        thdao.updatenumcommentsdelete1(thread);
+         cdao.DELETE(c);
+        }
+        else if (numcomments!=1){
+        thdao.updatenumcommentsdelete2(thread);
+         cdao.DELETE(c);
+        }
+        
            affichercommentaires();
-         supp2.setVisible(false);            // TODO add your handling code here:
+         supp2.setVisible(false);   
+       
     }//GEN-LAST:event_supp2MouseClicked
 
     private void supp3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supp3MouseClicked
- Commentaire c;
-        c = new Commentaire(Integer.parseInt(c1.getText()));
+ Comment c;
+        c = new Comment(Integer.parseInt(c3.getText()));
         System.out.println(c3.getText());
         
-        CommentaireDAO cdao= new CommentaireDAO();
-        cdao.DELETE(c);
+        CommentDAO cdao= new CommentDAO();
+        int threadid=cdao.researchthread(Integer.parseInt(c3.getText()));
+        Thread thread = new Thread(threadid);
+        ThreadDAO thdao= new ThreadDAO();
+        int numcomments=thdao.researchnumcomments(threadid);
+        
+        if (numcomments==1){
+        thdao.updatenumcommentsdelete1(thread);
+         cdao.DELETE(c);
+        }
+        else if (numcomments!=1){
+        thdao.updatenumcommentsdelete2(thread);
+         cdao.DELETE(c);
+        }
            affichercommentaires();
          supp3.setVisible(false);           // TODO add your handling code here:
     }//GEN-LAST:event_supp3MouseClicked
 
     private void supp4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supp4MouseClicked
-Commentaire c;
-        c = new Commentaire(Integer.parseInt(c1.getText()));
+Comment c;
+        c = new Comment(Integer.parseInt(c4.getText()));
         System.out.println(c4.getText());
         
-        CommentaireDAO cdao= new CommentaireDAO();
-        cdao.DELETE(c);
+        CommentDAO cdao= new CommentDAO();
+        int threadid=cdao.researchthread(Integer.parseInt(c4.getText()));
+        Thread thread = new Thread(threadid);
+        ThreadDAO thdao= new ThreadDAO();
+        int numcomments=thdao.researchnumcomments(threadid);
+        
+        if (numcomments==1){
+        thdao.updatenumcommentsdelete1(thread);
+         cdao.DELETE(c);
+        }
+        else if (numcomments!=1){
+        thdao.updatenumcommentsdelete2(thread);
+         cdao.DELETE(c);
+        }
             affichercommentaires();
          supp4.setVisible(false);         // TODO add your handling code here:
     }//GEN-LAST:event_supp4MouseClicked
 
     private void supp5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supp5MouseClicked
-Commentaire c;
-        c = new Commentaire(Integer.parseInt(c1.getText()));
+Comment c;
+        c = new Comment(Integer.parseInt(c5.getText()));
         System.out.println(c5.getText());
         
-        CommentaireDAO cdao= new CommentaireDAO();
-        cdao.DELETE(c);
+        CommentDAO cdao= new CommentDAO();
+        int threadid=cdao.researchthread(Integer.parseInt(c5.getText()));
+        Thread thread = new Thread(threadid);
+        ThreadDAO thdao= new ThreadDAO();
+        int numcomments=thdao.researchnumcomments(threadid);
+        
+        if (numcomments==1){
+        thdao.updatenumcommentsdelete1(thread);
+         cdao.DELETE(c);
+        }
+        else if (numcomments!=1){
+        thdao.updatenumcommentsdelete2(thread);
+         cdao.DELETE(c);
+        }
          affichercommentaires();
          supp5.setVisible(false);         // TODO add your handling code here:
     }//GEN-LAST:event_supp5MouseClicked
@@ -4075,13 +4156,17 @@ browser=createBrowser();   // TODO add your handling code here:
 ClientDao edao = new ClientDao();
         
 int idc=edao.researchid(loginclient.getText());
-       CommentaireDAO cdao= new CommentaireDAO();
-        List <Commentaire> liste = new ArrayList<Commentaire>();
-   liste=cdao.affichercommentairesPROD(reference.getText());
+       CommentDAO cdao= new CommentDAO();
+        List <Comment> liste = new ArrayList<Comment>();
+       ProduitDAO pdao= new ProduitDAO();
+       Produit prod= pdao.findProduitByReference(reference.getText());
+               
+               
+   liste=cdao.affichercommentairesPROD(prod.getId());
 
     for(int i = 0; i < liste.size(); i++){
-        System.out.println(liste.get(i).getClient().getLogin());
-  if (liste.get(i).getClient().getLogin().equals(loginclient.getText())){
+        System.out.println(liste.get(i).getAuthor().getLogin());
+  if (liste.get(i).getAuthor().getLogin().equals(loginclient.getText())){
    if(i==0){ supp1.setVisible(true);   c1.setText(Integer.toString(liste.get(0).getId()));}
  else  if(i==1){ supp2.setVisible(true);  
   c2.setText(Integer.toString(liste.get(1).getId()));
@@ -4128,7 +4213,7 @@ int idc=edao.researchid(loginclient.getText());
        
       
 
-     else if (liste.size()==1) {  client1.setText(liste.get(0).getClient().getLogin());  commentaire1.setText(liste.get(0).getDescription()); 
+     else if (liste.size()==1) {  client1.setText(liste.get(0).getAuthor().getLogin());  commentaire1.setText(liste.get(0).getBody()); 
 
       
       
@@ -4156,16 +4241,16 @@ int idc=edao.researchid(loginclient.getText());
           c1.setText(Integer.toString(liste.get(0).getId()));
        
        }
-   else if (liste.size()==2) {  client1.setText(liste.get(0).getClient().getLogin());  
+   else if (liste.size()==2) {  client1.setText(liste.get(0).getAuthor().getLogin());  
  
-   commentaire1.setText(liste.get(0).getDescription());
+   commentaire1.setText(liste.get(0).getBody());
    cli1.setVisible(true);
      cli2.setVisible(true);
      cli3.setVisible(false);
       cli4.setVisible(false);
        cli5.setVisible(false);
-   client2.setText(liste.get(1).getClient().getLogin());     
-   commentaire2.setText(liste.get(1).getDescription());
+   client2.setText(liste.get(1).getAuthor().getLogin());     
+   commentaire2.setText(liste.get(1).getBody());
      
 client1.setVisible(true);
    client2.setVisible(true);
@@ -4192,11 +4277,11 @@ client1.setVisible(true);
    
    
    }
-   else if (liste.size()==3) {  client1.setText(liste.get(0).getClient().getLogin()); 
-   commentaire1.setText(liste.get(0).getDescription());  client2.setText(liste.get(1).getClient().getLogin());  
-   commentaire2.setText(liste.get(1).getDescription());
-   client3.setText(liste.get(2).getClient().getLogin()); 
-     commentaire3.setText(liste.get(2).getDescription());
+   else if (liste.size()==3) {  client1.setText(liste.get(0).getAuthor().getLogin()); 
+   commentaire1.setText(liste.get(0).getBody());  client2.setText(liste.get(1).getAuthor().getLogin());  
+   commentaire2.setText(liste.get(1).getBody());
+   client3.setText(liste.get(2).getAuthor().getLogin()); 
+     commentaire3.setText(liste.get(2).getBody());
  
    client1.setVisible(true);
    client2.setVisible(true);
@@ -4229,13 +4314,13 @@ client1.setVisible(true);
    
    
    
-   else if (liste.size()==4) {  client1.setText(liste.get(0).getClient().getLogin());  
-   commentaire1.setText(liste.get(0).getDescription());  client2.setText(liste.get(1).getClient().getLogin());   
-   commentaire2.setText(liste.get(1).getDescription());
-   client3.setText(liste.get(2).getClient().getLogin()); 
-     commentaire3.setText(liste.get(2).getDescription());
-   client4.setText(liste.get(3).getClient().getLogin()); 
-    commentaire4.setText(liste.get(3).getDescription());
+   else if (liste.size()==4) {  client1.setText(liste.get(0).getAuthor().getLogin());  
+   commentaire1.setText(liste.get(0).getBody());  client2.setText(liste.get(1).getAuthor().getLogin());   
+   commentaire2.setText(liste.get(1).getBody());
+   client3.setText(liste.get(2).getAuthor().getLogin()); 
+     commentaire3.setText(liste.get(2).getBody());
+   client4.setText(liste.get(3).getAuthor().getLogin()); 
+    commentaire4.setText(liste.get(3).getBody());
    
      client1.setVisible(true);
    client2.setVisible(true);
@@ -4267,16 +4352,16 @@ client1.setVisible(true);
 
 
    }
-   else  {  client1.setText(liste.get(0).getClient().getLogin());  
-   commentaire1.setText(liste.get(0).getDescription());  client2.setText(liste.get(1).getClient().getLogin()); 
-   commentaire2.setText(liste.get(1).getDescription());
-   client3.setText(liste.get(2).getClient().getLogin()); 
-     commentaire3.setText(liste.get(2).getDescription());
-   client4.setText(liste.get(3).getClient().getLogin()); 
-    commentaire4.setText(liste.get(3).getDescription());
-    client5.setText(liste.get(4).getClient().getLogin()); 
+   else  {  client1.setText(liste.get(0).getAuthor().getLogin());  
+   commentaire1.setText(liste.get(0).getBody());  client2.setText(liste.get(1).getAuthor().getLogin()); 
+   commentaire2.setText(liste.get(1).getBody());
+   client3.setText(liste.get(2).getAuthor().getLogin()); 
+     commentaire3.setText(liste.get(2).getBody());
+   client4.setText(liste.get(3).getAuthor().getLogin()); 
+    commentaire4.setText(liste.get(3).getBody());
+    client5.setText(liste.get(4).getAuthor().getLogin()); 
     
-      commentaire5.setText(liste.get(4).getDescription());
+      commentaire5.setText(liste.get(4).getBody());
           client1.setVisible(true);
    client2.setVisible(true);
    client3.setVisible(true);

@@ -562,7 +562,7 @@ public class ProduitDAO implements IProduitDAO{
 
     public void resprod(int idp, int quantite) {
            int resultat=0;
-        String req4= "UPDATE `produit` SET `QUANTITE_VENDU`="+quantite+" WHERE ID='"+idp+"'";
+        String req4= "UPDATE `produit` SET `QUANTITE_VENDU`=`QUANTITE_VENDU`-"+quantite+" WHERE ID='"+idp+"'";
       
             //ResultSet res = null  ;
         try {
@@ -579,7 +579,7 @@ public class ProduitDAO implements IProduitDAO{
 
  public void resprodsupp(int idp, int quantite) {
            int resultat=0;
-        String req4= "UPDATE `produit` SET `QUANTITE_VENDUE`+="+quantite+" WHERE ID='"+idp+"'";
+        String req4= "UPDATE `produit` SET `QUANTITE_VENDU`=`QUANTITE_VENDU`+"+quantite+" WHERE ID='"+idp+"'";
       
             //ResultSet res = null  ;
         try {
