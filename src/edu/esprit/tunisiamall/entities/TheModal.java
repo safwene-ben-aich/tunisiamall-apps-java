@@ -28,17 +28,20 @@ public class TheModal extends AbstractTableModel {
     }
 
     
-    public Class getColumnClass(int column){
+    public Class getColumnClass(int c){
 // 4 is the index of the column image
        
        
-            if(column == 8 ){
-            return Icon.class;
-        }
-        else{
-            return getValueAt(0,column).getClass();
-        }
-
+//            if(column == 8 ){
+//            return Icon.class;
+//        }
+//        else{
+       //     return getValueAt(0,column).getClass();
+//        }
+{ for(int rowIndex = 0; rowIndex < data.size(); rowIndex++)
+{ Object[] row = (Object[]) data.get(rowIndex);
+if (row[c] != null) 
+{ return getValueAt(rowIndex, c).getClass(); } } return String.class; } 
     }
     
     
