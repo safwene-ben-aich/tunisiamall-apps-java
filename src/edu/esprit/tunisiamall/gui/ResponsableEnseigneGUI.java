@@ -582,7 +582,7 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
 
 			    if (g.drawImage(buff, 0, 0, getWidth(), getHeight() -150 , 0, 0, 3000,2000, null)){
                                
-                                  Highgui.imwrite("D:\\PI-DEV\\EssaiQRCode\\images\\test.jpg", frame);
+                                  Highgui.imwrite("D:\\test.jpg", frame);
                                   if (getProcessOutput().length()!=0){
                                             
                                             
@@ -644,7 +644,7 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
 }
     public static String getProcessOutput() throws IOException, InterruptedException {
         ProcessBuilder processBuilder = new ProcessBuilder("C:\\\\Program Files (x86)\\\\ZBar\\\\bin\\\\zbarimg.exe",
-                "-q","D:\\PI-DEV\\EssaiQRCode\\images\\test.jpg");
+                "-q","D:\\test.jpg");
     
 
         processBuilder.redirectErrorStream(true);
@@ -790,6 +790,7 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
       
     }
     public void populateJTable(){
+        System.out.println("BONJOUR GGGGHHKJJKJK");
         BoutiqueDao bdao = new BoutiqueDao();
         Boutique b = new Boutique ();
         LocalDao ldao = new LocalDao();
@@ -800,11 +801,14 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         
         
         List<Boutique> list=bdao.afficherBoutique();
+        
         String[] columnName = {"Marque","Local","Logo"};
         Object[][] rows = new Object[list.size()][3];
         for(int i = 0; i < list.size(); i++){
+            //System.out.println("**************"+list.get(i).getId_local());
             l.setAdresse(ldao.afficherAdresseLocal(list.get(i).getId_local()));
             m.setNom(mdao.afficherNomMarque(list.get(i).getId_marque()));
+            //System.out.println("**************"+m.getNom());
             
             rows[i][0] = m.getNom();
             rows[i][1] = l.getAdresse();
@@ -2051,10 +2055,13 @@ if(dialogResult == JOptionPane.YES_OPTION){
         Local l = new Local();
         int idmarque=mdao.getIDMarqueByNom((String) ComboMarque.getSelectedItem());
         int idlocal=ldao.getIDLocalByAdresse((String) ComboLocal.getSelectedItem());
+        System.out.println("*****************"+idmarque);
+        System.out.println("*****************"+idlocal);
         boutiqueToAdd.setId_local(idlocal);
-        boutiqueToAdd.setId_marque(idlocal);
+        boutiqueToAdd.setId_marque(idmarque);
         boutiqueToAdd.setLogo(bFile);
         boutiqueDao.ajouterBoutique(boutiqueToAdd);
+        populateJTable();
 
     }//GEN-LAST:event_AjouterBoutiquejButtonActionPerformed
 
