@@ -18,3 +18,6 @@ vous avez supprimé un produit 2016/05/11 01:11:13
 vous avez supprimé un produit 2016/05/11 01:12:06
 Vous avez ajouté un produit de référence EAN-8:61940024 le 2016/05/11 01:15:01
 Vous avez modifié un produit de référence EAN-8:61940024 le 2016/05/11 01:15:15
+vous avez supprimé un produit 2016/05/12 20:17:57
+Vous avez ajouté un produit de référence EAN-8:61940024 le 2016/05/12 20:18:17
+vous avez supprimé un produit 2016/05/12 20:33:55

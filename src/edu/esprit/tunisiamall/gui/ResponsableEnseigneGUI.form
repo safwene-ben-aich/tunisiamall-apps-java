@@ -702,6 +702,11 @@
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="ImageProduitjLabel">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/edu/esprit/tunisiamall/images/zara.jpg"/>
+                </Property>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="QuantitejLabel">
               <Properties>

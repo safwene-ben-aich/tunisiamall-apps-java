@@ -582,7 +582,7 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
 
 			    if (g.drawImage(buff, 0, 0, getWidth(), getHeight() -150 , 0, 0, 3000,2000, null)){
                                
-                                  Highgui.imwrite("D:\\test.jpg", frame);
+                                  Highgui.imwrite("src\\edu\\esprit\\tunisiamall\\images\\test.jpg", frame);
                                   if (getProcessOutput().length()!=0){
                                             
                                             
@@ -643,8 +643,8 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
    }
 }
     public static String getProcessOutput() throws IOException, InterruptedException {
-        ProcessBuilder processBuilder = new ProcessBuilder("C:\\\\Program Files (x86)\\\\ZBar\\\\bin\\\\zbarimg.exe",
-                "-q","D:\\test.jpg");
+        ProcessBuilder processBuilder = new ProcessBuilder("src\\edu\\esprit\\tunisiamall\\utils\\ZBar\\bin\\zbarimg.exe",
+                "-q","src\\edu\\esprit\\tunisiamall\\images\\test.jpg");
     
 
         processBuilder.redirectErrorStream(true);
@@ -1295,7 +1295,7 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
             }
         });
 
-        ImageProduitjLabel.setIcon(new javax.swing.ImageIcon("D:\\PI-DEV\\PI-DEV_safwene\\src\\edu\\esprit\\tunisiamall\\images\\zara.jpg")); // NOI18N
+        ImageProduitjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/zara.jpg"))); // NOI18N
 
         QuantitejLabel.setText("Quantité :");
 
