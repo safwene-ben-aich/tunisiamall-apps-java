@@ -90,7 +90,7 @@ public class LoginQRcodeGUI extends javax.swing.JFrame {
 			    }
                             else{
                                
-                                 Highgui.imwrite("D:\\PI-DEV\\EssaiQRCode\\images\\test.jpg", frame);
+                                 Highgui.imwrite("D:\\test.jpg", frame);
                                  anaylseQrCode();
                                  
                                  
@@ -114,7 +114,7 @@ public class LoginQRcodeGUI extends javax.swing.JFrame {
         reader.setRegistrationKey("test");
         
         reader.setBarcodeTypesToFind(EnumSet.of(BarcodeType.QRCode, BarcodeType.UPCA));
-        FoundBarcode[] foundBarcode = reader.readFromFile("D:\\PI-DEV\\EssaiQRCode\\images\\test.jpg");
+        FoundBarcode[] foundBarcode = reader.readFromFile("D:\\test.jpg");
         
         for (FoundBarcode barcode : foundBarcode){
               

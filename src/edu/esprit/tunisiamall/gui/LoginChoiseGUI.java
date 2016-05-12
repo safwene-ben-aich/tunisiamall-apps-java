@@ -39,10 +39,11 @@ public class LoginChoiseGUI extends javax.swing.JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(this);
         this.setVisible(true);
-        this.getConnectionDB();
+      
         this.DessinerBesoinDaide("Pas Encore Inscrit ?",40);
-        this.LoginUsernamejButton.setEnabled(true);
-                this.QRCodejButton.setEnabled(true);
+          this.getConnectionDB();
+        this.loginusername.setEnabled(true);
+                this.qrcode.setEnabled(true);
         
         
    
@@ -56,8 +57,8 @@ public class LoginChoiseGUI extends javax.swing.JFrame {
           
         try {
             this.DBconnectionjLabel.setIcon(new ImageIcon("src/edu/esprit/tunisiamall/images/Database-echec-icon.png"));
-            this.LoginUsernamejButton.setEnabled(false);
-            this.QRCodejButton.setEnabled(false);
+            this.qrcode.setEnabled(false);
+            this.loginusername.setEnabled(false);
             Thread.sleep(1000);
             
             
@@ -109,35 +110,18 @@ public class LoginChoiseGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelLogo = new javax.swing.JLabel();
-        QRCodejButton = new javax.swing.JButton();
-        LoginUsernamejButton = new javax.swing.JButton();
-        QRCodeUsernameLogojLabel = new javax.swing.JLabel();
         DBconnectionjLabel = new javax.swing.JLabel();
         HelpjLabel = new javax.swing.JLabel();
+        qrcode = new javax.swing.JLabel();
+        loginusername = new javax.swing.JLabel();
+        BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-
-        jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/logo-Tunisia-Mall.jpg"))); // NOI18N
-
-        QRCodejButton.setText("QRcode");
-        QRCodejButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                QRCodejButtonActionPerformed(evt);
-            }
-        });
-
-        LoginUsernamejButton.setText("Login & password");
-        LoginUsernamejButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginUsernamejButtonActionPerformed(evt);
-            }
-        });
-
-        QRCodeUsernameLogojLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/login_icon.png"))); // NOI18N
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         DBconnectionjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/Database-Accept-icon.png"))); // NOI18N
+        getContentPane().add(DBconnectionjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 445, -1, -1));
 
         HelpjLabel.setText("Besoin d'aide ?");
         HelpjLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -145,74 +129,27 @@ public class LoginChoiseGUI extends javax.swing.JFrame {
                 HelpjLabelMouseClicked(evt);
             }
         });
+        getContentPane().add(HelpjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(DBconnectionjLabel)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(76, 76, 76)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(LoginUsernamejButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(QRCodejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(HelpjLabel)
-                        .addContainerGap())))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addComponent(jLabelLogo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(QRCodeUsernameLogojLabel)))
-                .addContainerGap(83, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabelLogo)
-                .addGap(18, 18, 18)
-                .addComponent(QRCodeUsernameLogojLabel)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(LoginUsernamejButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(QRCodejButton)
-                        .addContainerGap(36, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(HelpjLabel)
-                            .addComponent(DBconnectionjLabel))
-                        .addGap(8, 8, 8))))
-        );
+        qrcode.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                qrcodeMouseClicked(evt);
+            }
+        });
+        getContentPane().add(qrcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 280, 50));
+
+        loginusername.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginusernameMouseClicked(evt);
+            }
+        });
+        getContentPane().add(loginusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 280, 50));
+
+        BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/Page1.png"))); // NOI18N
+        getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 380, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void LoginUsernamejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginUsernamejButtonActionPerformed
-       this.setVisible(false);
-       LoginGUI loginGUI = new LoginGUI();
-       loginGUI.setVisible(true);
-       
-        
-    }//GEN-LAST:event_LoginUsernamejButtonActionPerformed
-
-    private void QRCodejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QRCodejButtonActionPerformed
-       
-        this.setVisible(false);
-        LoginQRcodeGUI loginQRcodeGUI = new LoginQRcodeGUI();
-        loginQRcodeGUI.setVisible(true);
-    
-    }//GEN-LAST:event_QRCodejButtonActionPerformed
 
     private void HelpjLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HelpjLabelMouseClicked
   
@@ -222,6 +159,18 @@ public class LoginChoiseGUI extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_HelpjLabelMouseClicked
+
+    private void qrcodeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_qrcodeMouseClicked
+ this.setVisible(false);
+        LoginQRcodeGUI loginQRcodeGUI = new LoginQRcodeGUI();
+        loginQRcodeGUI.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_qrcodeMouseClicked
+
+    private void loginusernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginusernameMouseClicked
+ this.setVisible(false);
+        LoginGUI loginGUI = new LoginGUI();
+        loginGUI.setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_loginusernameMouseClicked
 
     /**
      * @param args the command line arguments
@@ -261,11 +210,10 @@ public class LoginChoiseGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BG;
     private javax.swing.JLabel DBconnectionjLabel;
     private javax.swing.JLabel HelpjLabel;
-    private javax.swing.JButton LoginUsernamejButton;
-    private javax.swing.JLabel QRCodeUsernameLogojLabel;
-    private javax.swing.JButton QRCodejButton;
-    private javax.swing.JLabel jLabelLogo;
+    private javax.swing.JLabel loginusername;
+    private javax.swing.JLabel qrcode;
     // End of variables declaration//GEN-END:variables
 }

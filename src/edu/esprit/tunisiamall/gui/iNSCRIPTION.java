@@ -101,7 +101,6 @@ errmsg.setVisible(false);
         getContentPane().add(drag, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 4, 1170, 70));
 
         nominput.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        nominput.setForeground(new java.awt.Color(255, 255, 255));
         nominput.setText("Entrez votre nom...");
         nominput.setBorder(null);
         nominput.setOpaque(false);
@@ -115,10 +114,9 @@ errmsg.setVisible(false);
                 nominputMouseClicked(evt);
             }
         });
-        getContentPane().add(nominput, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 180, 450, 30));
+        getContentPane().add(nominput, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 270, 350, 20));
 
         prenominput.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        prenominput.setForeground(new java.awt.Color(255, 255, 255));
         prenominput.setText("Entrez votre prénom...");
         prenominput.setBorder(null);
         prenominput.setOpaque(false);
@@ -132,10 +130,9 @@ errmsg.setVisible(false);
                 prenominputMouseClicked(evt);
             }
         });
-        getContentPane().add(prenominput, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, 450, 30));
+        getContentPane().add(prenominput, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, 350, 20));
 
         logininput.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        logininput.setForeground(new java.awt.Color(255, 255, 255));
         logininput.setText("Entrez votre login");
         logininput.setBorder(null);
         logininput.setOpaque(false);
@@ -149,10 +146,9 @@ errmsg.setVisible(false);
                 logininputMouseClicked(evt);
             }
         });
-        getContentPane().add(logininput, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, 440, 30));
+        getContentPane().add(logininput, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 380, 350, -1));
 
         adresseinput.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        adresseinput.setForeground(new java.awt.Color(255, 255, 255));
         adresseinput.setText("Entrez votre adresse...");
         adresseinput.setBorder(null);
         adresseinput.setOpaque(false);
@@ -166,9 +162,8 @@ errmsg.setVisible(false);
                 adresseinputMouseClicked(evt);
             }
         });
-        getContentPane().add(adresseinput, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, 430, 30));
+        getContentPane().add(adresseinput, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 350, 20));
 
-        motdepasseinput.setForeground(new java.awt.Color(255, 255, 255));
         motdepasseinput.setText("jPasswordField1");
         motdepasseinput.setBorder(null);
         motdepasseinput.setOpaque(false);
@@ -177,10 +172,9 @@ errmsg.setVisible(false);
                 motdepasseinputMouseClicked(evt);
             }
         });
-        getContentPane().add(motdepasseinput, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, 440, 30));
+        getContentPane().add(motdepasseinput, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 430, 350, 20));
 
         emailinput.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        emailinput.setForeground(new java.awt.Color(255, 255, 255));
         emailinput.setText("Entrez votre email ...");
         emailinput.setBorder(null);
         emailinput.setOpaque(false);
@@ -206,17 +200,16 @@ errmsg.setVisible(false);
                 emailinputActionPerformed(evt);
             }
         });
-        getContentPane().add(emailinput, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 580, 430, 30));
+        getContentPane().add(emailinput, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, 350, 30));
 
         sinscrire.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sinscrireMouseClicked(evt);
             }
         });
-        getContentPane().add(sinscrire, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 360, 100, 30));
+        getContentPane().add(sinscrire, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 570, 140, 30));
 
-        sexeinput.setBackground(new java.awt.Color(204, 204, 255));
-        sexeinput.setForeground(new java.awt.Color(255, 255, 255));
+        sexeinput.setBackground(new java.awt.Color(0, 204, 153));
         sexeinput.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Femme", "Homme" }));
         sexeinput.setBorder(null);
         sexeinput.setOpaque(false);
@@ -225,7 +218,7 @@ errmsg.setVisible(false);
                 sexeinputActionPerformed(evt);
             }
         });
-        getContentPane().add(sexeinput, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 630, -1, 20));
+        getContentPane().add(sexeinput, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 520, 350, 20));
 
         errmsg.setForeground(new java.awt.Color(204, 204, 204));
         errmsg.setText("Invalide");
@@ -234,7 +227,7 @@ errmsg.setVisible(false);
         notiferrphoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/notifications.png"))); // NOI18N
         getContentPane().add(notiferrphoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 680, 340, 40));
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 255));
+        jButton1.setBackground(new java.awt.Color(0, 204, 153));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Ajoutez votre photo");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -242,9 +235,9 @@ errmsg.setVisible(false);
                 jButton1MouseClicked(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 630, 140, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 570, 140, -1));
 
-        bglabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/inscription.png"))); // NOI18N
+        bglabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/inscriptionn.png"))); // NOI18N
         getContentPane().add(bglabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 720));
 
         pack();

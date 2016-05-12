@@ -53,15 +53,20 @@ import src.Pack_Serveur.Server;
 import edu.esprit.tunisiamall.JTableModels.TheModal;
 import edu.esprit.tunisiamall.JTableModels.TheModal1;
 import edu.esprit.tunisiamall.dao.classes.ClientDao;
+import edu.esprit.tunisiamall.dao.classes.CommentDAO;
 import edu.esprit.tunisiamall.dao.classes.CommentaireDAO;
 import edu.esprit.tunisiamall.dao.classes.PanierDAO;
 import edu.esprit.tunisiamall.dao.classes.ProduitDAO;
+import edu.esprit.tunisiamall.dao.classes.ThreadDAO;
 import edu.esprit.tunisiamall.entities.Client;
 import edu.esprit.tunisiamall.entities.Commentaire;
 import edu.esprit.tunisiamall.entities.Panier;
 import edu.esprit.tunisiamall.entities.Produit;
 import edu.esprit.tunisiamall.utils.Mail;
 import edu.esprit.tunisiamall.utils.MailConstruction;
+import edu.esprit.tunisiamall.entities.Comment;
+import edu.esprit.tunisiamall.entities.Thread;
+import java.awt.Point;
 /**
  *
  * @author Fatma Jaafar
@@ -91,6 +96,8 @@ public class HomeClientfatma extends javax.swing.JFrame {
 //        slideshow();
         //hidesBeginnings() ;
 //        populateJTableProd();
+        jButton3.setBackground(new java.awt.Color(0,204,153));
+          jButtonSendMail.setBackground(new java.awt.Color(0,204,153));
         populateProds();
         showsBeginnings();
         hideaffresprod();
@@ -98,9 +105,9 @@ public class HomeClientfatma extends javax.swing.JFrame {
         prixmax.setVisible(false);
         tooltiipptice.setVisible(false);
         hidegestionpanier();
-       jTextArearObject.setVisible(false);  
- contactform.setVisible(false);
-  closecontact.setVisible(false);
+    hidecontact() ;
+
+
    modifprof.setVisible(false);
    hidemofifprofil();
    slide1.setVisible(true);
@@ -108,9 +115,10 @@ public class HomeClientfatma extends javax.swing.JFrame {
 //   jScrollProduits.setVisible(false);
    jTablepanier.setVisible(false);
    //jTableproduits.setVisible(false);
-   closecontact.setVisible(false);
+  
    closepan.setVisible(false);
    closeprofil.setVisible(false);
+   closeaffresprod.setVisible(false);
 hideprods();
         
     }
@@ -127,10 +135,13 @@ hideprods();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        CLOSE = new javax.swing.JLabel();
+        minim = new javax.swing.JLabel();
+        drag = new javax.swing.JLabel();
         webbrowser = new javax.swing.JLabel();
         chat = new javax.swing.JLabel();
-        previousprods = new javax.swing.JLabel();
         regardervid = new javax.swing.JLabel();
+        Nom = new javax.swing.JLabel();
         nextprods = new javax.swing.JLabel();
         prodimg1 = new javax.swing.JLabel();
         prodimg2 = new javax.swing.JLabel();
@@ -145,6 +156,7 @@ hideprods();
         nomprod3 = new javax.swing.JLabel();
         nomprod4 = new javax.swing.JLabel();
         nextprodstype = new javax.swing.JLabel();
+        previousprods = new javax.swing.JLabel();
         previousprodstype = new javax.swing.JLabel();
         nextnouv = new javax.swing.JLabel();
         previousnouv = new javax.swing.JLabel();
@@ -197,7 +209,6 @@ hideprods();
         jScrolldesc = new javax.swing.JScrollPane();
         desc = new javax.swing.JTextArea();
         photo = new javax.swing.JLabel();
-        Nom = new javax.swing.JLabel();
         ajouteraupanier = new javax.swing.JLabel();
         commentaaire = new javax.swing.JTextField();
         commentt = new javax.swing.JLabel();
@@ -227,14 +238,15 @@ hideprods();
         supp4 = new javax.swing.JLabel();
         supp5 = new javax.swing.JLabel();
         bkaffresesprod = new javax.swing.JLabel();
+        sidemenu = new javax.swing.JLabel();
+        pricepref = new javax.swing.JSlider();
+        prixmax = new javax.swing.JLabel();
+        tooltiipptice = new javax.swing.JLabel();
+        BGPRODUITS = new javax.swing.JLabel();
         loginclient = new javax.swing.JLabel();
         jScrollPanier = new javax.swing.JScrollPane();
         jTablepanier = new javax.swing.JTable();
-        CLOSE = new javax.swing.JLabel();
-        minim = new javax.swing.JLabel();
-        drag = new javax.swing.JLabel();
         closesidemenu = new javax.swing.JLabel();
-        sidemenu = new javax.swing.JLabel();
         accueil = new javax.swing.JLabel();
         slide1 = new javax.swing.JLabel();
         bglabel = new javax.swing.JLabel();
@@ -243,9 +255,6 @@ hideprods();
         Homme = new javax.swing.JLabel();
         Enfants = new javax.swing.JLabel();
         Nouveautes = new javax.swing.JLabel();
-        pricepref = new javax.swing.JSlider();
-        prixmax = new javax.swing.JLabel();
-        tooltiipptice = new javax.swing.JLabel();
         afpanier = new javax.swing.JLabel();
         pantalonsE = new javax.swing.JLabel();
         jeansE = new javax.swing.JLabel();
@@ -306,13 +315,41 @@ hideprods();
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        CLOSE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/close.png"))); // NOI18N
+        CLOSE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CLOSEMouseClicked(evt);
+            }
+        });
+        getContentPane().add(CLOSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 0, 50, 50));
+
+        minim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/minim.png"))); // NOI18N
+        minim.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minimMouseClicked(evt);
+            }
+        });
+        getContentPane().add(minim, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 0, 50, 50));
+
+        drag.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                dragMouseDragged(evt);
+            }
+        });
+        drag.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                dragMousePressed(evt);
+            }
+        });
+        getContentPane().add(drag, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 4, 1170, 70));
+
         webbrowser.setText("Aller a notre site web");
         webbrowser.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 webbrowserMouseClicked(evt);
             }
         });
-        getContentPane().add(webbrowser, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 690, -1, -1));
+        getContentPane().add(webbrowser, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 670, -1, -1));
 
         chat.setText("voulez vous joindre le chat !! ");
         chat.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -320,15 +357,7 @@ hideprods();
                 chatMouseClicked(evt);
             }
         });
-        getContentPane().add(chat, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 690, -1, -1));
-
-        previousprods.setText("jLabel1");
-        previousprods.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                previousprodsMouseClicked(evt);
-            }
-        });
-        getContentPane().add(previousprods, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 530, -1, -1));
+        getContentPane().add(chat, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 670, -1, -1));
 
         regardervid.setText("regarder video");
         regardervid.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -336,7 +365,11 @@ hideprods();
                 regardervidMouseClicked(evt);
             }
         });
-        getContentPane().add(regardervid, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 690, 190, -1));
+        getContentPane().add(regardervid, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 670, 190, -1));
+
+        Nom.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
+        Nom.setText("jLabel1");
+        getContentPane().add(Nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, 500, 40));
 
         nextprods.setText("next");
         nextprods.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -344,107 +377,115 @@ hideprods();
                 nextprodsMouseClicked(evt);
             }
         });
-        getContentPane().add(nextprods, new org.netbeans.lib.awtextra.AbsoluteConstraints(1154, 500, 70, 40));
+        getContentPane().add(nextprods, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 530, 70, 40));
 
         prodimg1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 prodimg1MouseClicked(evt);
             }
         });
-        getContentPane().add(prodimg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 220, 160));
+        getContentPane().add(prodimg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 220, 230));
 
         prodimg2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 prodimg2MouseClicked(evt);
             }
         });
-        getContentPane().add(prodimg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 220, 160));
+        getContentPane().add(prodimg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 270, 220, 230));
 
         prodimg3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 prodimg3MouseClicked(evt);
             }
         });
-        getContentPane().add(prodimg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 270, 220, 160));
+        getContentPane().add(prodimg3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 270, 220, 230));
 
         prodimg4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 prodimg4MouseClicked(evt);
             }
         });
-        getContentPane().add(prodimg4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 270, 220, 160));
+        getContentPane().add(prodimg4, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 270, 220, 230));
 
         refprod1.setText("jLabel1");
-        getContentPane().add(refprod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 250, -1));
+        getContentPane().add(refprod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 510, 250, -1));
 
         refprod2.setText("jLabel2");
-        getContentPane().add(refprod2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 440, 230, 20));
+        getContentPane().add(refprod2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 230, 20));
 
         refprod3.setText("jLabel3");
-        getContentPane().add(refprod3, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 440, 210, -1));
+        getContentPane().add(refprod3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 510, 210, -1));
 
         refprod4.setText("jLabel4");
-        getContentPane().add(refprod4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 440, 180, -1));
+        getContentPane().add(refprod4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 510, 180, -1));
 
         nomprod1.setText("jLabel1");
-        getContentPane().add(nomprod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 460, 260, -1));
+        getContentPane().add(nomprod1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 530, 260, -1));
 
         nomprod2.setText("jLabel2");
-        getContentPane().add(nomprod2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 460, 220, -1));
+        getContentPane().add(nomprod2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 530, 220, -1));
 
         nomprod3.setText("jLabel3");
-        getContentPane().add(nomprod3, new org.netbeans.lib.awtextra.AbsoluteConstraints(774, 460, 170, -1));
+        getContentPane().add(nomprod3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 530, 170, -1));
 
         nomprod4.setText("jLabel4");
-        getContentPane().add(nomprod4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 460, 170, -1));
+        getContentPane().add(nomprod4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 530, 170, -1));
 
-        nextprodstype.setText("nextp");
+        nextprodstype.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/next.png"))); // NOI18N
         nextprodstype.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 nextprodstypeMouseClicked(evt);
             }
         });
-        getContentPane().add(nextprodstype, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 530, -1, -1));
+        getContentPane().add(nextprodstype, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 580, -1, -1));
 
-        previousprodstype.setText("previousp");
+        previousprods.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/PRECEDENT.png"))); // NOI18N
+        previousprods.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                previousprodsMouseClicked(evt);
+            }
+        });
+        getContentPane().add(previousprods, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 580, -1, -1));
+
+        previousprodstype.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/PRECEDENT.png"))); // NOI18N
         previousprodstype.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 previousprodstypeMouseClicked(evt);
             }
         });
-        getContentPane().add(previousprodstype, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 560, -1, -1));
+        getContentPane().add(previousprodstype, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 580, -1, -1));
 
-        nextnouv.setText("nextnouv");
+        nextnouv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/next.png"))); // NOI18N
         nextnouv.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 nextnouvMouseClicked(evt);
             }
         });
-        getContentPane().add(nextnouv, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 550, -1, -1));
+        getContentPane().add(nextnouv, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 580, -1, -1));
 
-        previousnouv.setText("previousnouv");
+        previousnouv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/PRECEDENT.png"))); // NOI18N
         previousnouv.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 previousnouvMouseClicked(evt);
             }
         });
-        getContentPane().add(previousnouv, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 580, -1, -1));
+        getContentPane().add(previousnouv, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 580, -1, -1));
 
-        nextrech.setText("nextrech");
+        nextrech.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/next.png"))); // NOI18N
         nextrech.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 nextrechMouseClicked(evt);
             }
         });
-        getContentPane().add(nextrech, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 570, -1, -1));
+        getContentPane().add(nextrech, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 580, -1, -1));
 
-        previousrech.setText("previousrech");
+        previousrech.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/PRECEDENT.png"))); // NOI18N
         previousrech.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 previousrechMouseClicked(evt);
             }
         });
-        getContentPane().add(previousrech, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 600, -1, -1));
+        getContentPane().add(previousrech, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 580, -1, -1));
 
         closeprofil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/close.png"))); // NOI18N
         closeprofil.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -452,7 +493,7 @@ hideprods();
                 closeprofilMouseClicked(evt);
             }
         });
-        getContentPane().add(closeprofil, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, -1, 40));
+        getContentPane().add(closeprofil, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 0, -1, 40));
 
         nommodif.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
         nommodif.setText("jTextField1");
@@ -462,7 +503,7 @@ hideprods();
                 nommodifActionPerformed(evt);
             }
         });
-        getContentPane().add(nommodif, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 670, -1));
+        getContentPane().add(nommodif, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 470, -1));
 
         prenommodif.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
         prenommodif.setText("jTextField2");
@@ -472,7 +513,7 @@ hideprods();
                 prenommodifActionPerformed(evt);
             }
         });
-        getContentPane().add(prenommodif, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 650, -1));
+        getContentPane().add(prenommodif, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 470, -1));
 
         loginmodif.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
         loginmodif.setText("jTextField3");
@@ -482,7 +523,7 @@ hideprods();
                 loginmodifActionPerformed(evt);
             }
         });
-        getContentPane().add(loginmodif, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 720, -1));
+        getContentPane().add(loginmodif, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 470, -1));
 
         emailmodif.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
         emailmodif.setText("jTextField4");
@@ -492,7 +533,7 @@ hideprods();
                 emailmodifActionPerformed(evt);
             }
         });
-        getContentPane().add(emailmodif, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, 770, -1));
+        getContentPane().add(emailmodif, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 470, -1));
 
         adressemodif.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
         adressemodif.setText("jTextField5");
@@ -502,63 +543,57 @@ hideprods();
                 adressemodifActionPerformed(evt);
             }
         });
-        getContentPane().add(adressemodif, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 490, 710, -1));
+        getContentPane().add(adressemodif, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 530, 470, -1));
 
         nom.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        nom.setForeground(new java.awt.Color(255, 255, 255));
         nom.setText("jLabel1");
         nom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 nomMouseClicked(evt);
             }
         });
-        getContentPane().add(nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, 690, 30));
+        getContentPane().add(nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 470, 30));
 
         prenom.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        prenom.setForeground(new java.awt.Color(255, 255, 255));
         prenom.setText("jLabel2");
         prenom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 prenomMouseClicked(evt);
             }
         });
-        getContentPane().add(prenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, 710, 30));
+        getContentPane().add(prenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 370, 470, 30));
 
         login.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        login.setForeground(new java.awt.Color(255, 255, 255));
         login.setText("jLabel3");
         login.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginMouseClicked(evt);
             }
         });
-        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 750, 40));
+        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 470, 30));
 
         email.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        email.setForeground(new java.awt.Color(255, 255, 255));
         email.setText("jLabel4");
         email.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 emailMouseClicked(evt);
             }
         });
-        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, 750, 40));
+        getContentPane().add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 460, 30));
 
         adresse.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        adresse.setForeground(new java.awt.Color(255, 255, 255));
         adresse.setText("jLabel5");
         adresse.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 adresseMouseClicked(evt);
             }
         });
-        getContentPane().add(adresse, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, 670, 40));
+        getContentPane().add(adresse, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 530, 470, 30));
 
         modifprof.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/Profilmodif.png"))); // NOI18N
         getContentPane().add(modifprof, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 720));
 
-        recherchetext.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        recherchetext.setForeground(new java.awt.Color(255, 255, 255));
+        recherchetext.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         recherchetext.setToolTipText("");
         recherchetext.setBorder(null);
         recherchetext.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -574,11 +609,11 @@ hideprods();
                 recherchetextKeyReleased(evt);
             }
         });
-        getContentPane().add(recherchetext, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 130, 210, 30));
+        getContentPane().add(recherchetext, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 210, 30));
         recherchetext.getAccessibleContext().setAccessibleName("");
 
-        ptfidelite.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        ptfidelite.setForeground(new java.awt.Color(255, 255, 255));
+        ptfidelite.setFont(new java.awt.Font("Myanmar Text", 0, 11)); // NOI18N
+        ptfidelite.setForeground(new java.awt.Color(51, 51, 51));
         ptfidelite.setText("Afficher mes cartes de fidélité");
         ptfidelite.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -593,20 +628,20 @@ hideprods();
         });
         getContentPane().add(ptfidelite, new org.netbeans.lib.awtextra.AbsoluteConstraints(914, 30, 180, 40));
 
-        supprimerpanier.setForeground(new java.awt.Color(255, 255, 255));
+        supprimerpanier.setBackground(new java.awt.Color(0, 0, 255));
         supprimerpanier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 supprimerpanierMouseClicked(evt);
             }
         });
-        getContentPane().add(supprimerpanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 490, 330, 40));
+        getContentPane().add(supprimerpanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 505, 330, 40));
 
         profil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 profilMouseClicked(evt);
             }
         });
-        getContentPane().add(profil, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 120, 40, 40));
+        getContentPane().add(profil, new org.netbeans.lib.awtextra.AbsoluteConstraints(1195, 50, 40, 40));
 
         menutriangle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/menu.png"))); // NOI18N
         menutriangle.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -617,7 +652,12 @@ hideprods();
         getContentPane().add(menutriangle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, 30, 30));
 
         closecontact.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/close.png"))); // NOI18N
-        getContentPane().add(closecontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 40, -1, 40));
+        closecontact.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closecontactMouseClicked(evt);
+            }
+        });
+        getContentPane().add(closecontact, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 0, -1, 40));
 
         jTextArearObject.setBackground(new java.awt.Color(102, 204, 255));
         jTextArearObject.setOpaque(false);
@@ -700,13 +740,12 @@ hideprods();
                 .addContainerGap())
         );
 
-        getContentPane().add(jTextArearObject, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, 400));
+        getContentPane().add(jTextArearObject, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, 400));
 
-        contactlog.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        contactlog.setForeground(new java.awt.Color(255, 255, 255));
+        contactlog.setFont(new java.awt.Font("Myanmar Text", 0, 11)); // NOI18N
+        contactlog.setForeground(new java.awt.Color(51, 51, 51));
         contactlog.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         contactlog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/cont.png"))); // NOI18N
-        contactlog.setText("Voulez vous nous contactez ?");
         contactlog.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         contactlog.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -719,7 +758,7 @@ hideprods();
                 contactlogMouseExited(evt);
             }
         });
-        getContentPane().add(contactlog, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+        getContentPane().add(contactlog, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 55, -1, -1));
 
         contactform.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/contact.png"))); // NOI18N
         contactform.setText("jLabel1");
@@ -731,22 +770,19 @@ hideprods();
                 closepanMouseClicked(evt);
             }
         });
-        getContentPane().add(closepan, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 10, -1, 40));
+        getContentPane().add(closepan, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 0, -1, 40));
 
         referencepanier.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        referencepanier.setForeground(new java.awt.Color(255, 255, 255));
         referencepanier.setText("jLabel1");
-        getContentPane().add(referencepanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 220, 460, 30));
+        getContentPane().add(referencepanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 250, 460, 30));
 
         tauxreducpanier.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        tauxreducpanier.setForeground(new java.awt.Color(255, 255, 255));
         tauxreducpanier.setText("jLabel1");
-        getContentPane().add(tauxreducpanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 270, 380, 40));
+        getContentPane().add(tauxreducpanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 300, 380, 40));
 
         prixpanier.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        prixpanier.setForeground(new java.awt.Color(255, 255, 255));
         prixpanier.setText("jLabel1");
-        getContentPane().add(prixpanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 340, 500, 30));
+        getContentPane().add(prixpanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 355, 500, 30));
         getContentPane().add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 440, 80, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
@@ -759,10 +795,9 @@ hideprods();
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 437, -1, 30));
-        getContentPane().add(photopanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 210, 450, 350));
+        getContentPane().add(photopanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 220, 450, 350));
 
         VALIDpanier.setFont(new java.awt.Font("MV Boli", 0, 18)); // NOI18N
-        VALIDpanier.setForeground(new java.awt.Color(255, 255, 255));
         VALIDpanier.setText("Valider mon panier ");
         VALIDpanier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -780,27 +815,23 @@ hideprods();
                 closeaffresprodMouseClicked(evt);
             }
         });
-        getContentPane().add(closeaffresprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 10, -1, 40));
+        getContentPane().add(closeaffresprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 0, -1, 40));
 
         reference.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        reference.setForeground(new java.awt.Color(255, 255, 255));
         reference.setText("jLabel1");
-        getContentPane().add(reference, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 240, 230, 30));
+        getContentPane().add(reference, new org.netbeans.lib.awtextra.AbsoluteConstraints(1025, 280, 230, 30));
 
         marque.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        marque.setForeground(new java.awt.Color(255, 255, 255));
         marque.setText("jLabel2");
-        getContentPane().add(marque, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 269, 240, 30));
+        getContentPane().add(marque, new org.netbeans.lib.awtextra.AbsoluteConstraints(1005, 320, 240, 30));
 
-        prix.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        prix.setForeground(new java.awt.Color(255, 255, 255));
+        prix.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         prix.setText("jLabel1");
-        getContentPane().add(prix, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 338, 270, 30));
+        getContentPane().add(prix, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 250, 270, 30));
 
         type.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        type.setForeground(new java.awt.Color(255, 255, 255));
         type.setText("jLabel1");
-        getContentPane().add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 300, 250, 30));
+        getContentPane().add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(975, 365, 250, 30));
 
         jScrolldesc.setBackground(new java.awt.Color(101, 111, 155));
         jScrolldesc.setForeground(new java.awt.Color(255, 255, 255));
@@ -810,12 +841,7 @@ hideprods();
         jScrolldesc.setViewportView(desc);
 
         getContentPane().add(jScrolldesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 410, 300, 140));
-        getContentPane().add(photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 190, 300));
-
-        Nom.setFont(new java.awt.Font("MV Boli", 1, 18)); // NOI18N
-        Nom.setForeground(new java.awt.Color(255, 255, 255));
-        Nom.setText("jLabel1");
-        getContentPane().add(Nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, 500, 40));
+        getContentPane().add(photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 190, 300));
 
         ajouteraupanier.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/mboy_addtocart.png"))); // NOI18N
         ajouteraupanier.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -836,95 +862,79 @@ hideprods();
                 commentaaireActionPerformed(evt);
             }
         });
-        getContentPane().add(commentaaire, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 440, 30));
+        getContentPane().add(commentaaire, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 265, 440, 30));
 
         commentt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/COM.png"))); // NOI18N
-        getContentPane().add(commentt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 460, 70));
+        getContentPane().add(commentt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 460, 70));
 
-        commentaire1.setForeground(new java.awt.Color(255, 255, 255));
         commentaire1.setText("jLabel1");
-        getContentPane().add(commentaire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 440, 40));
+        getContentPane().add(commentaire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 440, 40));
 
-        commentaire2.setForeground(new java.awt.Color(255, 255, 255));
         commentaire2.setText("jLabel1");
-        getContentPane().add(commentaire2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 430, 40));
+        getContentPane().add(commentaire2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 430, 40));
 
-        commentaire3.setForeground(new java.awt.Color(255, 255, 255));
         commentaire3.setText("jLabel1");
-        getContentPane().add(commentaire3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 440, 50));
+        getContentPane().add(commentaire3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, 440, 50));
 
-        commentaire4.setForeground(new java.awt.Color(255, 255, 255));
         commentaire4.setText("jLabel1");
-        getContentPane().add(commentaire4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, 440, 40));
+        getContentPane().add(commentaire4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, 440, 40));
 
-        commentaire5.setForeground(new java.awt.Color(255, 255, 255));
         commentaire5.setText("jLabel1");
-        getContentPane().add(commentaire5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 580, 440, 40));
+        getContentPane().add(commentaire5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 640, 440, 40));
 
-        comment1.setForeground(new java.awt.Color(255, 0, 0));
         comment1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/COM.png"))); // NOI18N
-        getContentPane().add(comment1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 460, 60));
+        getContentPane().add(comment1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 460, 60));
 
         comment2.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        comment2.setForeground(new java.awt.Color(255, 255, 255));
         comment2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/COM.png"))); // NOI18N
-        getContentPane().add(comment2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 460, 70));
+        getContentPane().add(comment2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 460, 70));
 
         comment3.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        comment3.setForeground(new java.awt.Color(255, 255, 255));
         comment3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/COM.png"))); // NOI18N
-        getContentPane().add(comment3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 460, 60));
+        getContentPane().add(comment3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 460, 60));
 
         comment4.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        comment4.setForeground(new java.awt.Color(255, 255, 255));
         comment4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/COM.png"))); // NOI18N
-        getContentPane().add(comment4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, -1, 60));
+        getContentPane().add(comment4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 545, -1, 60));
 
         comment5.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        comment5.setForeground(new java.awt.Color(255, 255, 255));
         comment5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/COM.png"))); // NOI18N
-        comment5.setText("jLabel1");
-        getContentPane().add(comment5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 570, 460, 60));
+        getContentPane().add(comment5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 620, 460, 60));
 
         cli1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/cli1.png"))); // NOI18N
-        getContentPane().add(cli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 40, 40));
+        getContentPane().add(cli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 320, 40, 40));
 
         cli2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/cli2.png"))); // NOI18N
-        getContentPane().add(cli2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
+        getContentPane().add(cli2, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 395, -1, -1));
 
         cli3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/cli3.png"))); // NOI18N
-        getContentPane().add(cli3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, 40));
+        getContentPane().add(cli3, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 472, -1, 40));
 
         cli4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/cli4.png"))); // NOI18N
-        getContentPane().add(cli4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, -1, -1));
+        getContentPane().add(cli4, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 550, -1, -1));
 
         cli5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/cli5.png"))); // NOI18N
-        getContentPane().add(cli5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, -1, -1));
+        getContentPane().add(cli5, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 625, -1, -1));
 
         client1.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        client1.setForeground(new java.awt.Color(255, 255, 255));
         client1.setText("jLabel2");
-        getContentPane().add(client1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 90, 20));
+        getContentPane().add(client1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 365, 90, 20));
 
         client2.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        client2.setForeground(new java.awt.Color(255, 255, 255));
         client2.setText("jLabel1");
-        getContentPane().add(client2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 90, -1));
+        getContentPane().add(client2, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 435, 90, -1));
 
         client3.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        client3.setForeground(new java.awt.Color(255, 255, 255));
         client3.setText("jLabel1");
-        getContentPane().add(client3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 80, 20));
+        getContentPane().add(client3, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 513, 80, 20));
 
         client4.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        client4.setForeground(new java.awt.Color(255, 255, 255));
         client4.setText("jLabel1");
-        getContentPane().add(client4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 90, -1));
+        getContentPane().add(client4, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 585, 90, -1));
 
         client5.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        client5.setForeground(new java.awt.Color(255, 255, 255));
         client5.setText("jLabel1");
-        getContentPane().add(client5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 90, -1));
+        getContentPane().add(client5, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 665, 90, -1));
 
         supp1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/x.png"))); // NOI18N
         supp1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -932,7 +942,7 @@ hideprods();
                 supp1MouseClicked(evt);
             }
         });
-        getContentPane().add(supp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, -1, -1));
+        getContentPane().add(supp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 335, -1, -1));
 
         supp2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/x.png"))); // NOI18N
         supp2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -940,15 +950,16 @@ hideprods();
                 supp2MouseClicked(evt);
             }
         });
-        getContentPane().add(supp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 40, -1));
+        getContentPane().add(supp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 40, -1));
 
+        supp3.setForeground(new java.awt.Color(51, 51, 51));
         supp3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/x.png"))); // NOI18N
         supp3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 supp3MouseClicked(evt);
             }
         });
-        getContentPane().add(supp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, -1, -1));
+        getContentPane().add(supp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, -1, -1));
 
         supp4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/x.png"))); // NOI18N
         supp4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -956,7 +967,7 @@ hideprods();
                 supp4MouseClicked(evt);
             }
         });
-        getContentPane().add(supp4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, -1, -1));
+        getContentPane().add(supp4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 555, -1, -1));
 
         supp5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/x.png"))); // NOI18N
         supp5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -964,14 +975,44 @@ hideprods();
                 supp5MouseClicked(evt);
             }
         });
-        getContentPane().add(supp5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 590, -1, -1));
+        getContentPane().add(supp5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 635, -1, -1));
 
-        bkaffresesprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/affichProd.png"))); // NOI18N
+        bkaffresesprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/clientproduitsingle.png"))); // NOI18N
         getContentPane().add(bkaffresesprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 720));
 
-        loginclient.setFont(new java.awt.Font("MV Boli", 0, 48)); // NOI18N
-        loginclient.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(loginclient, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 74, 200, 30));
+        sidemenu.setBackground(new java.awt.Color(0, 0, 0));
+        sidemenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/Enfants.png"))); // NOI18N
+        getContentPane().add(sidemenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 220, 490));
+
+        pricepref.setBackground(new java.awt.Color(255, 255, 255));
+        pricepref.setForeground(new java.awt.Color(255, 255, 255));
+        pricepref.setMaximum(3000);
+        pricepref.setMinimum(1);
+        pricepref.setPaintLabels(true);
+        pricepref.setToolTipText("choisissez l'intervalle de prix");
+        pricepref.setValue(3000);
+        pricepref.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        pricepref.setValueIsAdjusting(true);
+        pricepref.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                priceprefStateChanged(evt);
+            }
+        });
+        getContentPane().add(pricepref, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 190, -1, 20));
+
+        prixmax.setText("Prix Maximum : ");
+        getContentPane().add(prixmax, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 210, -1, -1));
+
+        tooltiipptice.setText("3000");
+        getContentPane().add(tooltiipptice, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 210, -1, -1));
+
+        BGPRODUITS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/PRODUITS.png"))); // NOI18N
+        getContentPane().add(BGPRODUITS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 720));
+        BGPRODUITS.getAccessibleContext().setAccessibleName("BGPRODUITS");
+
+        loginclient.setFont(new java.awt.Font("Nirmala UI Semilight", 0, 20)); // NOI18N
+        loginclient.setForeground(new java.awt.Color(102, 102, 102));
+        getContentPane().add(loginclient, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 5, 200, 30));
 
         jTablepanier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -991,35 +1032,7 @@ hideprods();
         });
         jScrollPanier.setViewportView(jTablepanier);
 
-        getContentPane().add(jScrollPanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 990, 430));
-
-        CLOSE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/close.png"))); // NOI18N
-        CLOSE.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CLOSEMouseClicked(evt);
-            }
-        });
-        getContentPane().add(CLOSE, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 0, 50, 50));
-
-        minim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/minim.png"))); // NOI18N
-        minim.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                minimMouseClicked(evt);
-            }
-        });
-        getContentPane().add(minim, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 0, 50, 50));
-
-        drag.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                dragMouseDragged(evt);
-            }
-        });
-        drag.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                dragMousePressed(evt);
-            }
-        });
-        getContentPane().add(drag, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 4, 1170, 70));
+        getContentPane().add(jScrollPanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 990, 360));
 
         closesidemenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1028,24 +1041,20 @@ hideprods();
         });
         getContentPane().add(closesidemenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 130, 30, 30));
 
-        sidemenu.setBackground(new java.awt.Color(0, 0, 0));
-        sidemenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/Enfants.png"))); // NOI18N
-        getContentPane().add(sidemenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 220, 490));
-
         accueil.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 accueilMouseClicked(evt);
             }
         });
-        getContentPane().add(accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 100, 40));
+        getContentPane().add(accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 100, 40));
 
         slide1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/affichProd.png"))); // NOI18N
         slide1.setMaximumSize(new java.awt.Dimension(650, 360));
         slide1.setMinimumSize(new java.awt.Dimension(650, 360));
         slide1.setPreferredSize(new java.awt.Dimension(650, 360));
-        getContentPane().add(slide1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 650, 360));
+        getContentPane().add(slide1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 900, 450));
 
-        bglabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/home.png"))); // NOI18N
+        bglabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/homeclient.png"))); // NOI18N
         getContentPane().add(bglabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Sidemenutitre.setText("Femme");
@@ -1061,59 +1070,36 @@ hideprods();
                 FemmeMouseClicked(evt);
             }
         });
-        getContentPane().add(Femme, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 140, 50));
+        getContentPane().add(Femme, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 130, 50));
 
         Homme.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HommeMouseClicked(evt);
             }
         });
-        getContentPane().add(Homme, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 150, 50));
+        getContentPane().add(Homme, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 100, 50));
 
         Enfants.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 EnfantsMouseClicked(evt);
             }
         });
-        getContentPane().add(Enfants, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 160, 50));
+        getContentPane().add(Enfants, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 95, 50));
 
         Nouveautes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 NouveautesMouseClicked(evt);
             }
         });
-        getContentPane().add(Nouveautes, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, 190, 50));
+        getContentPane().add(Nouveautes, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 180, 50));
 
-        pricepref.setBackground(new java.awt.Color(255, 255, 255));
-        pricepref.setForeground(new java.awt.Color(255, 255, 255));
-        pricepref.setMaximum(3000);
-        pricepref.setMinimum(1);
-        pricepref.setPaintLabels(true);
-        pricepref.setToolTipText("choisissez l'intervalle de prix");
-        pricepref.setValue(3000);
-        pricepref.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        pricepref.setValueIsAdjusting(true);
-        pricepref.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                priceprefStateChanged(evt);
-            }
-        });
-        getContentPane().add(pricepref, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 250, -1, 20));
-
-        prixmax.setForeground(new java.awt.Color(255, 255, 255));
-        prixmax.setText("Prix Maximum : ");
-        getContentPane().add(prixmax, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 230, -1, -1));
-
-        tooltiipptice.setForeground(new java.awt.Color(255, 255, 255));
-        tooltiipptice.setText("3000");
-        getContentPane().add(tooltiipptice, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 230, -1, -1));
-
+        afpanier.setText("FFFF");
         afpanier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 afpanierMouseClicked(evt);
             }
         });
-        getContentPane().add(afpanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(1084, 124, 40, 40));
+        getContentPane().add(afpanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 50, 40, 40));
 
         pantalonsE.setText("pantalons");
         pantalonsE.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1835,7 +1821,7 @@ hideprods();
     }//GEN-LAST:event_EnfantsMouseClicked
 
     private void recherchetextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_recherchetextKeyReleased
-
+        slide1.setVisible(false);
         recherche(); 
     }//GEN-LAST:event_recherchetextKeyReleased
 
@@ -1848,9 +1834,9 @@ showprods();
         tooltiipptice.setVisible(true);
           nextprodstype.setVisible(false);
         previousprodstype.setVisible(false);
-        nextnouv.setVisible(false);
+        nextnouv.setVisible(true);
         previousnouv.setVisible(true);
-        nextprods.setVisible(true);
+        nextprods.setVisible(false);
         previousprods.setVisible(false);
         nextrech.setVisible(false);
         previousrech.setVisible(false);
@@ -1861,7 +1847,7 @@ showprods();
        if (liste.isEmpty()){ System.out.println("empty");}
        else if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
@@ -1869,12 +1855,12 @@ showprods();
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
         nomprod2.setText(liste.get(1).getNom());
@@ -1882,39 +1868,39 @@ showprods();
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
               refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230,Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
               refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
            refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
            refprod4.setText(liste.get(3).getReference());
           nomprod4.setText(liste.get(3).getNom());
@@ -2280,8 +2266,140 @@ showprods();
        showprods();
         System.out.println(pricepref.getValue());
         tooltiipptice.setText(Integer.toString(pricepref.getValue()));
-        populateJTableProdprix(pricepref.getValue());
-     // pricepref.setToolTipText(Integer.toString(pricepref.getValue()));// TODO add your handling code here:
+        //populateJTableProdprix(pricepref.getValue());
+      pricepref.setToolTipText(Integer.toString(pricepref.getValue()));// TODO add your handling code here:
+        tooltiipptice.setText(Integer.toString(pricepref.getValue())); 
+pos+=3;
+
+ProduitDAO mq = new ProduitDAO();
+       List <Produit> liste = new ArrayList<Produit>();
+        liste= mq.afficherProduitparintprix(pricepref.getValue(),pos) ;
+       
+        if (liste.isEmpty()){populateProds();}
+       else if (liste.size()==1){
+            ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
+          prodimg1.setIcon(image);
+          refprod1.setText(liste.get(0).getReference());
+          nomprod1.setText(liste.get(0).getNom());
+            thetype.setText(liste.get(0).getType());
+            
+              prodimg1.setVisible(true);
+          refprod1.setVisible(true);
+          nomprod1.setVisible(true);
+           prodimg2.setVisible(false);
+          refprod2.setVisible(false);
+          nomprod2.setVisible(false);
+          prodimg3.setVisible(false);
+          refprod3.setVisible(false);
+          nomprod3.setVisible(false);
+           prodimg4.setVisible(false);
+          refprod4.setVisible(false);
+          nomprod4.setVisible(false);
+            
+            
+          
+       }
+           else if (liste.size()==2){
+            ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
+          prodimg1.setIcon(image);
+          refprod1.setText(liste.get(0).getReference());
+          nomprod1.setText(liste.get(0).getNom());
+          ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
+          prodimg2.setIcon(image1);
+          refprod2.setText(liste.get(1).getReference());
+          nomprod2.setText(liste.get(1).getNom());
+          
+           prodimg1.setVisible(true);
+          refprod1.setVisible(true);
+          nomprod1.setVisible(true);
+           prodimg2.setVisible(true);
+          refprod2.setVisible(true);
+          nomprod2.setVisible(true);
+          prodimg3.setVisible(false);
+          refprod3.setVisible(false);
+          nomprod3.setVisible(false);
+           prodimg4.setVisible(false);
+          refprod4.setVisible(false);
+          nomprod4.setVisible(false);
+       }
+         else if (liste.size()==3){
+            ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
+             .getScaledInstance(220,230,Image.SCALE_SMOOTH) );   
+          prodimg1.setIcon(image);
+              refprod1.setText(liste.get(0).getReference());
+          nomprod1.setText(liste.get(0).getNom());
+          ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
+          prodimg2.setIcon(image1);
+            refprod2.setText(liste.get(1).getReference());
+          nomprod2.setText(liste.get(1).getNom());
+            ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
+          prodimg3.setIcon(image2);
+              refprod3.setText(liste.get(2).getReference());
+          nomprod3.setText(liste.get(2).getNom());
+          
+             prodimg1.setVisible(true);
+          refprod1.setVisible(true);
+          nomprod1.setVisible(true);
+             prodimg2.setVisible(true);
+          refprod2.setVisible(true);
+          nomprod2.setVisible(true);
+               prodimg3.setVisible(true);
+          refprod3.setVisible(true);
+          nomprod3.setVisible(true);
+          
+             prodimg4.setVisible(false);
+          refprod4.setVisible(false);
+          nomprod4.setVisible(false);
+       }
+        else if (liste.size()==4){
+            ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
+          prodimg1.setIcon(image);
+           refprod1.setText(liste.get(0).getReference());
+          nomprod1.setText(liste.get(0).getNom());
+          ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
+          prodimg2.setIcon(image1);
+            refprod2.setText(liste.get(1).getReference());
+          nomprod2.setText(liste.get(1).getNom());
+            ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
+          prodimg3.setIcon(image2);
+          refprod3.setText(liste.get(2).getReference());
+          nomprod3.setText(liste.get(2).getNom());
+             ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
+          prodimg4.setIcon(image3);
+           refprod4.setText(liste.get(3).getReference());
+          nomprod4.setText(liste.get(3).getNom());
+          
+          
+          
+           prodimg1.setVisible(true);
+          refprod1.setVisible(true);
+          nomprod1.setVisible(true);
+             prodimg2.setVisible(true);
+          refprod2.setVisible(true);
+          nomprod2.setVisible(true);
+               prodimg3.setVisible(true);
+          refprod3.setVisible(true);
+          nomprod3.setVisible(true);
+          
+             prodimg4.setVisible(true);
+          refprod4.setVisible(true);
+          nomprod4.setVisible(true);
+       }
+            
+            
+            
+            
+            
+             
     }//GEN-LAST:event_priceprefStateChanged
 
     private void dragMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dragMouseDragged
@@ -2296,11 +2414,19 @@ showprods();
     }//GEN-LAST:event_dragMousePressed
 
     private void closeaffresprodMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeaffresprodMouseClicked
-// jTableproduits.setVisible(true);
+     // jTableproduits.setVisible(true);
      //   jScrollProduits.setVisible(true);
         bkaffresesprod.setVisible(false); 
+ 
 closeaffresprod.setVisible(false);
+hidecontact();
+hidegestionpanier();
+hidemofifprofil();
+hideprods();
 hideaffresprod();
+CLOSE.setVisible(true);
+minim.setVisible(true);
+slide1.setVisible(true);
     }//GEN-LAST:event_closeaffresprodMouseClicked
 
     private void commentaaireActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_commentaaireActionPerformed
@@ -2310,14 +2436,29 @@ ClientDao edao = new ClientDao();
 int idc=edao.researchid(loginclient.getText());
 ProduitDAO pdao= new ProduitDAO();
 int idp= pdao.researchid(reference.getText());
-CommentaireDAO padao= new CommentaireDAO();
+CommentDAO padao= new CommentDAO();
 Client cl= new Client();
 cl.setId(idc);
-Produit pr = new Produit();
+Thread pr = new Thread();
 pr.setId(idp);
+
 String description = commentaaire.getText();
-Commentaire c = new Commentaire(cl,pr,description);
-padao.add(c);
+Comment c = new Comment(cl,pr,description);
+        ThreadDAO thdao= new ThreadDAO();
+       int idthread= thdao.researchid(idp);
+       if (idthread==0){
+      
+       thdao.add(idp);
+       
+       thdao.updatenumcomments(pr);
+        padao.add(c);
+       }
+       else if (idthread!=0){
+       
+       thdao.updatenumcomments(pr);
+        padao.add(c);
+       }
+
 JOptionPane.showMessageDialog(rootPane,"commentaire ajouté");
      affichercommentaires();
 commentaaire.setText("");
@@ -2325,56 +2466,128 @@ commentaaire.setText("");
     }//GEN-LAST:event_commentaaireActionPerformed
 
     private void supp1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supp1MouseClicked
-    Commentaire c;
-        c = new Commentaire(Integer.parseInt(c1.getText()));
+    Comment c;
+        c = new Comment(Integer.parseInt(c1.getText()));
         System.out.println(c1.getText());
         
-        CommentaireDAO cdao= new CommentaireDAO();
-        cdao.DELETE(c);
+        CommentDAO cdao= new CommentDAO();
+        int threadid=cdao.researchthread(Integer.parseInt(c1.getText()));
+        Thread thread = new Thread(threadid);
+        ThreadDAO thdao= new ThreadDAO();
+        int numcomments=thdao.researchnumcomments(threadid);
+        
+        if (numcomments==1){
+        thdao.updatenumcommentsdelete1(thread);
+         cdao.DELETE(c);
+        }
+        else if (numcomments!=1){
+        thdao.updatenumcommentsdelete2(thread);
+         cdao.DELETE(c);
+        }
          affichercommentaires();
-         supp1.setVisible(false);        // TODO add your handling code here:
+         supp1.setVisible(false);  
+         // TODO add your handling code here:
+    
+//         supp3.setLocation(supp2.getX(),supp2.getY());
+//         supp4.setLocation(supp3.getX(),supp3.getY());
+//         supp5.setLocation(supp4.getX(),supp4.getY());
+         
+         
+        // supp3.setnew org.netbeans.lib.awtextra.AbsoluteConstraints(580, 335, -1, -1)
+
     }//GEN-LAST:event_supp1MouseClicked
 
     private void supp2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supp2MouseClicked
-Commentaire c;
-        c = new Commentaire(Integer.parseInt(c1.getText()));
+ System.out.println("-------------------------------------------------------------");
+        Comment c;
+        c = new Comment(Integer.parseInt(c2.getText()));
         System.out.println(c2.getText());
         
-        CommentaireDAO cdao= new CommentaireDAO();
-        cdao.DELETE(c);
+        CommentDAO cdao= new CommentDAO();
+        int threadid=cdao.researchthread(Integer.parseInt(c2.getText()));
+        Thread thread = new Thread(threadid);
+        ThreadDAO thdao= new ThreadDAO();
+        int numcomments=thdao.researchnumcomments(threadid);
+        
+        if (numcomments==1){
+        thdao.updatenumcommentsdelete1(thread);
+         cdao.DELETE(c);
+        }
+        else if (numcomments!=1){
+        thdao.updatenumcommentsdelete2(thread);
+         cdao.DELETE(c);
+        }
+        
            affichercommentaires();
-         supp2.setVisible(false);            // TODO add your handling code here:
+         supp2.setVisible(false);   
+       
     }//GEN-LAST:event_supp2MouseClicked
 
     private void supp3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supp3MouseClicked
- Commentaire c;
-        c = new Commentaire(Integer.parseInt(c1.getText()));
+ Comment c;
+        c = new Comment(Integer.parseInt(c3.getText()));
         System.out.println(c3.getText());
         
-        CommentaireDAO cdao= new CommentaireDAO();
-        cdao.DELETE(c);
+        CommentDAO cdao= new CommentDAO();
+        int threadid=cdao.researchthread(Integer.parseInt(c3.getText()));
+        Thread thread = new Thread(threadid);
+        ThreadDAO thdao= new ThreadDAO();
+        int numcomments=thdao.researchnumcomments(threadid);
+        
+        if (numcomments==1){
+        thdao.updatenumcommentsdelete1(thread);
+         cdao.DELETE(c);
+        }
+        else if (numcomments!=1){
+        thdao.updatenumcommentsdelete2(thread);
+         cdao.DELETE(c);
+        }
            affichercommentaires();
          supp3.setVisible(false);           // TODO add your handling code here:
     }//GEN-LAST:event_supp3MouseClicked
 
     private void supp4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supp4MouseClicked
-Commentaire c;
-        c = new Commentaire(Integer.parseInt(c1.getText()));
+Comment c;
+        c = new Comment(Integer.parseInt(c4.getText()));
         System.out.println(c4.getText());
         
-        CommentaireDAO cdao= new CommentaireDAO();
-        cdao.DELETE(c);
+        CommentDAO cdao= new CommentDAO();
+        int threadid=cdao.researchthread(Integer.parseInt(c4.getText()));
+        Thread thread = new Thread(threadid);
+        ThreadDAO thdao= new ThreadDAO();
+        int numcomments=thdao.researchnumcomments(threadid);
+        
+        if (numcomments==1){
+        thdao.updatenumcommentsdelete1(thread);
+         cdao.DELETE(c);
+        }
+        else if (numcomments!=1){
+        thdao.updatenumcommentsdelete2(thread);
+         cdao.DELETE(c);
+        }
             affichercommentaires();
          supp4.setVisible(false);         // TODO add your handling code here:
     }//GEN-LAST:event_supp4MouseClicked
 
     private void supp5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supp5MouseClicked
-Commentaire c;
-        c = new Commentaire(Integer.parseInt(c1.getText()));
+Comment c;
+        c = new Comment(Integer.parseInt(c5.getText()));
         System.out.println(c5.getText());
         
-        CommentaireDAO cdao= new CommentaireDAO();
-        cdao.DELETE(c);
+        CommentDAO cdao= new CommentDAO();
+        int threadid=cdao.researchthread(Integer.parseInt(c5.getText()));
+        Thread thread = new Thread(threadid);
+        ThreadDAO thdao= new ThreadDAO();
+        int numcomments=thdao.researchnumcomments(threadid);
+        
+        if (numcomments==1){
+        thdao.updatenumcommentsdelete1(thread);
+         cdao.DELETE(c);
+        }
+        else if (numcomments!=1){
+        thdao.updatenumcommentsdelete2(thread);
+         cdao.DELETE(c);
+        }
          affichercommentaires();
          supp5.setVisible(false);         // TODO add your handling code here:
     }//GEN-LAST:event_supp5MouseClicked
@@ -2407,12 +2620,21 @@ hideprods();
   // jTableproduits.setVisible(false);
      jScrollPanier.setVisible(true);
      jTablepanier.setVisible(true);
-      populateJTablePanier();
+     hideaffresprod();
+     hidecontact();
+     hidemofifprofil();
+        populateJTablePanier();
+     CLOSE.setVisible(false);
+     
+     closepan.setVisible(true);
+   
+      slide1.setVisible(false);
     }//GEN-LAST:event_afpanierMouseClicked
 
     private void jTablepanierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablepanierMouseClicked
      jTablepanier.setVisible(false);
      jScrollPanier.setVisible(false);
+     VALIDpanier.setVisible(false);
       hideprods();
       affichergespanier();
       int index =jTablepanier.getSelectedRow();
@@ -2433,6 +2655,7 @@ hideprods();
         System.out.println(referencep);
            System.out.println(Nomp);
      Nom.setText(Nomp);
+     Nom.setVisible(true);
         ImageIcon image1= (ImageIcon) jTablepanier.getValueAt(index, 3);
        Image image2= image1.getImage().getScaledInstance(photopanier.getWidth(),photopanier.getHeight(),Image.SCALE_SMOOTH);
        ImageIcon image3= new ImageIcon(image2);
@@ -2488,7 +2711,20 @@ populateJTablePanier();
     }//GEN-LAST:event_supprimerpanierMouseClicked
 
     private void closepanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closepanMouseClicked
-hidegestionpanier();       // TODO add your handling code here:
+      // TODO add your handling code here:
+closepan.setVisible(false);
+CLOSE.setVisible(true);
+minim.setVisible(true);
+slide1.setVisible(true);
+
+hidecontact();
+hidegestionpanier();
+hidemofifprofil();
+hideprods();
+hideaffresprod();
+jTablepanier.setVisible(false);
+
+
     }//GEN-LAST:event_closepanMouseClicked
 
     private void VALIDpanierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VALIDpanierMouseClicked
@@ -2521,7 +2757,7 @@ hidegestionpanier();       // TODO add your handling code here:
     }//GEN-LAST:event_VALIDpanierMouseClicked
 
     private void contactlogMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactlogMouseEntered
-contactlog.setForeground(Color.GRAY);         // TODO add your handling code here:
+contactlog.setForeground(Color.BLUE);         // TODO add your handling code here:
     }//GEN-LAST:event_contactlogMouseEntered
 
     private void contactlogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactlogMouseClicked
@@ -2530,8 +2766,12 @@ contactlog.setForeground(Color.GRAY);         // TODO add your handling code her
  hideaffresprod();
  hideprods();
  hidegestionpanier();
+ CLOSE.setVisible(false);
+ closeaffresprod.setVisible(false);
+ closeprofil.setVisible(false);
  jScrollPanier.setVisible(false);
  jTablepanier.setVisible(false);
+ recherchetext.setVisible(false);
 // jScrollProduits.setVisible(false);
  //jTableproduits.setVisible(false);
  closecontact.setVisible(true);
@@ -2599,10 +2839,23 @@ nom.setText(client.getNom());
     adresse.setText(client.getAdresse());
     nom.setVisible(true);
   showmofifprofil();
+  CLOSE.setVisible(false);
+  slide1.setVisible(false);
     }//GEN-LAST:event_profilMouseClicked
 
     private void closeprofilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeprofilMouseClicked
-hidemofifprofil();        // TODO add your handling code here:
+
+
+hidecontact();
+hidegestionpanier();
+hidemofifprofil();
+hideprods();
+hideaffresprod();
+CLOSE.setVisible(true);
+minim.setVisible(true);
+slide1.setVisible(true);
+
+
     }//GEN-LAST:event_closeprofilMouseClicked
 
     private void nomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nomMouseClicked
@@ -2663,7 +2916,7 @@ ClientDao cdao= new ClientDao();
     }//GEN-LAST:event_loginmodifActionPerformed
 
     private void emailmodifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailmodifActionPerformed
-ClientDao cdao= new ClientDao();
+ ClientDao cdao= new ClientDao();
         int id=cdao.researchid(loginclient.getText());
         cdao.updateMail(emailmodif.getText(), id);  
         emailmodif.setVisible(false);
@@ -2681,7 +2934,7 @@ ClientDao cdao= new ClientDao();
     }//GEN-LAST:event_adressemodifActionPerformed
 
     private void contactlogMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactlogMouseExited
-contactlog.setForeground(Color.WHITE);        // TODO add your handling code here:
+contactlog.setForeground(Color.BLACK);        // TODO add your handling code here:
     }//GEN-LAST:event_contactlogMouseExited
 
     private void accueilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accueilMouseClicked
@@ -2726,7 +2979,12 @@ ProduitDAO mq = new ProduitDAO();
         bkaffresesprod.setVisible(true);
         closeaffresprod.setVisible(true);
         afficherprodres();
-  
+   hidegestionpanier();
+ hidemofifprofil();
+CLOSE.setVisible(false);
+        slide1.setVisible(false);
+        hidecontact();
+  contactlog.setVisible(false);
      Nom.setText(p.getNom());
        hideprods();
 ImageIcon image1= (ImageIcon) prodimg4.getIcon();
@@ -2757,7 +3015,7 @@ ImageIcon image1= (ImageIcon) prodimg4.getIcon();
  liste= mq.afficherProduitpaginate(pos);
         if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230,Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
            refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
@@ -2765,51 +3023,51 @@ ImageIcon image1= (ImageIcon) prodimg4.getIcon();
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
            refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230,Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230,Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
           refprod4.setText(liste.get(3).getReference());
           nomprod4.setText(liste.get(3).getNom());
@@ -2819,40 +3077,40 @@ ImageIcon image1= (ImageIcon) prodimg4.getIcon();
        }
        else { if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
        } }     
          // TODO add your handling code here:
@@ -2869,7 +3127,7 @@ ImageIcon image1= (ImageIcon) prodimg4.getIcon();
        if (liste.isEmpty()){ System.out.println("empty");}
        else if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
@@ -2877,51 +3135,51 @@ ImageIcon image1= (ImageIcon) prodimg4.getIcon();
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
           refprod4.setText(liste.get(3).getReference());
           nomprod4.setText(liste.get(3).getNom());
@@ -2933,8 +3191,16 @@ ImageIcon image1= (ImageIcon) prodimg4.getIcon();
         Produit p= mq.afficherProduit1(refprod1.getText());  
         bkaffresesprod.setVisible(true);
         closeaffresprod.setVisible(true);
+        CLOSE.setVisible(false);
+        slide1.setVisible(false);
+        hidecontact();
+        contactlog.setVisible(false);
+        
         afficherprodres();
   hideprods();
+ hidegestionpanier();
+ hidemofifprofil();
+ 
      Nom.setText(p.getNom());
       
 ImageIcon image1= (ImageIcon) prodimg1.getIcon();
@@ -2958,11 +3224,23 @@ ImageIcon image1= (ImageIcon) prodimg1.getIcon();
 ProduitDAO mq = new ProduitDAO();
      Produit p= mq.afficherProduit1(refprod2.getText()); 
         bkaffresesprod.setVisible(true);
-        closeaffresprod.setVisible(true);
+         closeaffresprod.setVisible(true);
+           contactlog.setVisible(false);
+        hidegestionpanier();
+ hidemofifprofil();
+CLOSE.setVisible(false);
+        slide1.setVisible(false);
+        hidecontact();
+
         afficherprodres();
    hideprods();
      Nom.setText(p.getNom());
-      
+       hidegestionpanier();
+ hidemofifprofil();
+CLOSE.setVisible(false);
+        slide1.setVisible(false);
+        hidecontact();
+
 ImageIcon image1= (ImageIcon) prodimg2.getIcon();
        Image image2= image1.getImage().getScaledInstance(photo.getWidth(),photo.getHeight(),Image.SCALE_SMOOTH);
        ImageIcon image3= new ImageIcon(image2);
@@ -2984,7 +3262,13 @@ ProduitDAO mq = new ProduitDAO();
         bkaffresesprod.setVisible(true);
         closeaffresprod.setVisible(true);
         afficherprodres();
-  
+   hidegestionpanier();
+ hidemofifprofil();
+CLOSE.setVisible(false);
+        slide1.setVisible(false);
+        hidecontact();
+          contactlog.setVisible(false);
+
      Nom.setText(p.getNom());
        hideprods();
 ImageIcon image1= (ImageIcon) prodimg3.getIcon();
@@ -3015,58 +3299,58 @@ ImageIcon image1= (ImageIcon) prodimg3.getIcon();
  liste= mq.afficherProduitpartypefmepaginate(thetype.getText(),pos) ;
         if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
            refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
            refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230,Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
           refprod4.setText(liste.get(3).getReference());
           nomprod4.setText(liste.get(3).getNom());
@@ -3076,40 +3360,40 @@ ImageIcon image1= (ImageIcon) prodimg3.getIcon();
        }
        else { if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
        } }          // TODO add your handling code here:
     }//GEN-LAST:event_nextprodstypeMouseClicked
@@ -3125,7 +3409,7 @@ ImageIcon image1= (ImageIcon) prodimg3.getIcon();
        if (liste.isEmpty()){ System.out.println("empty");}
        else if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
@@ -3133,51 +3417,51 @@ ImageIcon image1= (ImageIcon) prodimg3.getIcon();
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230,Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
           refprod4.setText(liste.get(3).getReference());
           nomprod4.setText(liste.get(3).getNom());
@@ -3195,7 +3479,7 @@ ImageIcon image1= (ImageIcon) prodimg3.getIcon();
        if (liste.isEmpty()){ System.out.println("empty");}
        else if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
@@ -3203,51 +3487,51 @@ ImageIcon image1= (ImageIcon) prodimg3.getIcon();
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
           refprod4.setText(liste.get(3).getReference());
           nomprod4.setText(liste.get(3).getNom());
@@ -3267,58 +3551,58 @@ ImageIcon image1= (ImageIcon) prodimg3.getIcon();
  liste= mq.afficherProduitnouv(pos) ;
         if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
            refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230,Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
            refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
           refprod4.setText(liste.get(3).getReference());
           nomprod4.setText(liste.get(3).getNom());
@@ -3328,40 +3612,40 @@ ImageIcon image1= (ImageIcon) prodimg3.getIcon();
        }
        else { if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230,Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
        } }          // TODO add your handling code here:        // TODO add your handling code here:
     }//GEN-LAST:event_nextnouvMouseClicked
@@ -3379,58 +3663,58 @@ pos+=3;
  liste= mq.afficherProduitnouv(pos) ;
         if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
            refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
            refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230,Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230,Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
           refprod4.setText(liste.get(3).getReference());
           nomprod4.setText(liste.get(3).getNom());
@@ -3440,40 +3724,40 @@ pos+=3;
        }
        else { if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
        } }       // TODO add your handling code here:
     }//GEN-LAST:event_nextrechMouseClicked
@@ -3489,7 +3773,7 @@ pos+=3;
        if (liste.isEmpty()){ System.out.println("empty");}
        else if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
@@ -3497,51 +3781,51 @@ pos+=3;
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
           refprod4.setText(liste.get(3).getReference());
           nomprod4.setText(liste.get(3).getNom());
@@ -3569,6 +3853,18 @@ i.show();
     private void webbrowserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_webbrowserMouseClicked
 browser=createBrowser();   // TODO add your handling code here:
     }//GEN-LAST:event_webbrowserMouseClicked
+
+    private void closecontactMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closecontactMouseClicked
+     hidecontact();
+   
+hidegestionpanier();
+hidemofifprofil();
+hideprods();
+hideaffresprod();
+CLOSE.setVisible(true);
+minim.setVisible(true);
+slide1.setVisible(true);
+    }//GEN-LAST:event_closecontactMouseClicked
     
     /**
      * @param args the command line arguments
@@ -3603,12 +3899,14 @@ browser=createBrowser();   // TODO add your handling code here:
             public void run() {
                 new HomeClientfatma().setVisible(true);
                 
+                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AccessoiresF;
+    private javax.swing.JLabel BGPRODUITS;
     private javax.swing.JLabel BasketsF;
     private javax.swing.JLabel BottesF;
     private javax.swing.JLabel CLOSE;
@@ -3817,7 +4115,7 @@ browser=createBrowser();   // TODO add your handling code here:
        if (liste.isEmpty()){ System.out.println("empty");}
        else if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
@@ -3825,51 +4123,51 @@ browser=createBrowser();   // TODO add your handling code here:
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230,Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
               refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
               refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
            refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
            refprod4.setText(liste.get(3).getReference());
           nomprod4.setText(liste.get(3).getNom());
@@ -3906,63 +4204,121 @@ browser=createBrowser();   // TODO add your handling code here:
         if (liste.isEmpty()){populateProds();}
        else if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
             thetype.setText(liste.get(0).getType());
+            
+              prodimg1.setVisible(true);
+          refprod1.setVisible(true);
+          nomprod1.setVisible(true);
+           prodimg2.setVisible(false);
+          refprod2.setVisible(false);
+          nomprod2.setVisible(false);
+          prodimg3.setVisible(false);
+          refprod3.setVisible(false);
+          nomprod3.setVisible(false);
+           prodimg4.setVisible(false);
+          refprod4.setVisible(false);
+          nomprod4.setVisible(false);
+            
+            
           
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
+          
+           prodimg1.setVisible(true);
+          refprod1.setVisible(true);
+          nomprod1.setVisible(true);
+           prodimg2.setVisible(true);
+          refprod2.setVisible(true);
+          nomprod2.setVisible(true);
+          prodimg3.setVisible(false);
+          refprod3.setVisible(false);
+          nomprod3.setVisible(false);
+           prodimg4.setVisible(false);
+          refprod4.setVisible(false);
+          nomprod4.setVisible(false);
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230,Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
               refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
               refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
+          
+             prodimg1.setVisible(true);
+          refprod1.setVisible(true);
+          nomprod1.setVisible(true);
+             prodimg2.setVisible(true);
+          refprod2.setVisible(true);
+          nomprod2.setVisible(true);
+               prodimg3.setVisible(true);
+          refprod3.setVisible(true);
+          nomprod3.setVisible(true);
+          
+             prodimg4.setVisible(false);
+          refprod4.setVisible(false);
+          nomprod4.setVisible(false);
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
            refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
            refprod4.setText(liste.get(3).getReference());
           nomprod4.setText(liste.get(3).getNom());
+          
+          
+          
+           prodimg1.setVisible(true);
+          refprod1.setVisible(true);
+          nomprod1.setVisible(true);
+             prodimg2.setVisible(true);
+          refprod2.setVisible(true);
+          nomprod2.setVisible(true);
+               prodimg3.setVisible(true);
+          refprod3.setVisible(true);
+          nomprod3.setVisible(true);
+          
+             prodimg4.setVisible(true);
+          refprod4.setVisible(true);
+          nomprod4.setVisible(true);
        }
             
             
@@ -3973,36 +4329,36 @@ browser=createBrowser();   // TODO add your handling code here:
         
 
    }
-    private void populateJTableProdprix(int value) {
-    
-     
-       ProduitDAO mq = new ProduitDAO();
-       List <Produit> liste = new ArrayList<Produit>();
-       liste= mq.afficherProduitparintprix(value) ;
-        String[] columnName = {"ref","type","Nom","Marque","Prix","Description","Photo"};
-        Object[][] rows = new Object[liste.size()][7];
-        for(int i = 0; i < liste.size(); i++){
-            rows[i][0] = liste.get(i).getReference();
-            rows[i][1] = liste.get(i).getType();
-            rows[i][2] = liste.get(i).getNom();
-             rows[i][3] = liste.get(i).getMarque().getNom();
-             rows[i][4] = liste.get(i).getPrix();
-             rows[i][5] = liste.get(i).getDescription();
-             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(i).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
-             
-
-             rows[i][6] = image;
-            
-            
-      
-        }
-        
-        TheModal modal = new TheModal(rows, columnName);
-//        jTableproduits.setModel(modal);
- //       jTableproduits.setRowHeight(120);
- //       jTableproduits.setAutoCreateRowSorter(true);
-    }
+//    private void populateJTableProdprix(int value) {
+//    
+//     
+//       ProduitDAO mq = new ProduitDAO();
+//       List <Produit> liste = new ArrayList<Produit>();
+////       liste= mq.afficherProduitparintprix(value) ;
+//        String[] columnName = {"ref","type","Nom","Marque","Prix","Description","Photo"};
+//        Object[][] rows = new Object[liste.size()][7];
+//        for(int i = 0; i < liste.size(); i++){
+//            rows[i][0] = liste.get(i).getReference();
+//            rows[i][1] = liste.get(i).getType();
+//            rows[i][2] = liste.get(i).getNom();
+//             rows[i][3] = liste.get(i).getMarque().getNom();
+//             rows[i][4] = liste.get(i).getPrix();
+//             rows[i][5] = liste.get(i).getDescription();
+//             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(i).getPhoto()).getImage()
+//             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
+//             
+//
+//             rows[i][6] = image;
+//            
+//            
+//      
+//        }
+//        
+//        TheModal modal = new TheModal(rows, columnName);
+////        jTableproduits.setModel(modal);
+// //       jTableproduits.setRowHeight(120);
+// //       jTableproduits.setAutoCreateRowSorter(true);
+//    }
 
    
     private void SetIcon() {
@@ -4075,13 +4431,17 @@ browser=createBrowser();   // TODO add your handling code here:
 ClientDao edao = new ClientDao();
         
 int idc=edao.researchid(loginclient.getText());
-       CommentaireDAO cdao= new CommentaireDAO();
-        List <Commentaire> liste = new ArrayList<Commentaire>();
-   liste=cdao.affichercommentairesPROD(reference.getText());
+       CommentDAO cdao= new CommentDAO();
+        List <Comment> liste = new ArrayList<Comment>();
+       ProduitDAO pdao= new ProduitDAO();
+       Produit prod= pdao.findProduitByReference(reference.getText());
+               
+               
+   liste=cdao.affichercommentairesPROD(prod.getId());
 
     for(int i = 0; i < liste.size(); i++){
-        System.out.println(liste.get(i).getClient().getLogin());
-  if (liste.get(i).getClient().getLogin().equals(loginclient.getText())){
+        System.out.println(liste.get(i).getAuthor().getLogin());
+  if (liste.get(i).getAuthor().getLogin().equals(loginclient.getText())){
    if(i==0){ supp1.setVisible(true);   c1.setText(Integer.toString(liste.get(0).getId()));}
  else  if(i==1){ supp2.setVisible(true);  
   c2.setText(Integer.toString(liste.get(1).getId()));
@@ -4128,7 +4488,7 @@ int idc=edao.researchid(loginclient.getText());
        
       
 
-     else if (liste.size()==1) {  client1.setText(liste.get(0).getClient().getLogin());  commentaire1.setText(liste.get(0).getDescription()); 
+     else if (liste.size()==1) {  client1.setText(liste.get(0).getAuthor().getLogin());  commentaire1.setText(liste.get(0).getBody()); 
 
       
       
@@ -4156,16 +4516,16 @@ int idc=edao.researchid(loginclient.getText());
           c1.setText(Integer.toString(liste.get(0).getId()));
        
        }
-   else if (liste.size()==2) {  client1.setText(liste.get(0).getClient().getLogin());  
+   else if (liste.size()==2) {  client1.setText(liste.get(0).getAuthor().getLogin());  
  
-   commentaire1.setText(liste.get(0).getDescription());
+   commentaire1.setText(liste.get(0).getBody());
    cli1.setVisible(true);
      cli2.setVisible(true);
      cli3.setVisible(false);
       cli4.setVisible(false);
        cli5.setVisible(false);
-   client2.setText(liste.get(1).getClient().getLogin());     
-   commentaire2.setText(liste.get(1).getDescription());
+   client2.setText(liste.get(1).getAuthor().getLogin());     
+   commentaire2.setText(liste.get(1).getBody());
      
 client1.setVisible(true);
    client2.setVisible(true);
@@ -4192,11 +4552,11 @@ client1.setVisible(true);
    
    
    }
-   else if (liste.size()==3) {  client1.setText(liste.get(0).getClient().getLogin()); 
-   commentaire1.setText(liste.get(0).getDescription());  client2.setText(liste.get(1).getClient().getLogin());  
-   commentaire2.setText(liste.get(1).getDescription());
-   client3.setText(liste.get(2).getClient().getLogin()); 
-     commentaire3.setText(liste.get(2).getDescription());
+   else if (liste.size()==3) {  client1.setText(liste.get(0).getAuthor().getLogin()); 
+   commentaire1.setText(liste.get(0).getBody());  client2.setText(liste.get(1).getAuthor().getLogin());  
+   commentaire2.setText(liste.get(1).getBody());
+   client3.setText(liste.get(2).getAuthor().getLogin()); 
+     commentaire3.setText(liste.get(2).getBody());
  
    client1.setVisible(true);
    client2.setVisible(true);
@@ -4229,13 +4589,13 @@ client1.setVisible(true);
    
    
    
-   else if (liste.size()==4) {  client1.setText(liste.get(0).getClient().getLogin());  
-   commentaire1.setText(liste.get(0).getDescription());  client2.setText(liste.get(1).getClient().getLogin());   
-   commentaire2.setText(liste.get(1).getDescription());
-   client3.setText(liste.get(2).getClient().getLogin()); 
-     commentaire3.setText(liste.get(2).getDescription());
-   client4.setText(liste.get(3).getClient().getLogin()); 
-    commentaire4.setText(liste.get(3).getDescription());
+   else if (liste.size()==4) {  client1.setText(liste.get(0).getAuthor().getLogin());  
+   commentaire1.setText(liste.get(0).getBody());  client2.setText(liste.get(1).getAuthor().getLogin());   
+   commentaire2.setText(liste.get(1).getBody());
+   client3.setText(liste.get(2).getAuthor().getLogin()); 
+     commentaire3.setText(liste.get(2).getBody());
+   client4.setText(liste.get(3).getAuthor().getLogin()); 
+    commentaire4.setText(liste.get(3).getBody());
    
      client1.setVisible(true);
    client2.setVisible(true);
@@ -4267,16 +4627,16 @@ client1.setVisible(true);
 
 
    }
-   else  {  client1.setText(liste.get(0).getClient().getLogin());  
-   commentaire1.setText(liste.get(0).getDescription());  client2.setText(liste.get(1).getClient().getLogin()); 
-   commentaire2.setText(liste.get(1).getDescription());
-   client3.setText(liste.get(2).getClient().getLogin()); 
-     commentaire3.setText(liste.get(2).getDescription());
-   client4.setText(liste.get(3).getClient().getLogin()); 
-    commentaire4.setText(liste.get(3).getDescription());
-    client5.setText(liste.get(4).getClient().getLogin()); 
+   else  {  client1.setText(liste.get(0).getAuthor().getLogin());  
+   commentaire1.setText(liste.get(0).getBody());  client2.setText(liste.get(1).getAuthor().getLogin()); 
+   commentaire2.setText(liste.get(1).getBody());
+   client3.setText(liste.get(2).getAuthor().getLogin()); 
+     commentaire3.setText(liste.get(2).getBody());
+   client4.setText(liste.get(3).getAuthor().getLogin()); 
+    commentaire4.setText(liste.get(3).getBody());
+    client5.setText(liste.get(4).getAuthor().getLogin()); 
     
-      commentaire5.setText(liste.get(4).getDescription());
+      commentaire5.setText(liste.get(4).getBody());
           client1.setVisible(true);
    client2.setVisible(true);
    client3.setVisible(true);
@@ -4346,7 +4706,7 @@ int idc=edao.researchid(loginclient.getText());
             
            
              ImageIcon image = new ImageIcon(new ImageIcon(liste.get(i).getProduit().getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
 
              rows[i][3] = image;
             
@@ -4514,7 +4874,7 @@ timer.start();
        if (liste.isEmpty()){ System.out.println("empty");}
        else if (liste.size()==1){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
@@ -4523,51 +4883,51 @@ timer.start();
        }
            else if (liste.size()==2){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
           refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
           refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
        }
          else if (liste.size()==3){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
               refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
               refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
        }
         else if (liste.size()==4){
             ImageIcon image = new ImageIcon(new ImageIcon(liste.get(0).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg1.setIcon(image);
            refprod1.setText(liste.get(0).getReference());
           nomprod1.setText(liste.get(0).getNom());
           ImageIcon image1 = new ImageIcon(new ImageIcon(liste.get(1).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg2.setIcon(image1);
             refprod2.setText(liste.get(1).getReference());
           nomprod2.setText(liste.get(1).getNom());
             ImageIcon image2 = new ImageIcon(new ImageIcon(liste.get(2).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg3.setIcon(image2);
           refprod3.setText(liste.get(2).getReference());
           nomprod3.setText(liste.get(2).getNom());
              ImageIcon image3 = new ImageIcon(new ImageIcon(liste.get(3).getPhoto()).getImage()
-             .getScaledInstance(150, 120, Image.SCALE_SMOOTH) );   
+             .getScaledInstance(220,230, Image.SCALE_SMOOTH) );   
           prodimg4.setIcon(image3);
            refprod4.setText(liste.get(3).getReference());
           nomprod4.setText(liste.get(3).getNom());
@@ -4576,6 +4936,11 @@ timer.start();
     }
 
     private void hideprods() {
+         recherchetext.setVisible(false);
+        pricepref.setVisible(false);
+         tooltiipptice.setVisible(false);
+     prixmax.setVisible(false);
+          BGPRODUITS.setVisible(false);
           previousnouv.setVisible(false);
           nextnouv.setVisible(false);
           previousprods.setVisible(false);
@@ -4600,6 +4965,11 @@ timer.start();
     }
  private void showprods() 
  {
+     recherchetext.setVisible(true);
+     pricepref.setVisible(true);
+     tooltiipptice.setVisible(true);
+     prixmax.setVisible(true);
+     BGPRODUITS.setVisible(true);
             slide1.setVisible(false);
           previousnouv.setVisible(true);
           nextnouv.setVisible(true);
@@ -4621,6 +4991,8 @@ timer.start();
           refprod2.setVisible(true);
           refprod3.setVisible(true);
           refprod4.setVisible(true);
+          CLOSE.setVisible(true);
+          minim.setVisible(true);
                   
     }
 private Pane createBrowser() {
@@ -4672,6 +5044,14 @@ private Pane createBrowser() {
                 new ColumnConstraints(40, 40, 40, Priority.NEVER, HPos.CENTER, true));
         grid.getChildren().addAll(locationField, goButton, warningLabel, view);
         return grid;
+    }
+
+    private void hidecontact() {
+         contactform.setVisible(false);
+        closecontact.setVisible(false);
+jTextArearObject.setVisible(false);  
+ contactform.setVisible(false);
+ slide1.setVisible(true);
     }
 
 }
