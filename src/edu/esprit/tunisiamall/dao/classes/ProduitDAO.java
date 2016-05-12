@@ -374,12 +374,12 @@ public class ProduitDAO implements IProduitDAO{
      
      
      
-      public List<Produit> afficherProduitparintprix(int prix) {
+      public List<Produit> afficherProduitparintprix(int prix,int pos) {
 
         List<Produit> produits = new ArrayList<>();
         Marque e ;
         Produit p;
-        String req4= "SELECT `REFERENCE`,p.`NOM`,`ID_MARQUE`,p.`TYPE`,`PRIX`,`DESCRIPTION` ,`PHOTO`, m.nom FROM  `produit`p INNER JOIN marque m ON m.id = p.ID_MARQUE where PRIX<"+prix+" ";
+        String req4= "SELECT `REFERENCE`,p.`NOM`,`ID_MARQUE`,p.`TYPE`,`PRIX`,`DESCRIPTION` ,`PHOTO`, m.nom FROM  `produit`p INNER JOIN marque m ON m.id = p.ID_MARQUE where PRIX<"+prix+" limit "+pos+",4";
       
             ResultSet res = null  ;
         try {

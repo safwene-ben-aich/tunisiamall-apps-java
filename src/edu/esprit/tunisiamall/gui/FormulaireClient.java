@@ -73,18 +73,20 @@ public class FormulaireClient extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableClient1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
+        bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        exit.setForeground(new java.awt.Color(0, 204, 153));
         exit.setText("Retour");
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitActionPerformed(evt);
             }
         });
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, 80, 30));
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, 80, 30));
 
         tableClient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -138,7 +140,10 @@ public class FormulaireClient extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Californian FB", 1, 36)); // NOI18N
         jLabel2.setText("Liste des clients");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 260, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 260, -1));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/adminclient.png"))); // NOI18N
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -295,6 +300,7 @@ public class FormulaireClient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel bg;
     private javax.swing.JButton exit;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

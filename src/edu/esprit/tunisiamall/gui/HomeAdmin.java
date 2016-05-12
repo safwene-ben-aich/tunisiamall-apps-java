@@ -35,11 +35,14 @@ public class HomeAdmin extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        Clientbtn = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        add1 = new javax.swing.JButton();
+        add1 = new javax.swing.JLabel();
+        client = new javax.swing.JLabel();
+        bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(964, 570));
+        setMinimumSize(new java.awt.Dimension(964, 570));
+        setPreferredSize(new java.awt.Dimension(964, 570));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
@@ -47,42 +50,39 @@ public class HomeAdmin extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 30, 40));
 
-        Clientbtn.setText("Client");
-        Clientbtn.setToolTipText("");
-        Clientbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ClientbtnActionPerformed(evt);
+        add1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                add1MouseClicked(evt);
             }
         });
-        getContentPane().add(Clientbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 180, 40));
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, -1));
+        getContentPane().add(add1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 190, 190));
 
-        add1.setText("Responsable D'enseigne");
-        add1.setToolTipText("");
-        add1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                add1ActionPerformed(evt);
+        client.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clientMouseClicked(evt);
             }
         });
-        getContentPane().add(add1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 180, 40));
+        getContentPane().add(client, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 180, 190));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/homeadmin.png"))); // NOI18N
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ClientbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClientbtnActionPerformed
-        // TODO add your handling code here:
-       FormulaireClient formulaireClient = new FormulaireClient();
-       formulaireClient.setVisible(true);
-       this.setVisible(false);
-    }//GEN-LAST:event_ClientbtnActionPerformed
-
-    private void add1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_add1ActionPerformed
+    private void add1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_add1MouseClicked
         // TODO add your handling code here:
         Formulairresp formulairresp = new Formulairresp();
         formulairresp.setVisible(true);
-        this.setVisible(false);
-        
-    }//GEN-LAST:event_add1ActionPerformed
+        this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_add1MouseClicked
+
+    private void clientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clientMouseClicked
+       FormulaireClient formulaireClient = new FormulaireClient();
+       formulaireClient.setVisible(true);
+       this.setVisible(false);
+       // TODO add your handling code here:
+    }//GEN-LAST:event_clientMouseClicked
 
     /**
      * @param args the command line arguments
@@ -127,10 +127,10 @@ public class HomeAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Clientbtn;
-    private javax.swing.JButton add1;
+    private javax.swing.JLabel add1;
+    private javax.swing.JLabel bg;
+    private javax.swing.JLabel client;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

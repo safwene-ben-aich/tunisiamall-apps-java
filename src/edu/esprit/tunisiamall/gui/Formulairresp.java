@@ -73,39 +73,27 @@ public class Formulairresp extends javax.swing.JFrame {
     private void initComponents() {
 
         cin = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabelSexe = new javax.swing.JLabel();
         nom = new javax.swing.JTextField();
         prenom = new javax.swing.JTextField();
         add = new javax.swing.JButton();
         delete = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tableresp = new javax.swing.JTable();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         password = new javax.swing.JTextField();
         mail = new javax.swing.JTextField();
         login = new javax.swing.JTextField();
         adresse = new javax.swing.JTextField();
         findtxt = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         Telephone = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
         exit = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         bloc = new javax.swing.JButton();
         mailbtt = new javax.swing.JButton();
         qrcodeJtextfield = new javax.swing.JTextField();
-        QRCodejLabel = new javax.swing.JLabel();
         imageJtextField = new javax.swing.JTextField();
-        ImageJLabel = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jRadioButtonFemmeSexe = new javax.swing.JRadioButton();
         jRadioButtonHommeSexe = new javax.swing.JRadioButton();
+        bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestion Responsable");
@@ -117,21 +105,9 @@ public class Formulairresp extends javax.swing.JFrame {
                 cinActionPerformed(evt);
             }
         });
-        getContentPane().add(cin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 190, 30));
-
-        jLabel2.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
-        jLabel2.setText("CIN :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 60, -1));
-
-        jLabel3.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
-        jLabel3.setText("Nom : ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
-
-        jLabelSexe.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
-        jLabelSexe.setText("Sexe :");
-        getContentPane().add(jLabelSexe, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
-        getContentPane().add(nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 190, 30));
-        getContentPane().add(prenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 190, 30));
+        getContentPane().add(cin, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 190, 30));
+        getContentPane().add(nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 190, 30));
+        getContentPane().add(prenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 190, 30));
 
         add.setText("Ajouter");
         add.addActionListener(new java.awt.event.ActionListener() {
@@ -159,33 +135,17 @@ public class Formulairresp extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(Tableresp);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, 820, 130));
-
-        jLabel5.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
-        jLabel5.setText("Login :");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
-        jLabel6.setText("Mail :");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
-        jLabel7.setText("Adresse :");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
-        jLabel8.setText("Password :");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
-        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 190, 30));
-        getContentPane().add(mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, 190, 30));
-        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 190, 30));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 820, 130));
+        getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 190, 30));
+        getContentPane().add(mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, 190, 30));
+        getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 190, 30));
 
         adresse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 adresseActionPerformed(evt);
             }
         });
-        getContentPane().add(adresse, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 190, 30));
+        getContentPane().add(adresse, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 170, 190, 30));
 
         findtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,22 +160,14 @@ public class Formulairresp extends javax.swing.JFrame {
                 findtxtKeyReleased(evt);
             }
         });
-        getContentPane().add(findtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, 190, 30));
-
-        jLabel11.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
-        jLabel11.setText("Chercher :");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, -1, -1));
+        getContentPane().add(findtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 530, 190, 30));
 
         Telephone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TelephoneActionPerformed(evt);
             }
         });
-        getContentPane().add(Telephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, 190, 30));
-
-        jLabel9.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
-        jLabel9.setText("Téléphone :");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, -1, -1));
+        getContentPane().add(Telephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, 190, 30));
 
         exit.setText("Retour");
         exit.addActionListener(new java.awt.event.ActionListener() {
@@ -223,11 +175,7 @@ public class Formulairresp extends javax.swing.JFrame {
                 exitActionPerformed(evt);
             }
         });
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, 80, 30));
-
-        jLabel1.setFont(new java.awt.Font("Sitka Text", 0, 18)); // NOI18N
-        jLabel1.setText("Gestion de Responsable ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 220, 40));
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 30, 80, 30));
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         bloc.setText("Bloquer");
@@ -251,33 +199,24 @@ public class Formulairresp extends javax.swing.JFrame {
                 qrcodeJtextfieldActionPerformed(evt);
             }
         });
-        getContentPane().add(qrcodeJtextfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 190, 30));
-
-        QRCodejLabel.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
-        QRCodejLabel.setText("QRCode : ");
-        getContentPane().add(QRCodejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, -1, -1));
+        getContentPane().add(qrcodeJtextfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 450, 190, 30));
 
         imageJtextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 imageJtextFieldActionPerformed(evt);
             }
         });
-        getContentPane().add(imageJtextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 140, 190, 30));
-
-        ImageJLabel.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
-        ImageJLabel.setText("Image : ");
-        getContentPane().add(ImageJLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
-
-        jLabel13.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
-        jLabel13.setText("Prenom :");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        getContentPane().add(imageJtextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, 190, 30));
 
         jRadioButtonFemmeSexe.setText("Femme");
-        getContentPane().add(jRadioButtonFemmeSexe, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
+        getContentPane().add(jRadioButtonFemmeSexe, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
 
         jRadioButtonHommeSexe.setSelected(true);
         jRadioButtonHommeSexe.setText("Homme");
-        getContentPane().add(jRadioButtonHommeSexe, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
+        getContentPane().add(jRadioButtonHommeSexe, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, -1));
+
+        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/adminresp.png"))); // NOI18N
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 4, 1010, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -730,30 +669,18 @@ public static class Recherche extends DefaultTableCellRenderer {
 		}
 	}
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel ImageJLabel;
-    private javax.swing.JLabel QRCodejLabel;
     private javax.swing.JTable Tableresp;
     private javax.swing.JTextField Telephone;
     private javax.swing.JButton add;
     private javax.swing.JTextField adresse;
+    private javax.swing.JLabel bg;
     private javax.swing.JButton bloc;
     private javax.swing.JTextField cin;
     private javax.swing.JButton delete;
     private javax.swing.JButton exit;
     private javax.swing.JTextField findtxt;
     private javax.swing.JTextField imageJtextField;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelSexe;
     private javax.swing.JRadioButton jRadioButtonFemmeSexe;
     private javax.swing.JRadioButton jRadioButtonHommeSexe;
     private javax.swing.JScrollPane jScrollPane1;
