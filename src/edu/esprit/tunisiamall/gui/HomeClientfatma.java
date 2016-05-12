@@ -316,7 +316,7 @@ hideprods();
                 webbrowserMouseClicked(evt);
             }
         });
-        getContentPane().add(webbrowser, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 690, -1, -1));
+        getContentPane().add(webbrowser, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 690, -1, -1));
 
         chat.setText("voulez vous joindre le chat !! ");
         chat.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -324,7 +324,7 @@ hideprods();
                 chatMouseClicked(evt);
             }
         });
-        getContentPane().add(chat, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 690, -1, -1));
+        getContentPane().add(chat, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 690, -1, -1));
 
         previousprods.setText("jLabel1");
         previousprods.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -340,7 +340,7 @@ hideprods();
                 regardervidMouseClicked(evt);
             }
         });
-        getContentPane().add(regardervid, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 690, 190, -1));
+        getContentPane().add(regardervid, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 690, 190, -1));
 
         nextprods.setText("next");
         nextprods.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -355,7 +355,7 @@ hideprods();
                 prodimg1MouseClicked(evt);
             }
         });
-        getContentPane().add(prodimg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 220, 160));
+        getContentPane().add(prodimg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 220, 160));
 
         prodimg2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -581,8 +581,8 @@ hideprods();
         getContentPane().add(recherchetext, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 130, 210, 30));
         recherchetext.getAccessibleContext().setAccessibleName("");
 
-        ptfidelite.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        ptfidelite.setForeground(new java.awt.Color(255, 255, 255));
+        ptfidelite.setFont(new java.awt.Font("Myanmar Text", 0, 11)); // NOI18N
+        ptfidelite.setForeground(new java.awt.Color(51, 51, 51));
         ptfidelite.setText("Afficher mes cartes de fidélité");
         ptfidelite.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -610,7 +610,7 @@ hideprods();
                 profilMouseClicked(evt);
             }
         });
-        getContentPane().add(profil, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 120, 40, 40));
+        getContentPane().add(profil, new org.netbeans.lib.awtextra.AbsoluteConstraints(1195, 50, 40, 40));
 
         menutriangle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/menu.png"))); // NOI18N
         menutriangle.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -706,11 +706,10 @@ hideprods();
 
         getContentPane().add(jTextArearObject, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, -1, 400));
 
-        contactlog.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        contactlog.setForeground(new java.awt.Color(255, 255, 255));
+        contactlog.setFont(new java.awt.Font("Myanmar Text", 0, 11)); // NOI18N
+        contactlog.setForeground(new java.awt.Color(51, 51, 51));
         contactlog.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         contactlog.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/cont.png"))); // NOI18N
-        contactlog.setText("Voulez vous nous contactez ?");
         contactlog.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         contactlog.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -723,7 +722,7 @@ hideprods();
                 contactlogMouseExited(evt);
             }
         });
-        getContentPane().add(contactlog, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+        getContentPane().add(contactlog, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 55, -1, -1));
 
         contactform.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/contact.png"))); // NOI18N
         contactform.setText("jLabel1");
@@ -787,24 +786,20 @@ hideprods();
         getContentPane().add(closeaffresprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 10, -1, 40));
 
         reference.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        reference.setForeground(new java.awt.Color(255, 255, 255));
         reference.setText("jLabel1");
-        getContentPane().add(reference, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 240, 230, 30));
+        getContentPane().add(reference, new org.netbeans.lib.awtextra.AbsoluteConstraints(1025, 280, 230, 30));
 
         marque.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        marque.setForeground(new java.awt.Color(255, 255, 255));
         marque.setText("jLabel2");
-        getContentPane().add(marque, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 269, 240, 30));
+        getContentPane().add(marque, new org.netbeans.lib.awtextra.AbsoluteConstraints(1005, 320, 240, 30));
 
-        prix.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        prix.setForeground(new java.awt.Color(255, 255, 255));
+        prix.setFont(new java.awt.Font("Myanmar Text", 1, 14)); // NOI18N
         prix.setText("jLabel1");
-        getContentPane().add(prix, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 338, 270, 30));
+        getContentPane().add(prix, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 250, 270, 30));
 
         type.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        type.setForeground(new java.awt.Color(255, 255, 255));
         type.setText("jLabel1");
-        getContentPane().add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 300, 250, 30));
+        getContentPane().add(type, new org.netbeans.lib.awtextra.AbsoluteConstraints(975, 365, 250, 30));
 
         jScrolldesc.setBackground(new java.awt.Color(101, 111, 155));
         jScrolldesc.setForeground(new java.awt.Color(255, 255, 255));
@@ -814,10 +809,9 @@ hideprods();
         jScrolldesc.setViewportView(desc);
 
         getContentPane().add(jScrolldesc, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 410, 300, 140));
-        getContentPane().add(photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 240, 190, 300));
+        getContentPane().add(photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 250, 190, 300));
 
-        Nom.setFont(new java.awt.Font("MV Boli", 1, 18)); // NOI18N
-        Nom.setForeground(new java.awt.Color(255, 255, 255));
+        Nom.setFont(new java.awt.Font("Myanmar Text", 1, 18)); // NOI18N
         Nom.setText("jLabel1");
         getContentPane().add(Nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 180, 500, 40));
 
@@ -840,95 +834,79 @@ hideprods();
                 commentaaireActionPerformed(evt);
             }
         });
-        getContentPane().add(commentaaire, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 440, 30));
+        getContentPane().add(commentaaire, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 265, 440, 30));
 
         commentt.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/COM.png"))); // NOI18N
-        getContentPane().add(commentt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 460, 70));
+        getContentPane().add(commentt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 460, 70));
 
-        commentaire1.setForeground(new java.awt.Color(255, 255, 255));
         commentaire1.setText("jLabel1");
-        getContentPane().add(commentaire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 440, 40));
+        getContentPane().add(commentaire1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 440, 40));
 
-        commentaire2.setForeground(new java.awt.Color(255, 255, 255));
         commentaire2.setText("jLabel1");
-        getContentPane().add(commentaire2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 430, 40));
+        getContentPane().add(commentaire2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, 430, 40));
 
-        commentaire3.setForeground(new java.awt.Color(255, 255, 255));
         commentaire3.setText("jLabel1");
-        getContentPane().add(commentaire3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 440, 50));
+        getContentPane().add(commentaire3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, 440, 50));
 
-        commentaire4.setForeground(new java.awt.Color(255, 255, 255));
         commentaire4.setText("jLabel1");
-        getContentPane().add(commentaire4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, 440, 40));
+        getContentPane().add(commentaire4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, 440, 40));
 
-        commentaire5.setForeground(new java.awt.Color(255, 255, 255));
         commentaire5.setText("jLabel1");
-        getContentPane().add(commentaire5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 580, 440, 40));
+        getContentPane().add(commentaire5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 640, 440, 40));
 
-        comment1.setForeground(new java.awt.Color(255, 0, 0));
         comment1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/COM.png"))); // NOI18N
-        getContentPane().add(comment1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 460, 60));
+        getContentPane().add(comment1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, 460, 60));
 
         comment2.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        comment2.setForeground(new java.awt.Color(255, 255, 255));
         comment2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/COM.png"))); // NOI18N
-        getContentPane().add(comment2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 460, 70));
+        getContentPane().add(comment2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 460, 70));
 
         comment3.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        comment3.setForeground(new java.awt.Color(255, 255, 255));
         comment3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/COM.png"))); // NOI18N
-        getContentPane().add(comment3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, 460, 60));
+        getContentPane().add(comment3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 470, 460, 60));
 
         comment4.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        comment4.setForeground(new java.awt.Color(255, 255, 255));
         comment4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/COM.png"))); // NOI18N
-        getContentPane().add(comment4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 500, -1, 60));
+        getContentPane().add(comment4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 545, -1, 60));
 
         comment5.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        comment5.setForeground(new java.awt.Color(255, 255, 255));
         comment5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/COM.png"))); // NOI18N
-        comment5.setText("jLabel1");
-        getContentPane().add(comment5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 570, 460, 60));
+        getContentPane().add(comment5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 620, 460, 60));
 
         cli1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/cli1.png"))); // NOI18N
-        getContentPane().add(cli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 40, 40));
+        getContentPane().add(cli1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 320, 40, 40));
 
         cli2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/cli2.png"))); // NOI18N
-        getContentPane().add(cli2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, -1, -1));
+        getContentPane().add(cli2, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 395, -1, -1));
 
         cli3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/cli3.png"))); // NOI18N
-        getContentPane().add(cli3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 430, -1, 40));
+        getContentPane().add(cli3, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 472, -1, 40));
 
         cli4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/cli4.png"))); // NOI18N
-        getContentPane().add(cli4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, -1, -1));
+        getContentPane().add(cli4, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 550, -1, -1));
 
         cli5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/cli5.png"))); // NOI18N
-        getContentPane().add(cli5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 580, -1, -1));
+        getContentPane().add(cli5, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 625, -1, -1));
 
         client1.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        client1.setForeground(new java.awt.Color(255, 255, 255));
         client1.setText("jLabel2");
-        getContentPane().add(client1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 90, 20));
+        getContentPane().add(client1, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 365, 90, 20));
 
         client2.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        client2.setForeground(new java.awt.Color(255, 255, 255));
         client2.setText("jLabel1");
-        getContentPane().add(client2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 90, -1));
+        getContentPane().add(client2, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 435, 90, -1));
 
         client3.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        client3.setForeground(new java.awt.Color(255, 255, 255));
         client3.setText("jLabel1");
-        getContentPane().add(client3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 80, 20));
+        getContentPane().add(client3, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 513, 80, 20));
 
         client4.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        client4.setForeground(new java.awt.Color(255, 255, 255));
         client4.setText("jLabel1");
-        getContentPane().add(client4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 550, 90, -1));
+        getContentPane().add(client4, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 585, 90, -1));
 
         client5.setFont(new java.awt.Font("MV Boli", 0, 11)); // NOI18N
-        client5.setForeground(new java.awt.Color(255, 255, 255));
         client5.setText("jLabel1");
-        getContentPane().add(client5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 620, 90, -1));
+        getContentPane().add(client5, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 665, 90, -1));
 
         supp1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/x.png"))); // NOI18N
         supp1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -936,7 +914,7 @@ hideprods();
                 supp1MouseClicked(evt);
             }
         });
-        getContentPane().add(supp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, -1, -1));
+        getContentPane().add(supp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 335, -1, -1));
 
         supp2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/x.png"))); // NOI18N
         supp2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -944,7 +922,7 @@ hideprods();
                 supp2MouseClicked(evt);
             }
         });
-        getContentPane().add(supp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 40, -1));
+        getContentPane().add(supp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, 40, -1));
 
         supp3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/x.png"))); // NOI18N
         supp3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -952,7 +930,7 @@ hideprods();
                 supp3MouseClicked(evt);
             }
         });
-        getContentPane().add(supp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, -1, -1));
+        getContentPane().add(supp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 490, -1, -1));
 
         supp4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/x.png"))); // NOI18N
         supp4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -960,7 +938,7 @@ hideprods();
                 supp4MouseClicked(evt);
             }
         });
-        getContentPane().add(supp4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, -1, -1));
+        getContentPane().add(supp4, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 555, -1, -1));
 
         supp5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/x.png"))); // NOI18N
         supp5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -968,14 +946,14 @@ hideprods();
                 supp5MouseClicked(evt);
             }
         });
-        getContentPane().add(supp5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 590, -1, -1));
+        getContentPane().add(supp5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 635, -1, -1));
 
-        bkaffresesprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/affichProd.png"))); // NOI18N
+        bkaffresesprod.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/clientproduitsingle.png"))); // NOI18N
         getContentPane().add(bkaffresesprod, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 720));
 
-        loginclient.setFont(new java.awt.Font("MV Boli", 0, 48)); // NOI18N
-        loginclient.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(loginclient, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 74, 200, 30));
+        loginclient.setFont(new java.awt.Font("Nirmala UI Semilight", 0, 20)); // NOI18N
+        loginclient.setForeground(new java.awt.Color(102, 102, 102));
+        getContentPane().add(loginclient, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 5, 200, 30));
 
         jTablepanier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1041,7 +1019,7 @@ hideprods();
                 accueilMouseClicked(evt);
             }
         });
-        getContentPane().add(accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 100, 40));
+        getContentPane().add(accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 100, 40));
 
         slide1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/affichProd.png"))); // NOI18N
         slide1.setMaximumSize(new java.awt.Dimension(650, 360));
@@ -1049,7 +1027,7 @@ hideprods();
         slide1.setPreferredSize(new java.awt.Dimension(650, 360));
         getContentPane().add(slide1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 650, 360));
 
-        bglabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/home.png"))); // NOI18N
+        bglabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/homeclient.png"))); // NOI18N
         getContentPane().add(bglabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         Sidemenutitre.setText("Femme");
@@ -1065,28 +1043,28 @@ hideprods();
                 FemmeMouseClicked(evt);
             }
         });
-        getContentPane().add(Femme, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 140, 50));
+        getContentPane().add(Femme, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 130, 50));
 
         Homme.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HommeMouseClicked(evt);
             }
         });
-        getContentPane().add(Homme, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 150, 50));
+        getContentPane().add(Homme, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 100, 50));
 
         Enfants.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 EnfantsMouseClicked(evt);
             }
         });
-        getContentPane().add(Enfants, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 160, 50));
+        getContentPane().add(Enfants, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 95, 50));
 
         Nouveautes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 NouveautesMouseClicked(evt);
             }
         });
-        getContentPane().add(Nouveautes, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, 190, 50));
+        getContentPane().add(Nouveautes, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 180, 50));
 
         pricepref.setBackground(new java.awt.Color(255, 255, 255));
         pricepref.setForeground(new java.awt.Color(255, 255, 255));
@@ -1112,12 +1090,13 @@ hideprods();
         tooltiipptice.setText("3000");
         getContentPane().add(tooltiipptice, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 230, -1, -1));
 
+        afpanier.setText("FFFF");
         afpanier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 afpanierMouseClicked(evt);
             }
         });
-        getContentPane().add(afpanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(1084, 124, 40, 40));
+        getContentPane().add(afpanier, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 50, 40, 40));
 
         pantalonsE.setText("pantalons");
         pantalonsE.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2494,6 +2473,7 @@ hideprods();
     private void jTablepanierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablepanierMouseClicked
      jTablepanier.setVisible(false);
      jScrollPanier.setVisible(false);
+     VALIDpanier.setVisible(false);
       hideprods();
       affichergespanier();
       int index =jTablepanier.getSelectedRow();
@@ -2602,7 +2582,7 @@ hidegestionpanier();       // TODO add your handling code here:
     }//GEN-LAST:event_VALIDpanierMouseClicked
 
     private void contactlogMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactlogMouseEntered
-contactlog.setForeground(Color.GRAY);         // TODO add your handling code here:
+contactlog.setForeground(Color.BLUE);         // TODO add your handling code here:
     }//GEN-LAST:event_contactlogMouseEntered
 
     private void contactlogMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactlogMouseClicked
@@ -2762,7 +2742,7 @@ ClientDao cdao= new ClientDao();
     }//GEN-LAST:event_adressemodifActionPerformed
 
     private void contactlogMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactlogMouseExited
-contactlog.setForeground(Color.WHITE);        // TODO add your handling code here:
+contactlog.setForeground(Color.BLACK);        // TODO add your handling code here:
     }//GEN-LAST:event_contactlogMouseExited
 
     private void accueilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_accueilMouseClicked

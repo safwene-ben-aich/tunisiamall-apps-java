@@ -43,13 +43,15 @@ public class Client extends User {
     }
 
     public Client(String login,String nom, String prenom, String email,String Adresse,int etat) {
-        super(login);
+       super(login);
         this.nom = nom;
         this.prenom = prenom;
         this.mail = email;
         this.Etat = etat;
         this.adresse = Adresse;
     }
+
+  
 
     public Client(String nom, String prenom, String email, String sexe, String Adresse, int id, String login, String password) {
         super(id, login, password);

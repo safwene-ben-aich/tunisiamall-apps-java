@@ -62,7 +62,7 @@ public class ClientDao {
                        res.getString("username"),
                        res.getString("NOM"),
                        res.getString("PRENOM"),
-                       res.getString("MAIL"),
+                       res.getString("EMAIL"),
                        res.getString("ADRESSE"),
                        res.getInt("ETAT")
                        );
@@ -72,6 +72,7 @@ public class ClientDao {
         } catch (SQLException ex) {
             Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println(liste);
         return liste;
     }
 
@@ -119,10 +120,11 @@ public class ClientDao {
             ResultSet res1 =  ste.executeQuery(req4);
             while (res1.next()) {
                clt= new Client(
-                       res1.getString("email"),
+                       res1.getString("username"),
+                  
                        res1.getString("NOM"),
                        res1.getString("PRENOM"),
-                       res1.getString("MAIL"),
+                       res1.getString("EMAIL"),
                        res1.getString("ADRESSE"),
                        res1.getInt("ETAT")
                        );
@@ -389,7 +391,7 @@ public class ClientDao {
            res.next();
            //String nom, String prenom, String email, String sexe, int id, String login, String password
            //(String nom, String prenom, String email, String sexe, String Adresse, String login, String password) 
-               etd= new Client(res.getString("nom"),res.getString("prenom"),res.getString("EMAIL"),res.getString("sexe"),res.getString("ADRESSE"),res.getInt("ID"),res.getString("login"),res.getString("password"));
+               etd= new Client(res.getString("nom"),res.getString("prenom"),res.getString("EMAIL"),res.getString("sexe"),res.getString("ADRESSE"),res.getInt("ID"),res.getString("username"),res.getString("password"));
                        
                       
             
