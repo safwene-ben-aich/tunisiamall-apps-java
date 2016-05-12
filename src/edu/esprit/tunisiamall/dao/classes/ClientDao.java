@@ -391,7 +391,7 @@ public class ClientDao {
            res.next();
            //String nom, String prenom, String email, String sexe, int id, String login, String password
            //(String nom, String prenom, String email, String sexe, String Adresse, String login, String password) 
-               etd= new Client(res.getString("nom"),res.getString("prenom"),res.getString("EMAIL"),res.getString("sexe"),res.getString("ADRESSE"),res.getInt("ID"),res.getString("login"),res.getString("password"));
+               etd= new Client(res.getString("nom"),res.getString("prenom"),res.getString("EMAIL"),res.getString("sexe"),res.getString("ADRESSE"),res.getInt("ID"),res.getString("username"),res.getString("password"));
                        
                       
             
