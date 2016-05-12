@@ -35,8 +35,8 @@ public class ThreadDAO {
     
       public void add(int id) {
          try {
-            
-            String req1 = "INSERT INTO `thread`(`id`, `permalink`, `is_commentable`, `num_comments`, `last_comment_at`) VALUES ('"+id+"','http://localhost/TunisiaMallLebes/web/app_dev.php/produits'+'"+id+"',1,0,NOW()')";
+            String permalink= "http://localhost/TunisiaMallLebes/web/app_dev.php/produits/".concat(Integer.toString(id));
+            String req1 = "INSERT INTO `thread`(`id`, `permalink`, `is_commentable`, `num_comments`, `last_comment_at`) VALUES ('"+id+"','"+permalink+"',1,0,NOW())";
             System.out.println(req1);
             ste.executeUpdate(req1);
             
