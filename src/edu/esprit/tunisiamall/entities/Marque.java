@@ -13,13 +13,34 @@ public class Marque{
     private int id;
     private String nom;
     private float seuilAchat;
+    private String image;
+    private int idRes;
+
     
 
   public Marque(){
     this.id=0;
     this.nom="";
     this.seuilAchat=0;
+    this.image="";
+
     } 
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public int getIdRes() {
+        return idRes;
+    }
+
+    public void setIdRes(int idRes) {
+        this.idRes = idRes;
+    }
   
   public Marque (String nom){
     this.nom=nom;
@@ -30,6 +51,14 @@ public class Marque{
     this.nom=nom;
     this.seuilAchat=seuilAchat;
     }
+  
+    public Marque(String nom, String libelleImage,float seuilAchat,int idResp) {
+        this.nom = nom;
+        this.image=libelleImage;
+        this.seuilAchat = seuilAchat;
+        this.idRes=idResp;
+    }
+
   
   public Marque(String nom,float seuilAchat){
     

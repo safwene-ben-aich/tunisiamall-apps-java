@@ -37,6 +37,37 @@ public class MarqueDao implements IMarqueDao {
     
 
    }
+      @Override 
+    public List<Marque> afficherMarqueClient(int id)  {
+         List<Marque> marques = new ArrayList<>();
+        Marque e ;
+
+        String req4= "SELECT m.`Nom` FROM carte_fidilite cf inner join marque m on cf.`ID_MARQUE`=m.`ID` inner join user u on u.`ID`=cf.`ID_CLIENT` WHERE cf.`ID_CLIENT`="+id+"";
+//String req4= "SELECT m.`Nom` FROM carte_fidilite cf inner join marque m on cf.`ID_MARQUE`=m.`ID` inner join user u on u.`ID`=cf.`ID_CLIENT` WHERE cf.`ID_CLIENT`=15";
+
+        try {
+            ResultSet res = ste.executeQuery(req4);
+            while (res.next()) {
+               e= new Marque(
+                      
+                       res.getString("Nom")
+                      
+                       );
+               marques.add(e);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MarqueDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
+      return marques;
+        
+        
+        
+     }
    
    @Override 
   public void ajouterMarque(Marque m){
@@ -134,6 +165,46 @@ public class MarqueDao implements IMarqueDao {
          }
             return -1;
     }
+    
+     @Override
+    public long addMarque(Marque marque){
+       // zzertyui
+         try {
+            
+//           
+              String req1 = "insert into marque(`Nom`,`image`,`seuilAchat`,`ID_RESPONSABLE`) "
+                    + "values( '"+marque.getNom()+"','"+marque.getImage()+"','"+marque.getSeuilAchat()+"','"+marque.getIdRes()+"')";
+             System.out.println(req1);
+            PreparedStatement ps = this.connexion.prepareStatement(req1);
+
+            long result =ps.executeUpdate(req1);
+             System.out.println("result:"+result);
+            return 1;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       return 0;
+    }
+    
+     public String  afficherImageMarque(String nom) {
+          String  e=null;
+           String req4= "select image from marque where Nom ='"+nom+"'";
+           
+             try {
+            ResultSet res = ste.executeQuery(req4);
+            while (res.next()) {
+                 e=   res.getString("image");
+                     
+               //marques.add(e);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MarqueDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return e;
+      }
+   
    
    
    
