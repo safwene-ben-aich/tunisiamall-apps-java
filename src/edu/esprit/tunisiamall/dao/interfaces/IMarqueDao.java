@@ -19,6 +19,8 @@ public interface IMarqueDao {
     public List<Marque> afficherMarque();
     public String afficherNomMarque(int ID);
     public int getIDMarqueByNom(String nom);
+    public List<Marque> afficherMarqueClient(int id);
+    public long addMarque(Marque marque);
 
     
 }

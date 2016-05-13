@@ -596,7 +596,7 @@ hideprods();
         recherchetext.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         recherchetext.setToolTipText("");
         recherchetext.setBorder(null);
-        recherchetext.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        recherchetext.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         recherchetext.setOpaque(false);
         recherchetext.setPreferredSize(new java.awt.Dimension(5, 20));
         recherchetext.addActionListener(new java.awt.event.ActionListener() {
@@ -626,7 +626,7 @@ hideprods();
                 ptfideliteMouseExited(evt);
             }
         });
-        getContentPane().add(ptfidelite, new org.netbeans.lib.awtextra.AbsoluteConstraints(914, 30, 180, 40));
+        getContentPane().add(ptfidelite, new org.netbeans.lib.awtextra.AbsoluteConstraints(914, 70, 180, 40));
 
         supprimerpanier.setBackground(new java.awt.Color(0, 0, 255));
         supprimerpanier.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -2959,9 +2959,11 @@ contactlog.setForeground(Color.BLACK);        // TODO add your handling code her
     }//GEN-LAST:event_accueilMouseClicked
 
     private void ptfideliteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ptfideliteMouseClicked
- //ListeMarqueClient lst= new ListeMarqueClient();
- //lst.loginclient.setText(loginclient.getText());
-//lst.show();
+ListMarqueClient lst= new ListMarqueClient();
+ System.out.println("èèèèèèèèèèèèèèèèè"+this.loginclient.getText());
+ lst.loginclient.setText(this.loginclient.getText());
+       
+lst.show();
 
     }//GEN-LAST:event_ptfideliteMouseClicked
 

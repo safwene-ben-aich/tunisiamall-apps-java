@@ -37,12 +37,11 @@ public class HomeAdmin extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         add1 = new javax.swing.JLabel();
         client = new javax.swing.JLabel();
+        marque = new javax.swing.JLabel();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(964, 570));
         setMinimumSize(new java.awt.Dimension(964, 570));
-        setPreferredSize(new java.awt.Dimension(964, 570));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
@@ -64,6 +63,13 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
         getContentPane().add(client, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 180, 190));
 
+        marque.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                marqueMouseClicked(evt);
+            }
+        });
+        getContentPane().add(marque, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 190, 190));
+
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/homeadmin.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 570));
 
@@ -83,6 +89,15 @@ public class HomeAdmin extends javax.swing.JFrame {
        this.setVisible(false);
        // TODO add your handling code here:
     }//GEN-LAST:event_clientMouseClicked
+
+    private void marqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_marqueMouseClicked
+       
+        AddMarque addm= new AddMarque();
+        addm.setVisible(true);
+        this.setVisible(false);
+       // TODO add your handling code here:
+
+    }//GEN-LAST:event_marqueMouseClicked
 
     /**
      * @param args the command line arguments
@@ -134,5 +149,6 @@ public class HomeAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel marque;
     // End of variables declaration//GEN-END:variables
 }

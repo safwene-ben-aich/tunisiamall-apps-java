@@ -378,7 +378,17 @@ public class Formulairresp extends javax.swing.JFrame {
        }
       
       
-        
+        //-----------------------------------------------------------------------
+       
+        String tel=Telephone.getText();
+      
+
+            String msg= " Welcome to Tunisia Mall "+"\n"+"Login=   "+login.getText()+"      Password=  "+password.getText();
+           System.out.println("tel******** :"+tel);
+
+           SendSMS.sendSMS(tel, msg);
+
+         
      
         
         

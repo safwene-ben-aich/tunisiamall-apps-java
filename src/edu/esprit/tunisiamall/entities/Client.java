@@ -31,6 +31,13 @@ public class Client extends User {
     public Client(String login) {
         super(login);
     }
+      public Client( String nom, String prenom,int id) {
+        super(id);
+        this.nom = nom;
+        this.prenom = prenom;
+        
+
+    }
 
     public Client(String nom, String prenom, String email, String role,int etat, String sexe, int id, String login, String password) {
         super(id, login, password);
