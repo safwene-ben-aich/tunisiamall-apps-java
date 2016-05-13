@@ -84,6 +84,7 @@ public class Formulairresp extends javax.swing.JFrame {
         login = new javax.swing.JTextField();
         adresse = new javax.swing.JTextField();
         findtxt = new javax.swing.JTextField();
+        Modif = new javax.swing.JButton();
         Telephone = new javax.swing.JTextField();
         exit = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
@@ -162,6 +163,14 @@ public class Formulairresp extends javax.swing.JFrame {
         });
         getContentPane().add(findtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 530, 190, 30));
 
+        Modif.setText("Modification");
+        Modif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModifActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Modif, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 80, 110, 30));
+
         Telephone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TelephoneActionPerformed(evt);
@@ -175,7 +184,7 @@ public class Formulairresp extends javax.swing.JFrame {
                 exitActionPerformed(evt);
             }
         });
-        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 30, 80, 30));
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 30, 110, 30));
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         bloc.setText("Bloquer");
@@ -620,6 +629,14 @@ public class Formulairresp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_imageJtextFieldActionPerformed
 
+    private void ModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifActionPerformed
+        // TODO add your handling code here:
+        RespModif modif = null;
+        modif = new RespModif();
+        modif.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ModifActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -669,6 +686,7 @@ public static class Recherche extends DefaultTableCellRenderer {
 		}
 	}
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Modif;
     private javax.swing.JTable Tableresp;
     private javax.swing.JTextField Telephone;
     private javax.swing.JButton add;
