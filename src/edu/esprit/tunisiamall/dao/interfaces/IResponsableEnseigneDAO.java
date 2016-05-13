@@ -21,6 +21,8 @@ public interface IResponsableEnseigneDAO {
     public void delete(int id);
     List <ResponsableEnseigne> Display();
     String getUserSalt(String username);
+    List <ResponsableEnseigne> DisplayModif();
+    public void update(String cin,String nom,String prenom,String login,String mail,String adresse,String telephone,int id);
     
     
     

@@ -261,6 +261,71 @@ public class ResponsableEnseigneDAO implements IResponsableEnseigneDAO{
         return liste;
      
     }
+       public List<ResponsableEnseigne> DisplayModif() {
+     
+            List<ResponsableEnseigne> liste=new ArrayList<ResponsableEnseigne>();
+        try {
+            
+            Statement ste = this.connection.createStatement();
+            
+            ResponsableEnseigne resp ;
+            String req4= "SELECT * FROM USER_MODIFICATION";
+            try {
+                ResultSet res =  ste.executeQuery(req4);
+                while (res.next()) {
+                    resp= new ResponsableEnseigne(
+                            res.getInt("ID"),
+                            res.getString("CIN"),
+                            res.getString("NOM"),
+                            res.getString("PRENOM"),
+                            res.getString("SEXE"),
+                            res.getString("LOGIN"),
+                            res.getString("PASSWORD"),
+                            res.getString("QRCODE"),
+                            res.getString("MAIL"),
+                            res.getString("ADRESSE"),
+                            res.getString("TELEPHONE"),
+                            res.getString("IMAGE"),
+                            res.getString("ROLE"),
+                            res.getInt("ETAT")
+                    );
+                    liste.add(resp);
+                }
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(ResponsableEnseigneDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return liste;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ResponsableEnseigneDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
+     
+    }
+    public void update(String cin,String nom,String prenom,String login,String mail,String adresse,String telephone,int id) {
+
+     try {
+         Statement ste = this.connection.createStatement();
+            String req6= "update user set cin=?,nom=?,prenom=?,username=?,email=?,adresse=?,telephone=? where id=?";
+            PreparedStatement ps = this.connection.prepareStatement(req6);
+                
+              
+              ps.setString(1, cin);
+              ps.setString(2, nom);
+              ps.setString(3, prenom);
+              ps.setString(4, login);
+              ps.setString(5, mail);
+              ps.setString(6, adresse);
+              ps.setString(7, telephone);
+              ps.setInt(8, id);
+              System.out.println(ps.toString());
+              ps.executeUpdate();
+            
+        } catch (SQLException ex) {
+         System.out.println(ex);
+        }
+    }
    /**** FIN METHODES MANIPULATION RESPONSABLE ENSEIGNE PARTIE ADMIN DALI ***/
        
        
