@@ -46,7 +46,7 @@ public class BoutiqueDao implements IBoutiqueDao{
    
    
   @Override 
-  public void ajouterBoutique(Boutique b){
+  public boolean ajouterBoutique(Boutique b){
       
        try {
            String requette = "INSERT INTO BOUTIQUE (ID_MARQUE,ID_LOCAL,LOGO) VALUES (?,?,?)";
@@ -55,9 +55,11 @@ public class BoutiqueDao implements IBoutiqueDao{
            ps.setInt(2, b.getId_local());
            ps.setBytes(3, b.getLogo());
            ps.executeUpdate();
+           return true;
        } catch (SQLException ex) {
            Logger.getLogger(BoutiqueDao.class.getName()).log(Level.SEVERE, null, ex);
        }
+       return false;
     }
   
   
@@ -66,15 +68,17 @@ public class BoutiqueDao implements IBoutiqueDao{
  
   
   @Override
-  public void modifierBoutique(Boutique b) {
+  public boolean modifierBoutique(Boutique b) {
       
        try {
            String req2= "update BOUTIQUE set "
                    + "ID_LOCAL='"+b.getId_local()+"' where ID_MARQUE="+b.getId_marque();
            ste.executeUpdate(req2);
+           return true;
        } catch (SQLException ex) {
            Logger.getLogger(BoutiqueDao.class.getName()).log(Level.SEVERE, null, ex);
        }
+       return false;
   }
   
   @Override
@@ -91,15 +95,17 @@ public class BoutiqueDao implements IBoutiqueDao{
    
   
   @Override
-  public void supprimerBoutique2(Boutique b) {
+  public boolean supprimerBoutique2(Boutique b) {
 
      try {
             String req3= "delete from BOUTIQUE"
                     + " where ID_MARQUE="+b.getId_marque()+" AND ID_LOCAL="+b.getId_local();
             ste.executeUpdate(req3);
+            return true;
         } catch (SQLException ex) {
            Logger.getLogger(BoutiqueDao.class.getName()).log(Level.SEVERE, null, ex);
        }
+     return false;
   }
  
   @Override

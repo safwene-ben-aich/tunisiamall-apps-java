@@ -831,7 +831,7 @@
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                              <Component id="LabelID" pref="181" max="32767" attributes="0"/>
+                                              <Component id="LabelID" pref="208" max="32767" attributes="0"/>
                                               <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel8" min="-2" pref="44" max="-2" attributes="0"/>
@@ -841,8 +841,8 @@
                                           </Group>
                                       </Group>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="LocalTxt" pref="168" max="32767" attributes="0"/>
-                                          <Component id="MarqueTxt" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="MarqueTxt" pref="168" max="32767" attributes="0"/>
+                                          <Component id="ComboLocalModif" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -874,8 +874,8 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="LocalTxt" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel6" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                                          <Component id="ComboLocalModif" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
@@ -915,7 +915,7 @@
                               <Component id="Lpath" min="-2" pref="96" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="40" max="32767" attributes="0"/>
+                      <EmptySpace pref="47" max="32767" attributes="0"/>
                       <Component id="jScrollPane7" min="-2" pref="200" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -959,6 +959,9 @@
                   </StringArray>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComboLocalActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="AjouterBoutiquejButton">
               <Properties>
@@ -991,8 +994,6 @@
                   <Dimension value="[100, 80]"/>
                 </Property>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="LocalTxt">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
@@ -1057,6 +1058,16 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JComboBox" name="ComboLocalModif">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComboLocalModifActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelRapport">

@@ -21,5 +21,8 @@ public interface ILocalDao {
     public List<Local> afficherLocal();
     public String afficherAdresseLocal(int ID);
     public int getIDLocalByAdresse(String adresse);
+    public void ReserverLocal(int IdLocal);
+    public void LibererLocal(int IdLocal);
+    public List<Local> afficherLocalDisponible();
     
 }

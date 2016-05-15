@@ -162,6 +162,8 @@ public class ProduitDAO implements IProduitDAO{
         produitToReturn.setId(-1);
         return produitToReturn;
     }
+    
+    /*** METHODE AJOUTE PAR ANTAR ***/
     @Override
     public ResultSet afficherProduit(int idMarque){
         try {
@@ -177,17 +179,16 @@ public class ProduitDAO implements IProduitDAO{
         return null;
     }
     
-    
-    /*** METHODE AJOUTE PAR ANTAR ***/
    
-    
-    public List<Produit> afficherProduitByQuantiteVendu() {  // REDONDANCE DU CODE AVEC LA METHODE QUI SUIT
+    @Override
+    public List<Produit> afficherProduitByQuantiteVendu(int IdMarque) {  // Statistique des produits
         List<Produit> produits = new ArrayList<>();
         Produit p ;
-        String req4= "SELECT * FROM PRODUIT ORDER BY QUANTITE_VENDU DESC ";
+        String req4= "SELECT * FROM PRODUIT WHERE ID_MARQUE=? ORDER BY QUANTITE_VENDU DESC";
         try {
-            Statement ste = this.connection.createStatement();
-            ResultSet res =  ste.executeQuery(req4);
+           PreparedStatement ps = this.connection.prepareStatement(req4);
+           ps.setInt(1, IdMarque);
+           ResultSet res  = ps.executeQuery();
             while (res.next()) {
                 System.out.println(res.getString("NOM"));
                p= new Produit(res.getInt("ID"),
@@ -221,7 +222,9 @@ public class ProduitDAO implements IProduitDAO{
         try {
             Statement ste = this.connection.createStatement();
             ResultSet res =  ste.executeQuery(req4);
-            while (res.next()) {
+            
+         while (res.next()) {
+             System.out.println("test");
                p= new Produit(res.getInt("ID"),
                       res.getString("REFERENCE"),
                       res.getInt("ID_MARQUE"),
@@ -237,6 +240,7 @@ public class ProduitDAO implements IProduitDAO{
                        
                produits.add(p);
             }
+            System.out.println("11111111111111111333333333+++++++"+produits.size());
             
         } catch (SQLException ex) {
             Logger.getLogger(ProduitDAO.class.getName()).log(Level.SEVERE, null, ex);

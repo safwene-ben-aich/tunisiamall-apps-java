@@ -75,6 +75,27 @@ public class LocalDao implements ILocalDao {
         return locals;
     }
    
+   
+    @Override
+   public List<Local> afficherLocalDisponible() {
+
+        List<Local> locals = new ArrayList<>();
+        Local l ;
+        String req4= "select ADRESSE,ETAT,EMPLACEMENT from local WHERE ETAT=0";
+        try {
+            ResultSet res =  ste.executeQuery(req4);
+            while (res.next()) {
+               l= new Local(res.getString("ADRESSE"),res.getInt("ETAT"),res.getBytes("EMPLACEMENT"));
+               locals.add(l);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(LocalDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return locals;
+    }
+   
+   
    @Override
   public void supprimerLocal(Local l) {
 
@@ -155,6 +176,37 @@ public class LocalDao implements ILocalDao {
             return null;
    
    }
+   
+    @Override
+  public void ReserverLocal(int IdLocal) {
+      
+       try {
+           String req2= "update LOCAL set ETAT=1 WHERE ID=?";
+           PreparedStatement ps = this.connexion.prepareStatement(req2);
+         
+           ps.setInt(1,IdLocal);
+           ps.executeUpdate();
+        
+       } catch (SQLException ex) {
+           Logger.getLogger(LocalDao.class.getName()).log(Level.SEVERE, null, ex);
+       }
+  }
+  
+   @Override
+  public void LibererLocal(int IdLocal) {
+      
+       try {
+           String req2= "update LOCAL set ETAT=0 WHERE ID=?";
+           PreparedStatement ps = this.connexion.prepareStatement(req2);
+         
+           ps.setInt(1,IdLocal);
+           ps.executeUpdate();
+        
+       } catch (SQLException ex) {
+           Logger.getLogger(LocalDao.class.getName()).log(Level.SEVERE, null, ex);
+       }
+  }
+  
   
   
 }   
