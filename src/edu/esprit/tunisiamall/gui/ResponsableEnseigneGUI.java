@@ -321,7 +321,7 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         tTwitter.start();
       */ 
         
-        /*** APPEL METHODES BOUTIQUE ***/
+        /*** APPEL METHODES BOUTIQUE  ***/
         
         RemplirComboMarque();
         RemplirComboLocal();
@@ -329,11 +329,6 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
     
         /*** FIN APPEL METHODES BOUTIQUE ***/
         
-        /*** APPEL METHODES RAPPORT ***/
-         populateJTableRapport();
-         RemplirAlert();
-         prepareSTAT();
-        /*** FIN APPEL METHODES RAPPORT ***/
         
         
     
@@ -409,7 +404,12 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         }
     });
     
-                      
+                      /*** APPEL METHODES RAPPORT ***/
+         populateJTableRapport();
+         RemplirAlert();
+         prepareSTAT();
+        /*** FIN APPEL METHODES RAPPORT ***/
+        
                      }
     public void changeStateInterfaceResponsable(boolean  state){
                      this.ModifierPhotoREsponsablejButton.setEnabled(state);
@@ -776,10 +776,24 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
     public void RemplirComboLocal(){
         LocalDao ldao = new LocalDao();
         Local l = new Local ();
-        List<Local> list=ldao.afficherLocal();
+        List<Local> list=ldao.afficherLocalDisponible();
         for(Local loc:list){
         ComboLocal.addItem(loc.getAdresse());
+        ComboLocalModif.addItem(loc.getAdresse());
         }
+   
+        
+    }
+    
+    public void RemplirComboLocalModif(){
+        LocalDao ldao = new LocalDao();
+        Local l = new Local ();
+        List<Local> list=ldao.afficherLocalDisponible();
+        for(Local loc:list){
+        ComboLocalModif.addItem(loc.getAdresse());
+        }
+   
+        
     }
     public ImageIcon ResizeImage(String imgPath){ 
      ImageIcon MyImage = new ImageIcon(imgPath); 
@@ -846,16 +860,19 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
        for(int i = 0; i < list.size(); i++){
        alerte=alerte+"le produit "+list.get(i).getNom()+" est presque en rupture de stock Il ne reste que "+list.get(i).getQuantite()+" articles \n";
        AlertTextArea.setText(alerte);
+       System.out.println(alerte);
        }
        
      }
      public void populateJTableRapport(){
         
+         MarqueDao mdao = new MarqueDao();
          ProduitDAO pdao = new ProduitDAO();
          Produit p = new Produit();
+         int id = mdao.getIDMarqueByResponsable(this.idResponsableEnseigne);
         
  
-        List<Produit> list=pdao.afficherProduitByQuantiteVendu();
+        List<Produit> list=pdao.afficherProduitByQuantiteVendu(id);
         String[] columnName = {"Référence","NOM","TYPE","QUANTITE","QUANTITE VENDU"};
         Object[][] rows = new Object[list.size()][5];
         for(int i = 0; i < list.size(); i++){
@@ -874,10 +891,14 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         //TableLocal.getColumnModel().getColumn(2).setPreferredWidth(100);
     }
      public void prepareSTAT(){
+         
           ProduitDAO pdao = new ProduitDAO();
-        Produit p = new Produit();
+          Produit p = new Produit();
+          MarqueDao mdao = new MarqueDao();
+          int id = mdao.getIDMarqueByResponsable(this.idResponsableEnseigne);
+          
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-         List<Produit> list=pdao.afficherProduitByQuantiteVendu();
+         List<Produit> list=pdao.afficherProduitByQuantiteVendu(id);
          for(int i = 0; i < list.size(); i++){
             dataset.setValue(list.get(i).getQuantiteVendu(),"Quantité Vendu" ,list.get(i).getNom());
        }
@@ -982,7 +1003,6 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         LogoBtn = new javax.swing.JButton();
         Lpath = new javax.swing.JLabel();
-        LocalTxt = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         MarqueTxt = new javax.swing.JTextField();
@@ -992,6 +1012,7 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         BModifier = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         TableBoutique = new javax.swing.JTable();
+        ComboLocalModif = new javax.swing.JComboBox();
         jPanelRapport = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         ProduitTable = new javax.swing.JTable();
@@ -1494,6 +1515,11 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         });
 
         ComboLocal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sélectionnez le Local:" }));
+        ComboLocal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboLocalActionPerformed(evt);
+            }
+        });
 
         AjouterBoutiquejButton.setText("Ajouter");
         AjouterBoutiquejButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1551,6 +1577,12 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         });
         jScrollPane7.setViewportView(TableBoutique);
 
+        ComboLocalModif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboLocalModifActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelBoutiqueLayout = new javax.swing.GroupLayout(jPanelBoutique);
         jPanelBoutique.setLayout(jPanelBoutiqueLayout);
         jPanelBoutiqueLayout.setHorizontalGroup(
@@ -1582,15 +1614,15 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
                                         .addGap(38, 38, 38))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBoutiqueLayout.createSequentialGroup()
                                         .addGap(31, 31, 31)
-                                        .addComponent(LabelID, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                                        .addComponent(LabelID, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                                         .addGap(178, 178, 178)
                                         .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)))
                                 .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(LocalTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
-                                    .addComponent(MarqueTxt)))
+                                    .addComponent(MarqueTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                                    .addComponent(ComboLocalModif, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBoutiqueLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(LogoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -1613,8 +1645,8 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
                             .addGroup(jPanelBoutiqueLayout.createSequentialGroup()
                                 .addGap(29, 29, 29)
                                 .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(LocalTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ComboLocalModif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(MarqueTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1641,7 +1673,7 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
                             .addComponent(jLabel5))
                         .addGap(13, 13, 13)
                         .addComponent(Lpath, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1970,7 +2002,7 @@ if(dialogResult == JOptionPane.YES_OPTION){
             }
             else {
                     
-                   JOptionPane.showMessageDialog(frame, "Produit n'as pas été supprimé !");
+                   JOptionPane.showMessageDialog(frame, "Produit n'a pas été supprimé !");
             }
         
         
@@ -2013,7 +2045,7 @@ if(dialogResult == JOptionPane.YES_OPTION){
 
         }
         else{
-            JOptionPane.showMessageDialog(frame, "Produit n'as pas été modifié !");
+            JOptionPane.showMessageDialog(frame, "Produit n'a pas été modifié !");
 
         }
         
@@ -2029,7 +2061,7 @@ if(dialogResult == JOptionPane.YES_OPTION){
     private void AjouterBoutiquejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjouterBoutiquejButtonActionPerformed
 
         /*** TRAITEMENT ***/
-
+        Component frame = null;
         FileInputStream fileInputStream=null;
 
         File file = new File(s);
@@ -2060,7 +2092,13 @@ if(dialogResult == JOptionPane.YES_OPTION){
         boutiqueToAdd.setId_local(idlocal);
         boutiqueToAdd.setId_marque(idmarque);
         boutiqueToAdd.setLogo(bFile);
-        boutiqueDao.ajouterBoutique(boutiqueToAdd);
+        if(boutiqueDao.ajouterBoutique(boutiqueToAdd)){
+         JOptionPane.showMessageDialog(frame, "Boutique Ajoutée avec succées !");
+         ldao.ReserverLocal(idlocal);
+        }
+        else{
+          JOptionPane.showMessageDialog(frame, "Boutique n'a pas été Ajoutée !");
+        }
         populateJTable();
 
     }//GEN-LAST:event_AjouterBoutiquejButtonActionPerformed
@@ -2081,6 +2119,7 @@ if(dialogResult == JOptionPane.YES_OPTION){
 
     private void BSupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSupprimerActionPerformed
         // TODO add your handling code here:
+         Component frame = null;
         BoutiqueDao bdao = new BoutiqueDao();
         Boutique b = new Boutique ();
         LocalDao ldao = new LocalDao();
@@ -2088,26 +2127,41 @@ if(dialogResult == JOptionPane.YES_OPTION){
         MarqueDao mdao= new MarqueDao();
         Marque m = new Marque();
         int idmarque=mdao.getIDMarqueByNom(MarqueTxt.getText());
-        int idlocal=ldao.getIDLocalByAdresse(LocalTxt.getText());
+        int idlocal=ldao.getIDLocalByAdresse(ComboLocalModif.getSelectedItem().toString());
         b.setId_marque(idmarque);
         b.setId_local(idlocal);
-        bdao.supprimerBoutique2(b);
+        if(bdao.supprimerBoutique2(b)){
+             JOptionPane.showMessageDialog(frame, "Boutique Supprimée avec succées !");
+             ldao.LibererLocal(idlocal);
+             
+        }
+        else{
+             JOptionPane.showMessageDialog(frame, "Boutique n'a pas été Supprimée !");
+        }
         populateJTable();
         MarqueTxt.setText(null);
-        LocalTxt.setText(null);
+        ComboLocalModif.removeAllItems();
         LogoLabel.setIcon(null);
     }//GEN-LAST:event_BSupprimerActionPerformed
 
     private void BModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BModifierActionPerformed
         // TODO add your handling code here:
+         Component frame = null;
         BoutiqueDao bdao = new BoutiqueDao();
         Boutique b = new Boutique ();
         LocalDao ldao = new LocalDao();
         Local l = new Local();
-        int idlocal=ldao.getIDLocalByAdresse(LocalTxt.getText());
+        int idlocal=ldao.getIDLocalByAdresse(ComboLocalModif.getSelectedItem().toString());
         b.setId_local(idlocal);
         b.setId_marque(idMarque);
-        bdao.modifierBoutique(b);
+        if(bdao.modifierBoutique(b)){
+           JOptionPane.showMessageDialog(frame, "Boutique Modifiée avec succées !");
+        }
+        else{
+           JOptionPane.showMessageDialog(frame, "Boutique n'a pas été Modifiée !");    
+        
+        }
+        
     }//GEN-LAST:event_BModifierActionPerformed
 
     private void TableBoutiqueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableBoutiqueMouseClicked
@@ -2115,9 +2169,18 @@ if(dialogResult == JOptionPane.YES_OPTION){
         int i = TableBoutique.getSelectedRow();
         TableModel model = TableBoutique.getModel();
         MarqueTxt.setText(model.getValueAt(i,0).toString());
-        LocalTxt.setText(model.getValueAt(i,1).toString());
+        ComboLocalModif.removeAllItems();
+        RemplirComboLocalModif();
         LogoLabel.setIcon((Icon) model.getValueAt(i,2));
     }//GEN-LAST:event_TableBoutiqueMouseClicked
+
+    private void ComboLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboLocalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboLocalActionPerformed
+
+    private void ComboLocalModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboLocalModifActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboLocalModifActionPerformed
     
     
     
@@ -2180,6 +2243,7 @@ if(dialogResult == JOptionPane.YES_OPTION){
     private javax.swing.JLabel ChargementTwiitterjLabel;
     private javax.swing.JLabel CinLabel;
     private javax.swing.JComboBox ComboLocal;
+    private javax.swing.JComboBox ComboLocalModif;
     private javax.swing.JComboBox ComboMarque;
     private javax.swing.JButton DeleteLogjButton;
     private javax.swing.JTextArea DescriptionProduitjTextArea;
@@ -2187,7 +2251,6 @@ if(dialogResult == JOptionPane.YES_OPTION){
     private javax.swing.JLabel ImagejLabel;
     private javax.swing.JLabel LabelID;
     private javax.swing.JLabel LabelStock;
-    private javax.swing.JTextField LocalTxt;
     private javax.swing.JButton LogoBtn;
     private javax.swing.JLabel LogoLabel;
     private javax.swing.JLabel Lpath;

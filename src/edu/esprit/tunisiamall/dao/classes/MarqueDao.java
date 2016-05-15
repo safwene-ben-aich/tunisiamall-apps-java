@@ -22,6 +22,8 @@ import java.util.logging.Logger;
  *
  * @author antar
  */
+
+//Ahmed Antar
 public class MarqueDao implements IMarqueDao {
      Statement ste;
    Connection connexion;
@@ -166,6 +168,24 @@ public class MarqueDao implements IMarqueDao {
             return -1;
     }
     
+     //Cette méthode sera utilisée dans le module statistique(ajoutée par ahmed)
+   @Override
+    public int getIDMarqueByResponsable(int  IdResponsable){
+         try {
+             String requette = "SELECT ID FROM MARQUE WHERE ID_RESPONSABLE=?";
+             PreparedStatement ps = this.connexion.prepareStatement(requette);
+             ps.setInt(1, IdResponsable);
+             ResultSet result = ps.executeQuery();
+             result.first();
+             return result.getInt("ID");
+         } catch (SQLException ex) {
+             Logger.getLogger(MarqueDao.class.getName()).log(Level.SEVERE, null, ex);
+         }
+            return -1;
+    }
+    
+    //Fin ahmed antar
+    
      @Override
     public long addMarque(Marque marque){
        // zzertyui
@@ -202,17 +222,7 @@ public class MarqueDao implements IMarqueDao {
         } catch (SQLException ex) {
             Logger.getLogger(MarqueDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return e;
-      }
-   
-   
-   
-   
-   
-   
-   
- 
-   
-    
-    
+        return e;   
+}
+     
 }

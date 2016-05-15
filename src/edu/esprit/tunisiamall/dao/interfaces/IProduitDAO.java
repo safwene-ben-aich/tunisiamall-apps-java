@@ -23,7 +23,7 @@ public interface IProduitDAO {
     ResultSet afficherProduit(int idMarque);
     Produit findProduitCorrespondanceByReference(String reference);
     List<Produit> afficherAlertProduitByQuantite();
-    List<Produit> afficherProduitByQuantiteVendu();
+    List<Produit> afficherProduitByQuantiteVendu(int IdMarque);
     
     
      

@@ -11,15 +11,15 @@ import java.util.List;
 
 public interface IBoutiqueDao {
     
-    public void ajouterBoutique(Boutique e);
-    public void modifierBoutique(Boutique e);
+    public boolean ajouterBoutique(Boutique e);
+    public boolean modifierBoutique(Boutique e);
     public void supprimerBoutique(Boutique e);
     public List<Boutique> afficherBoutique();
     public Boutique chercherBoutique(Boutique e);
     public List<Boutique>afficherBoutiqueByMarque(int id);
     public List<Boutique>afficherBoutiqueById(int id);
     public List<Boutique>afficherBoutiqueByLocal(int id);
-    public void supprimerBoutique2(Boutique b);
+    public boolean supprimerBoutique2(Boutique b);
     
 
     
