@@ -184,6 +184,23 @@ public class MarqueDao implements IMarqueDao {
             return -1;
     }
     
+    
+     @Override
+    public String getNameMarqueByResponsable(int  IdResponsable){
+         try {
+             String requette = "SELECT NOM FROM MARQUE WHERE ID_RESPONSABLE=?";
+             PreparedStatement ps = this.connexion.prepareStatement(requette);
+             ps.setInt(1, IdResponsable);
+             ResultSet result = ps.executeQuery();
+             result.first();
+             return result.getString("NOM");
+         } catch (SQLException ex) {
+             Logger.getLogger(MarqueDao.class.getName()).log(Level.SEVERE, null, ex);
+         }
+            return "";
+    }
+    
+    
     //Fin ahmed antar
     
      @Override

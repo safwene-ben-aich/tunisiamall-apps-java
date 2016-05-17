@@ -13,7 +13,7 @@ public class Local {
     private int id;
     private String adresse;
     private int etat;
-    private byte[] emplacement;
+    private String emplacement;
     
 
   public Local(){
@@ -26,25 +26,25 @@ public class Local {
     this.adresse=adresse;
     } 
   
-   public Local(String adresse,int etat,byte[] emplacement){
+   public Local(String adresse,int etat,String emplacement){
    
     this.adresse=adresse;
     this.etat=etat;
     this.emplacement=emplacement;
     }
   
-  public Local(int id,String adresse,int etat,byte[] emplacement){
+  public Local(int id,String adresse,int etat,String emplacement){
     this.id=id;
     this.adresse=adresse;
     this.etat=etat;
     this.emplacement=emplacement;
     }
 
-    public byte[] getEmplacement() {
+    public String getEmplacement() {
         return emplacement;
     }
 
-    public void setEmplacement(byte[] emplacement) {
+    public void setEmplacement(String emplacement) {
         this.emplacement = emplacement;
     }
   

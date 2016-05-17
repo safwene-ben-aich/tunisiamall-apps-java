@@ -164,6 +164,94 @@ public class ClientDao {
         }
         return liste;
     }
+     
+     
+     //Ahmed antar
+     
+     
+     public List<Client> DisplayBlockedClients() {
+        List<Client> liste=new ArrayList<Client>();
+     Client clt ;
+    
+        String req4= "select `username`,`NOM`,`PRENOM`,`email`,`ADRESSE`,`ETAT` from user where ROLE='CLIENT' AND ETAT=1";
+        
+        try {
+            Statement ste = this.connection.createStatement();
+            ResultSet res1 =  ste.executeQuery(req4);
+            while (res1.next()) {
+               clt= new Client(
+                       res1.getString("username"),
+                  
+                       res1.getString("NOM"),
+                       res1.getString("PRENOM"),
+                       res1.getString("EMAIL"),
+                       res1.getString("ADRESSE"),
+                       res1.getInt("ETAT")
+                       );
+               liste.add(clt);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
+    }
+      
+   public List<Client> DisplayFemaleClients() {
+        List<Client> liste=new ArrayList<Client>();
+     Client clt ;
+    
+        String req4= "select `username`,`NOM`,`PRENOM`,`email`,`ADRESSE`,`ETAT` from user where ROLE='CLIENT' AND UPPER(SEXE)='FEMME'";
+        
+        try {
+            Statement ste = this.connection.createStatement();
+            ResultSet res1 =  ste.executeQuery(req4);
+            while (res1.next()) {
+               clt= new Client(
+                       res1.getString("username"),
+                  
+                       res1.getString("NOM"),
+                       res1.getString("PRENOM"),
+                       res1.getString("EMAIL"),
+                       res1.getString("ADRESSE"),
+                       res1.getInt("ETAT")
+                       );
+               liste.add(clt);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
+    }  
+   
+   public List<Client> DisplayMaleClients() {
+        List<Client> liste=new ArrayList<Client>();
+     Client clt ;
+    
+        String req4= "select `username`,`NOM`,`PRENOM`,`email`,`ADRESSE`,`ETAT` from user where ROLE='CLIENT' AND UPPER(SEXE)='HOMME'";
+        
+        try {
+            Statement ste = this.connection.createStatement();
+            ResultSet res1 =  ste.executeQuery(req4);
+            while (res1.next()) {
+               clt= new Client(
+                       res1.getString("username"),
+                  
+                       res1.getString("NOM"),
+                       res1.getString("PRENOM"),
+                       res1.getString("EMAIL"),
+                       res1.getString("ADRESSE"),
+                       res1.getInt("ETAT")
+                       );
+               liste.add(clt);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return liste;
+    } 
 
     
      

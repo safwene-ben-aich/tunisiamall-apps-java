@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package edu.esprit.tunisiamall.dao.classes;
-import edu.esprit.tunisiamall.interfaces.IBoutiqueDao;
+import edu.esprit.tunisiamall.dao.interfaces.IBoutiqueDao;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;

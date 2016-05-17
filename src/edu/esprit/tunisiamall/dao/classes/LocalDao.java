@@ -6,9 +6,9 @@
 package edu.esprit.tunisiamall.dao.classes;
 
 import edu.esprit.tunisiamall.dao.classes.BoutiqueDao;
-import edu.esprit.tunisiamall.interfaces.ILocalDao;
+import edu.esprit.tunisiamall.dao.interfaces.ILocalDao;
 import edu.esprit.tunisiamall.entities.Local;
-import edu.esprit.tunisiamall.interfaces.ILocalDao;
+import edu.esprit.tunisiamall.dao.interfaces.ILocalDao;
 import edu.esprit.tunisiamall.technique.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -41,18 +41,21 @@ public class LocalDao implements ILocalDao {
    }
    
    @Override 
-  public void ajouterLocal(Local l){
+  public boolean ajouterLocal(Local l){
         
        try {
-           String req1 = "INSERT INTO LOCAL (ADRESSE,ETAT) VALUES (?,?)";
+           String req1 = "INSERT INTO LOCAL (ADRESSE,ETAT,EMPLACEMENT) VALUES (?,?,?)";
            PreparedStatement ps = this.connexion.prepareStatement(req1);
           
            ps.setString(1,l.getAdresse());
            ps.setInt(2, l.getEtat());
+           ps.setString(3, l.getEmplacement());
            ps.executeUpdate();
+           return true;
        } catch (SQLException ex) {
            Logger.getLogger(BoutiqueDao.class.getName()).log(Level.SEVERE, null, ex);
        }
+       return false;
             
     }
     
@@ -65,7 +68,7 @@ public class LocalDao implements ILocalDao {
         try {
             ResultSet res =  ste.executeQuery(req4);
             while (res.next()) {
-               l= new Local(res.getString("ADRESSE"),res.getInt("ETAT"),res.getBytes("EMPLACEMENT"));
+               l= new Local(res.getString("ADRESSE"),res.getInt("ETAT"),res.getString("EMPLACEMENT"));
                locals.add(l);
             }
             
@@ -85,7 +88,7 @@ public class LocalDao implements ILocalDao {
         try {
             ResultSet res =  ste.executeQuery(req4);
             while (res.next()) {
-               l= new Local(res.getString("ADRESSE"),res.getInt("ETAT"),res.getBytes("EMPLACEMENT"));
+               l= new Local(res.getString("ADRESSE"),res.getInt("ETAT"),res.getString("EMPLACEMENT"));
                locals.add(l);
             }
             
