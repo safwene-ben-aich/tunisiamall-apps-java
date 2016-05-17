@@ -1,0 +1,21 @@
+Interface produit (Tâche à faire) : 
+Ajouter une table de correspondance avec les produits (Code à barre)
+Possiblité de modifier les informations d'une produit
+Supprimer un produit de la base de données
+Un plus : 
+Comparaison si vous avez changé une information avant d'appuyer sur
+modifier dans l'interface responsable d'enseigne & produit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
