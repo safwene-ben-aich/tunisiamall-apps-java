@@ -158,6 +158,32 @@ public class ResponsableEnseigneDAO implements IResponsableEnseigneDAO{
             Logger.getLogger(ResponsableEnseigneDAO.class.getName()).log(Level.SEVERE, null,ex);
         }
     }
+    
+     public void DeBlock(String CIN ) {
+        System.out.println("IM HERE ");
+        try {
+            Statement ste = this.connection.createStatement();
+            
+            try {
+              String requette="UPDATE USER SET ETAT=? WHERE CIN=?";
+              PreparedStatement ps = this.connection.prepareStatement(requette);
+                
+              ps.setInt(1, 2);
+              ps.setString(2, CIN);
+              System.out.println(ps.toString());
+              ps.executeUpdate();
+                
+                
+                System.out.println(ste.toString());
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ResponsableEnseigneDAO.class.getName()).log(Level.SEVERE, null,ex);
+        }
+    }
+    
+    
     @Override
     public void add(ResponsableEnseigne r) {
           

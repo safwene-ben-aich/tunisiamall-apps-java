@@ -113,7 +113,7 @@ public class AdminStat extends javax.swing.JFrame {
       
 
       JFreeChart chart = ChartFactory.createPieChart(
-         "Etat des Clients Sur Le système", // chart title
+         "Sexe des clients", // chart title
          dataset, // data
          true, // include legend
          true,

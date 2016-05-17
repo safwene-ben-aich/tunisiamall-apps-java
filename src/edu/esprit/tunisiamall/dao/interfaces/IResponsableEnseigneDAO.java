@@ -17,6 +17,7 @@ public interface IResponsableEnseigneDAO {
     ResponsableEnseigne findResponsableEnseigneById(int id);
     int findIDMarqueByIDResponsable (int id);
     void Block(String CIN);
+    void DeBlock(String CIN);
     public void add(ResponsableEnseigne r);
     public void delete(int id);
     List <ResponsableEnseigne> Display();
