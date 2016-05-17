@@ -34,11 +34,12 @@ public class HomeAdmin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        loca = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         add1 = new javax.swing.JLabel();
         client = new javax.swing.JLabel();
         marque = new javax.swing.JLabel();
-        bg = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(964, 570));
@@ -47,6 +48,14 @@ public class HomeAdmin extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
+
+        loca.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/homeadmin.png"))); // NOI18N
+        loca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                locaKeyPressed(evt);
+            }
+        });
+        getContentPane().add(loca, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 570));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 260, 30, 40));
 
         add1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -70,8 +79,8 @@ public class HomeAdmin extends javax.swing.JFrame {
         });
         getContentPane().add(marque, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 190, 190));
 
-        bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/homeadmin.png"))); // NOI18N
-        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 570));
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 200, 190));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -98,6 +107,15 @@ public class HomeAdmin extends javax.swing.JFrame {
        // TODO add your handling code here:
 
     }//GEN-LAST:event_marqueMouseClicked
+
+    private void locaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_locaKeyPressed
+         // TODO add your handling code here:
+        GestionLocaux GL = new GestionLocaux();
+        GL.setVisible(true);
+        this.setVisible(false);
+        
+        
+    }//GEN-LAST:event_locaKeyPressed
 
     /**
      * @param args the command line arguments
@@ -143,12 +161,13 @@ public class HomeAdmin extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel add1;
-    private javax.swing.JLabel bg;
     private javax.swing.JLabel client;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel loca;
     private javax.swing.JLabel marque;
     // End of variables declaration//GEN-END:variables
 }
