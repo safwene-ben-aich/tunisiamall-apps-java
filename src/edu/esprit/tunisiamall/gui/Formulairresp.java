@@ -58,7 +58,7 @@ public class Formulairresp extends javax.swing.JFrame {
             String et ;
             if (x==2) {  et = "Non Bloqueé" ; } else {et="Bloquée" ;}
          model.addRow(new Object[]{r.getCin(),r.getNom(),r.getPrenom(),
-               r.getSexe(),r.getLogin(),r.getPassword(),r.getQRCode(),r.getMail(),r.getAdresse(),r.getTelephone(),r.getImage(),r.getRole(),et}); 
+               r.getSexe(),r.getLogin(),r.getPassword(),r.getQRCode(),r.getMail(),r.getAdresse(),r.getTelephone(),r.getImage(),et}); 
         }
         
     }
@@ -89,6 +89,7 @@ public class Formulairresp extends javax.swing.JFrame {
         exit = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         bloc = new javax.swing.JButton();
+        Deblock = new javax.swing.JButton();
         mailbtt = new javax.swing.JButton();
         qrcodeJtextfield = new javax.swing.JTextField();
         imageJtextField = new javax.swing.JTextField();
@@ -124,19 +125,19 @@ public class Formulairresp extends javax.swing.JFrame {
                 deleteActionPerformed(evt);
             }
         });
-        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 470, 100, 30));
+        getContentPane().add(delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 470, 100, 30));
 
         Tableresp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "CIN", "Nom", "Prenom","SEXE", "Login", "Password", "QRCODE", "Mail", "Adresse", "Telephone ", "ROLE", "IMAGE", "Etat"
+                "CIN", "Nom", "Prenom","SEXE", "Login", "Password", "QRCODE", "Mail", "Adresse", "Telephone ", "ROLE", "Etat"
             }
         ));
         jScrollPane1.setViewportView(Tableresp);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 820, 130));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 570, 940, 130));
         getContentPane().add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 190, 30));
         getContentPane().add(mail, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 490, 190, 30));
         getContentPane().add(login, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 190, 30));
@@ -195,13 +196,21 @@ public class Formulairresp extends javax.swing.JFrame {
         });
         getContentPane().add(bloc, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 470, 100, 30));
 
+        Deblock.setText("Débloquer");
+        Deblock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeblockActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Deblock, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 470, 100, 30));
+
         mailbtt.setText("Envoyer un mail");
         mailbtt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mailbttActionPerformed(evt);
             }
         });
-        getContentPane().add(mailbtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 470, 130, 30));
+        getContentPane().add(mailbtt, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 470, 130, 30));
 
         qrcodeJtextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -314,7 +323,7 @@ public class Formulairresp extends javax.swing.JFrame {
             String et ;
             if (x==2) {  et = "Non Bloqueé" ; } else {et="Bloquée" ;}
            model.addRow(new Object[]{r.getCin(),r.getNom(),r.getPrenom(),
-               r.getSexe(),r.getLogin(),r.getPassword(),r.getQRCode(),r.getMail(),r.getAdresse(),r.getTelephone(),r.getImage(),r.getRole(),et}); 
+               r.getSexe(),r.getLogin(),r.getPassword(),r.getQRCode(),r.getMail(),r.getAdresse(),r.getTelephone(),r.getImage(),et}); 
         }
         
         
@@ -490,7 +499,7 @@ public class Formulairresp extends javax.swing.JFrame {
             String et ;
             if (x==2) {  et = "Non Bloqueé" ; } else {et="Bloquée" ;}
          model.addRow(new Object[]{r.getCin(),r.getNom(),r.getPrenom(),
-               r.getSexe(),r.getLogin(),r.getPassword(),r.getQRCode(),r.getMail(),r.getAdresse(),r.getTelephone(),r.getImage(),r.getRole(),et}); 
+               r.getSexe(),r.getLogin(),r.getPassword(),r.getQRCode(),r.getMail(),r.getAdresse(),r.getTelephone(),r.getImage(),et}); 
         } 
 //        
 //        } else {
@@ -553,7 +562,7 @@ public class Formulairresp extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         int i=Tableresp.getSelectedRow();
-        String mail=Tableresp.getValueAt(i,5).toString();
+        String mail=Tableresp.getValueAt(i,7).toString();
         
         
         this.setVisible(false);
@@ -647,6 +656,45 @@ public class Formulairresp extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_ModifActionPerformed
 
+    private void DeblockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeblockActionPerformed
+        // TODO add your handling code here:
+        int i=Tableresp.getSelectedRow();
+        String CIN=Tableresp.getValueAt(i,0).toString();
+        String mail=Tableresp.getValueAt(i,7).toString();
+        String nom=Tableresp.getValueAt(i,1).toString();
+        String Prenom=Tableresp.getValueAt(i,2).toString();
+        DefaultTableModel model =(DefaultTableModel) Tableresp.getModel();
+        ResponsableEnseigneDAO resp=new ResponsableEnseigneDAO();
+      
+       // System.out.println(id);
+        resp.DeBlock(CIN);        
+        
+        
+        
+//        String cin= JOptionPane.showInputDialog("Le CIN du Responsable a bloquée :");
+//        if (! cin.equals("")) {
+//             ResponsableDao rdao = new ResponsableDao();
+//             Responsable resp = new Responsable ();
+//             resp.setCin(cin);
+//             rdao.Block(resp);
+//             JOptionPane.showMessageDialog(rootPane,"Responsable Bloqué");
+             List<ResponsableEnseigne> list=resp.Display();
+             
+             int rowCount = model.getRowCount();
+        for (int j = rowCount - 1; j >= 0; j--) {
+               model.removeRow(j);
+                                           }
+        for(ResponsableEnseigne r:list){
+            int x = r.getEtat();
+            String et ;
+            if (x==2) {  et = "Non Bloqueé" ; } else {et="Bloquée" ;}
+         model.addRow(new Object[]{r.getCin(),r.getNom(),r.getPrenom(),
+               r.getSexe(),r.getLogin(),r.getPassword(),r.getQRCode(),r.getMail(),r.getAdresse(),r.getTelephone(),r.getImage(),et}); 
+        } 
+        
+        
+    }//GEN-LAST:event_DeblockActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -696,6 +744,7 @@ public static class Recherche extends DefaultTableCellRenderer {
 		}
 	}
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Deblock;
     private javax.swing.JButton Modif;
     private javax.swing.JTable Tableresp;
     private javax.swing.JTextField Telephone;

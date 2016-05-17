@@ -6,6 +6,8 @@
 package edu.esprit.tunisiamall.gui;
 
 import AppPackage.AnimationClass;
+import com.sun.jna.Native;
+import com.sun.jna.NativeLibrary;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Graphics;
@@ -66,7 +68,15 @@ import edu.esprit.tunisiamall.utils.Mail;
 import edu.esprit.tunisiamall.utils.MailConstruction;
 import edu.esprit.tunisiamall.entities.Comment;
 import edu.esprit.tunisiamall.entities.Thread;
+import java.awt.BorderLayout;
+import java.awt.Canvas;
 import java.awt.Point;
+import javax.swing.JPanel;
+import uk.co.caprica.vlcj.binding.LibVlc;
+import uk.co.caprica.vlcj.player.MediaPlayerFactory;
+import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
+import uk.co.caprica.vlcj.player.embedded.windows.Win32FullScreenStrategy;
+import uk.co.caprica.vlcj.runtime.RuntimeUtil;
 /**
  *
  * @author Fatma Jaafar
@@ -3835,11 +3845,50 @@ pos+=3;
     }//GEN-LAST:event_previousrechMouseClicked
 
     private void regardervidMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regardervidMouseClicked
-try {
-            Desktop.getDesktop().open(new File("C:\\Users\\Max\\Desktop\\2 eme semestre\\Cats Vs Dogs  Debatable.mp4"));
-        } catch (IOException ex) {
-            Logger.getLogger(HomeClientfatma.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:        // TODO add your handling code here:
+JFrame frame = new JFrame();
+            frame.setLocation(600, 300);
+            frame.setSize(500, 300);
+            frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frame.setUndecorated(true);
+            frame.setVisible(true);
+    
+            
+            
+           frame.setAlwaysOnTop(true);
+            //Créer une instance de Canvas
+            Canvas c = new Canvas();
+            //L'arrière plan de la vidéo est noir par défaut
+            //c.setBackground(Color.black);
+            JPanel p = new JPanel();
+            p.setLayout(new BorderLayout());
+            //La vidéo prend toute la surface
+            p.add(c, BorderLayout.CENTER);
+            frame.add(p, BorderLayout.CENTER);
+            
+
+//******************************
+            //Charger Native library
+                NativeLibrary.addSearchPath(RuntimeUtil.getLibVlcLibraryName(),"C:\\Program Files\\VideoLAN\\VLC");
+                Native.loadLibrary(RuntimeUtil.getLibVlcLibraryName(), LibVlc.class);
+            //Créer une instance factory
+            MediaPlayerFactory mediaPlayerFactory = new MediaPlayerFactory();
+            //Créer une instance lecteur média
+            EmbeddedMediaPlayer mediaPlayer = mediaPlayerFactory.newEmbeddedMediaPlayer(new Win32FullScreenStrategy(frame));
+            mediaPlayer.setVideoSurface(mediaPlayerFactory.newVideoSurface(c));
+            //Plein écran
+            //  mediaPlayer.toggleFullScreen();
+            //Cacher le curseur de la souris à l'intérieur de JFrame
+           mediaPlayer.setEnableMouseInputHandling(false);
+            //Désactiver le clavier à l'intérieur de JFrame
+            mediaPlayer.setEnableKeyInputHandling(true);
+           
+            //Préparer le fichier
+            String Vid="C:\\Users\\dali\\Downloads\\Video\\tm.mp4";
+            mediaPlayer.prepareMedia(Vid);
+            //lire le fichier 
+            mediaPlayer.play();
+        
+        
     }//GEN-LAST:event_regardervidMouseClicked
 
     private void chatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_chatMouseClicked
