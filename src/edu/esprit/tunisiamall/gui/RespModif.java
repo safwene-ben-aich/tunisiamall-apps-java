@@ -50,8 +50,10 @@ public class RespModif extends javax.swing.JFrame {
         TableModif = new javax.swing.JTable();
         confrim = new javax.swing.JButton();
         exit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TableModif.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -63,46 +65,30 @@ public class RespModif extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TableModif);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 156, 662, 136));
+
+        confrim.setBackground(new java.awt.Color(0, 204, 153));
+        confrim.setForeground(new java.awt.Color(255, 255, 255));
         confrim.setText("Confirmer");
         confrim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confrimActionPerformed(evt);
             }
         });
+        getContentPane().add(confrim, new org.netbeans.lib.awtextra.AbsoluteConstraints(593, 310, -1, -1));
 
+        exit.setBackground(new java.awt.Color(0, 204, 153));
+        exit.setForeground(new java.awt.Color(255, 255, 255));
         exit.setText("Retour");
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitActionPerformed(evt);
             }
         });
+        getContentPane().add(exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(607, 21, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(confrim, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(exit, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(exit)
-                .addGap(112, 112, 112)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(confrim)
-                .addContainerGap(115, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/respmodif.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -183,6 +169,7 @@ public class RespModif extends javax.swing.JFrame {
     private javax.swing.JTable TableModif;
     private javax.swing.JButton confrim;
     private javax.swing.JButton exit;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

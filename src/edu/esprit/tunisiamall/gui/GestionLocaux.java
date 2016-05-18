@@ -76,31 +76,46 @@ public class GestionLocaux extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TableLocaux = new javax.swing.JTable();
         BtnRetour = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(963, 568));
         setMinimumSize(new java.awt.Dimension(963, 568));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelAdresse.setText("Adresse: ");
+        getContentPane().add(LabelAdresse, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         LabelEtat.setText("Etat:");
+        getContentPane().add(LabelEtat, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 34, -1));
 
         TextFieldAdresse.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 TextFieldAdresseFocusGained(evt);
             }
         });
+        getContentPane().add(TextFieldAdresse, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 140, -1));
+        getContentPane().add(TextFieldEtat, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 140, -1));
 
+        BtnAjout.setBackground(new java.awt.Color(0, 204, 153));
+        BtnAjout.setForeground(new java.awt.Color(255, 255, 255));
         BtnAjout.setText("Ajouter");
         BtnAjout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnAjoutActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnAjout, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 195, -1, -1));
 
+        BtnSuppression.setBackground(new java.awt.Color(0, 204, 153));
+        BtnSuppression.setForeground(new java.awt.Color(255, 255, 255));
         BtnSuppression.setText("Supprimer");
+        getContentPane().add(BtnSuppression, new org.netbeans.lib.awtextra.AbsoluteConstraints(185, 195, -1, -1));
 
+        BtnReservation.setBackground(new java.awt.Color(0, 204, 153));
+        BtnReservation.setForeground(new java.awt.Color(255, 255, 255));
         BtnReservation.setText("Réserver");
+        getContentPane().add(BtnReservation, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 195, -1, -1));
 
         TableLocaux.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -120,64 +135,22 @@ public class GestionLocaux extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(TableLocaux);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 252, -1, 191));
+
+        BtnRetour.setBackground(new java.awt.Color(0, 204, 153));
+        BtnRetour.setForeground(new java.awt.Color(255, 255, 255));
         BtnRetour.setText("Retour");
         BtnRetour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnRetourActionPerformed(evt);
             }
         });
+        getContentPane().add(BtnRetour, new org.netbeans.lib.awtextra.AbsoluteConstraints(556, 420, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(BtnAjout)
-                        .addGap(94, 94, 94)
-                        .addComponent(BtnSuppression)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnReservation))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelAdresse)
-                            .addComponent(LabelEtat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TextFieldAdresse, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                            .addComponent(TextFieldEtat))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addComponent(BtnRetour)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(BtnRetour))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LabelAdresse)
-                            .addComponent(TextFieldAdresse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LabelEtat)
-                            .addComponent(TextFieldEtat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BtnAjout)
-                            .addComponent(BtnSuppression)
-                            .addComponent(BtnReservation))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
+        jLabel1.setBackground(new java.awt.Color(0, 204, 153));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/glocaux.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -276,6 +249,7 @@ public class GestionLocaux extends javax.swing.JFrame {
     private javax.swing.JTable TableLocaux;
     private javax.swing.JTextField TextFieldAdresse;
     private javax.swing.JTextField TextFieldEtat;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
