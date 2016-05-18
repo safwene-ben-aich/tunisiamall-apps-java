@@ -13,6 +13,7 @@ import edu.esprit.tunisiamall.entities.Produit;
 import edu.esprit.tunisiamall.gui.ResponsableEnseigneGUI;
 import org.opencv.core.Core;
 import edu.esprit.tunisiamall.technique.DataSource;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
 import java.io.File;
@@ -44,8 +45,9 @@ public class LoginChoiseGUI extends javax.swing.JFrame {
           this.getConnectionDB();
         this.loginusername.setEnabled(true);
                 this.qrcode.setEnabled(true);
+        this.loginusername.setBackground(Color.decode("00CC99"));
         
-        
+          this.qrcode.setBackground(Color.decode("00CC99"));
    
 
     }
@@ -59,6 +61,8 @@ public class LoginChoiseGUI extends javax.swing.JFrame {
             this.DBconnectionjLabel.setIcon(new ImageIcon("src/edu/esprit/tunisiamall/images/Database-echec-icon.png"));
             this.qrcode.setEnabled(false);
             this.loginusername.setEnabled(false);
+            this.qrcode.setBackground(Color.red);
+            this.loginusername.setBackground(Color.red);
             Thread.sleep(1000);
             
             
@@ -112,8 +116,8 @@ public class LoginChoiseGUI extends javax.swing.JFrame {
 
         DBconnectionjLabel = new javax.swing.JLabel();
         HelpjLabel = new javax.swing.JLabel();
-        qrcode = new javax.swing.JLabel();
-        loginusername = new javax.swing.JLabel();
+        qrcode = new javax.swing.JButton();
+        loginusername = new javax.swing.JButton();
         BG = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -131,19 +135,25 @@ public class LoginChoiseGUI extends javax.swing.JFrame {
         });
         getContentPane().add(HelpjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, -1, -1));
 
-        qrcode.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                qrcodeMouseClicked(evt);
+        qrcode.setBackground(new java.awt.Color(0, 204, 153));
+        qrcode.setForeground(new java.awt.Color(255, 255, 255));
+        qrcode.setText("Qrcode");
+        qrcode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                qrcodeActionPerformed(evt);
             }
         });
-        getContentPane().add(qrcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 280, 50));
+        getContentPane().add(qrcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 280, 60));
 
-        loginusername.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginusernameMouseClicked(evt);
+        loginusername.setBackground(new java.awt.Color(0, 204, 153));
+        loginusername.setForeground(new java.awt.Color(255, 255, 255));
+        loginusername.setText("Login & Username");
+        loginusername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginusernameActionPerformed(evt);
             }
         });
-        getContentPane().add(loginusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 280, 50));
+        getContentPane().add(loginusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(53, 253, 280, 60));
 
         BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/Page1.png"))); // NOI18N
         getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 3, 380, 470));
@@ -160,17 +170,21 @@ public class LoginChoiseGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_HelpjLabelMouseClicked
 
-    private void qrcodeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_qrcodeMouseClicked
- this.setVisible(false);
-        LoginQRcodeGUI loginQRcodeGUI = new LoginQRcodeGUI();
-        loginQRcodeGUI.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_qrcodeMouseClicked
-
-    private void loginusernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginusernameMouseClicked
- this.setVisible(false);
+    private void loginusernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginusernameActionPerformed
+       
+        
+this.setVisible(false);
         LoginGUI loginGUI = new LoginGUI();
         loginGUI.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_loginusernameMouseClicked
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_loginusernameActionPerformed
+
+    private void qrcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qrcodeActionPerformed
+      this.setVisible(false);
+        LoginQRcodeGUI loginQRcodeGUI = new LoginQRcodeGUI();
+        loginQRcodeGUI.setVisible(true);     // TODO add your handling code here:
+    }//GEN-LAST:event_qrcodeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,7 +227,7 @@ public class LoginChoiseGUI extends javax.swing.JFrame {
     private javax.swing.JLabel BG;
     private javax.swing.JLabel DBconnectionjLabel;
     private javax.swing.JLabel HelpjLabel;
-    private javax.swing.JLabel loginusername;
-    private javax.swing.JLabel qrcode;
+    private javax.swing.JButton loginusername;
+    private javax.swing.JButton qrcode;
     // End of variables declaration//GEN-END:variables
 }

@@ -50,7 +50,7 @@ public class ClientDao {
      public  ArrayList<Client> getAllResEns() {
         ArrayList<Client> listRes=new ArrayList<>();
          try {
- String req1 = " select u.nom , u.prenom,u.id ,u.ROLE from user u where u.role= 'RESPONSABLE' and u.id not in (select m.ID_RESPONSABLE from marque m)";
+ String req1 = " select u.username , u.prenom,u.id ,u.ROLE from user u where u.role= 'RESPONSABLE' and u.id not in (select m.ID_RESPONSABLE from marque m)";
 
            // String req1 = "select * from user  where ROLE='RESPONSABLE'";
             System.out.println(req1);
@@ -61,7 +61,7 @@ public class ClientDao {
                             System.out.println(req1);
 
                 while (resultSet.next()) {
-                    Client client=new Client(resultSet.getString("NOM"), resultSet.getString("PRENOM"), resultSet.getInt("ID"));
+                    Client client=new Client(resultSet.getString("username"), resultSet.getString("PRENOM"), resultSet.getInt("ID"));
                     listRes.add(client);
                 }
             }

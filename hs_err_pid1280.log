@@ -1,0 +1,201 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:273), pid=1280, tid=5912
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_25-b18) (build 1.8.0_25-b18)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.25-b02 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000016b0c800):  JavaThread "C1 CompilerThread2" daemon [_thread_in_native, id=5912, stack(0x0000000018250000,0x0000000018350000)]
+
+Stack: [0x0000000018250000,0x0000000018350000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x31667a]
+V  [jvm.dll+0x267073]
+V  [jvm.dll+0x267cb3]
+V  [jvm.dll+0x25f5b5]
+V  [jvm.dll+0xbeec1]
+V  [jvm.dll+0xbf60c]
+V  [jvm.dll+0x40936a]
+V  [jvm.dll+0x40e6ce]
+V  [jvm.dll+0x3ed2c0]
+V  [jvm.dll+0x3ed690]
+V  [jvm.dll+0x3ed7c2]
+V  [jvm.dll+0x3ed98e]
+V  [jvm.dll+0x3edb8f]
+V  [jvm.dll+0x98a02]
+V  [jvm.dll+0x991f3]
+V  [jvm.dll+0x22bde4]
+V  [jvm.dll+0x2852fa]
+C  [msvcr100.dll+0x21d9f]
+C  [msvcr100.dll+0x21e3b]
+C  [KERNEL32.DLL+0x18102]
+C  [ntdll.dll+0x5c5b4]
+
+
+Current CompileTask:
+C1:    517   24       3       java.io.DataInputStream::readUTF (501 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000016b5e000 JavaThread "Service Thread" daemon [_thread_blocked, id=1160, stack(0x0000000018750000,0x0000000018850000)]
+=>0x0000000016b0c800 JavaThread "C1 CompilerThread2" daemon [_thread_in_native, id=5912, stack(0x0000000018250000,0x0000000018350000)]
+  0x0000000016b00800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=4956, stack(0x0000000018150000,0x0000000018250000)]
+  0x0000000016afe000 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=3420, stack(0x0000000018050000,0x0000000018150000)]
+  0x0000000016afc800 JavaThread "Attach Listener" daemon [_thread_blocked, id=7532, stack(0x0000000017f50000,0x0000000018050000)]
+  0x0000000016afb800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=1940, stack(0x0000000017e50000,0x0000000017f50000)]
+  0x00000000020a6000 JavaThread "Finalizer" daemon [_thread_blocked, id=11296, stack(0x0000000017d50000,0x0000000017e50000)]
+  0x000000000209c000 JavaThread "Reference Handler" daemon [_thread_blocked, id=10084, stack(0x0000000017c50000,0x0000000017d50000)]
+
+Other Threads:
+  0x0000000016ac6000 VMThread [stack: 0x0000000017b50000,0x0000000017c50000] [id=5756]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000000001ddd4d0] Threads_lock - owner thread: 0x0000000016ac6000
+[0x0000000001ddd8d0] Heap_lock - owner thread: 0x0000000001dde800
+
+Heap:
+ PSYoungGen      total 37888K, used 3277K [0x00000000d6600000, 0x00000000d9000000, 0x0000000100000000)
+  eden space 32768K, 10% used [0x00000000d6600000,0x00000000d6933718,0x00000000d8600000)
+  from space 5120K, 0% used [0x00000000d8b00000,0x00000000d8b00000,0x00000000d9000000)
+  to   space 5120K, 0% used [0x00000000d8600000,0x00000000d8600000,0x00000000d8b00000)
+ ParOldGen       total 86016K, used 0K [0x0000000083200000, 0x0000000088600000, 0x00000000d6600000)
+  object space 86016K, 0% used [0x0000000083200000,0x0000000083200000,0x0000000088600000)
+ Metaspace       used 2719K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 300K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x0000000011470000,0x0000000011860000] byte_map_base: 0x0000000011057000
+
+Marking Bits: (ParMarkBitMap*) 0x000000005c6ed490
+ Begin Bits: [0x0000000011f00000, 0x0000000013e38000)
+ End Bits:   [0x0000000013e38000, 0x0000000015d70000)
+
+Polling page: 0x0000000000420000
+
+CodeCache: size=245760Kb used=1098Kb max_used=1107Kb free=244661Kb
+ bounds [0x00000000020b0000, 0x0000000002320000, 0x00000000110b0000]
+ total_blobs=258 nmethods=23 adapters=151
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.164 Thread 0x0000000016b0c800 nmethod 18 0x00000000021bec50 code [0x00000000021bede0, 0x00000000021bf2c8]
+Event: 0.164 Thread 0x0000000016b0c800   10       3       java.lang.String::<init> (62 bytes)
+Event: 0.165 Thread 0x0000000016b0c800 nmethod 10 0x00000000021bf510 code [0x00000000021bf6c0, 0x00000000021bfaf8]
+Event: 0.165 Thread 0x0000000016b0c800   20       3       java.lang.System::getSecurityManager (4 bytes)
+Event: 0.165 Thread 0x0000000016b0c800 nmethod 20 0x00000000021b1490 code [0x00000000021b15e0, 0x00000000021b1710]
+Event: 0.180 Thread 0x0000000016b0c800   21       3       java.lang.AbstractStringBuilder::append (50 bytes)
+Event: 0.181 Thread 0x0000000016b0c800 nmethod 21 0x00000000021c1150 code [0x00000000021c12e0, 0x00000000021c17e8]
+Event: 0.194 Thread 0x0000000016b0c800   22       3       java.io.BufferedInputStream::getBufIfOpen (21 bytes)
+Event: 0.195 Thread 0x0000000016b0c800 nmethod 22 0x00000000021c19d0 code [0x00000000021c1b40, 0x00000000021c1d68]
+Event: 0.195 Thread 0x0000000016b0c800   24       3       java.io.DataInputStream::readUTF (501 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (3 events):
+Event: 0.073 Thread 0x0000000001dde800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x00000000d660d870) thrown at [D:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u25\1677\hotspot\sr%|∏»ï≤?
+Event: 0.073 Thread 0x0000000001dde800 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x00000000d660db00) thrown at [D:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u25\1677\hotspot\src\share\vm\prims\j*iÅ
+Event: 0.164 Thread 0x0000000001dde800 Exception <a 'java/security/PrivilegedActionException'> (0x00000000d66806d8) thrown at [D:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u25\1677\hotspot\src\share\vm\prims\jvm.cpp, line 1312]
+
+Events (10 events):
+Event: 0.179 loading class sun/util/calendar/ZoneInfo
+Event: 0.180 loading class sun/util/calendar/ZoneInfo done
+Event: 0.180 loading class sun/util/calendar/ZoneInfoFile
+Event: 0.180 loading class sun/util/calendar/ZoneInfoFile done
+Event: 0.180 loading class sun/util/calendar/ZoneInfoFile$1
+Event: 0.180 loading class sun/util/calendar/ZoneInfoFile$1 done
+Event: 0.180 loading class java/io/DataInputStream
+Event: 0.181 loading class java/io/DataInput
+Event: 0.181 loading class java/io/DataInput done
+Event: 0.181 loading class java/io/DataInputStream done
+
+
+Dynamic libraries:
+0x00007ff766d20000 - 0x00007ff766d54000 	C:\Program Files\Java\jdk1.8.0_25\jre\bin\java.exe
+0x00007ff8c2430000 - 0x00007ff8c25f1000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff8bfc30000 - 0x00007ff8bfcdd000 	C:\WINDOWS\system32\KERNEL32.DLL
+0x00007ff8bed20000 - 0x00007ff8bef08000 	C:\WINDOWS\system32\KERNELBASE.dll
+0x00007ff8c03f0000 - 0x00007ff8c0497000 	C:\WINDOWS\system32\ADVAPI32.dll
+0x00007ff8c1a00000 - 0x00007ff8c1a9d000 	C:\WINDOWS\system32\msvcrt.dll
+0x00007ff8bfce0000 - 0x00007ff8bfd3b000 	C:\WINDOWS\system32\sechost.dll
+0x00007ff8c1b10000 - 0x00007ff8c1c2c000 	C:\WINDOWS\system32\RPCRT4.dll
+0x00007ff8c0120000 - 0x00007ff8c0276000 	C:\WINDOWS\system32\USER32.dll
+0x00007ff8bff90000 - 0x00007ff8c0116000 	C:\WINDOWS\system32\GDI32.dll
+0x00007ff8b33e0000 - 0x00007ff8b3654000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.10586.0_none_8c15ae12515e1c22\COMCTL32.dll
+0x00007ff8c2060000 - 0x00007ff8c22dd000 	C:\WINDOWS\system32\combase.dll
+0x00007ff8bebd0000 - 0x00007ff8bec3a000 	C:\WINDOWS\system32\bcryptPrimitives.dll
+0x00007ff8c22e0000 - 0x00007ff8c231b000 	C:\WINDOWS\system32\IMM32.DLL
+0x000000005d340000 - 0x000000005d412000 	C:\Program Files\Java\jdk1.8.0_25\jre\bin\msvcr100.dll
+0x000000005bf10000 - 0x000000005c76a000 	C:\Program Files\Java\jdk1.8.0_25\jre\bin\server\jvm.dll
+0x00007ff8bfb30000 - 0x00007ff8bfb38000 	C:\WINDOWS\system32\PSAPI.DLL
+0x00007ff8b1b40000 - 0x00007ff8b1b49000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff8bfbc0000 - 0x00007ff8bfc2b000 	C:\WINDOWS\system32\WS2_32.dll
+0x00007ff8bce60000 - 0x00007ff8bce83000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff8bce00000 - 0x00007ff8bce2c000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ff8bf0e0000 - 0x00007ff8bf123000 	C:\WINDOWS\system32\cfgmgr32.dll
+0x000000005d8e0000 - 0x000000005d8ef000 	C:\Program Files\Java\jdk1.8.0_25\jre\bin\verify.dll
+0x000000005d310000 - 0x000000005d338000 	C:\Program Files\Java\jdk1.8.0_25\jre\bin\java.dll
+0x000000005d840000 - 0x000000005d856000 	C:\Program Files\Java\jdk1.8.0_25\jre\bin\zip.dll
+0x00007ff8c04a0000 - 0x00007ff8c19fc000 	C:\WINDOWS\system32\SHELL32.dll
+0x00007ff8bf130000 - 0x00007ff8bf774000 	C:\WINDOWS\system32\windows.storage.dll
+0x00007ff8c0280000 - 0x00007ff8c02d2000 	C:\WINDOWS\system32\shlwapi.dll
+0x00007ff8beaa0000 - 0x00007ff8beaaf000 	C:\WINDOWS\system32\kernel.appcore.dll
+0x00007ff8bec60000 - 0x00007ff8bed15000 	C:\WINDOWS\system32\shcore.dll
+0x00007ff8bea30000 - 0x00007ff8bea7b000 	C:\WINDOWS\system32\powrprof.dll
+0x00007ff8bea80000 - 0x00007ff8bea94000 	C:\WINDOWS\system32\profapi.dll
+0x00007ff8a7800000 - 0x00007ff8a798c000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 -Djava.library.path=lib\java\x64 
+java_command: edu.esprit.tunisiamall.gui.AddMarque
+java_class_path (initial): C:\Program Files\NetBeans 8.0.2\ide\modules\ext\mysql-connector-java-5.1.23-bin.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\AnimatonClass.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\BarCodeReader.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\SMSLib.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\ShadowedSplash.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\SplashDemo.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\bridj-0.6.2.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\dsn.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\hamcrest-core-1.3.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\imap.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\jcommon-1.0.23.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\jfreechart-1.0.19-experimental.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\jfreechart-1.0.19-swt.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\jfreechart-1.0.19.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\jfreesvg-2.0.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\jmf-2.1.1e.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\junit-4.11.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\mailapi.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\orsoncharts-1.4-eval-nofx.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\orsonpdf-1.6-eval.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\pop3.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\servlet.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\slf4j-api-1.7.7.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\smtp.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\swtgraphics2d.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\twitter4j-core-4.0.4.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\webcam-capture-0.3.10.jar;C:\TunisiaMalllebes\PI-DEV-TUNISIAMALL3A6-JAVA\lib\java\opencv-249.jar;C:\Program Files\NetBe
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk1.8.0_25
+CLASSPATH=.;.;C:\PROGRA~2\JMF21~1.1E\lib\sound.jar;C:\PROGRA~2\JMF21~1.1E\lib\jmf.jar;C:\PROGRA~2\JMF21~1.1E\lib;
+PATH=C:\oraclexe\app\oracle\product\10.2.0\server\bin;C:\Program Files (x86)\Windows Resource Kits\Tools\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\ia32\compiler;C:\Program Files (x86)\PC Connectivity Solution\;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;c:\Program Files\WIDCOMM\Bluetooth Software\;c:\Program Files\WIDCOMM\Bluetooth Software\syswow64;C:\Program Files\Broadcom\Broadcom 802.11\Driver;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Java\jdk1.8.0_25/bin;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\wamp2.4\bin\php\php5.4.16;C:\ProgramData\ComposerSetup\bin;C:\Users\Max\AppData\Roaming\Composer\vendor\bin
+USERNAME=Max
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 37 Stepping 2, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8.1 , 64 bit Build 9600 
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 37 stepping 2, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht, tsc, tscinvbit
+
+Memory: 4k page, physical 8181612k(2248356k free), swap 8181612k(3096k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.25-b02) for windows-amd64 JRE (1.8.0_25-b18), built on Oct  7 2014 14:25:37 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Tue May 17 21:34:59 2016
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

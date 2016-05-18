@@ -201,11 +201,12 @@ public class LoginQRcodeGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TunisiaMallLogojLabel = new javax.swing.JLabel();
         ScannerCameraProduitjPanel = new javax.swing.JPanel();
         QRCodeStatusjLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(400, 500));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -215,8 +216,7 @@ public class LoginQRcodeGUI extends javax.swing.JFrame {
                 formWindowClosing(evt);
             }
         });
-
-        TunisiaMallLogojLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/logo-Tunisia-Mall.jpg"))); // NOI18N
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         javax.swing.GroupLayout ScannerCameraProduitjPanelLayout = new javax.swing.GroupLayout(ScannerCameraProduitjPanel);
         ScannerCameraProduitjPanel.setLayout(ScannerCameraProduitjPanelLayout);
@@ -229,32 +229,11 @@ public class LoginQRcodeGUI extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(82, 82, 82)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(TunisiaMallLogojLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ScannerCameraProduitjPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(117, 117, 117)
-                        .addComponent(QRCodeStatusjLabel)))
-                .addContainerGap(83, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(TunisiaMallLogojLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ScannerCameraProduitjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(QRCodeStatusjLabel)
-                .addContainerGap(79, Short.MAX_VALUE))
-        );
+        getContentPane().add(ScannerCameraProduitjPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(82, 286, 214, -1));
+        getContentPane().add(QRCodeStatusjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 397, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/11.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -312,6 +291,6 @@ public class LoginQRcodeGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel QRCodeStatusjLabel;
     private javax.swing.JPanel ScannerCameraProduitjPanel;
-    private javax.swing.JLabel TunisiaMallLogojLabel;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

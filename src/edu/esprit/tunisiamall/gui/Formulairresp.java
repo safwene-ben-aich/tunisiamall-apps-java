@@ -30,13 +30,17 @@ import edu.esprit.tunisiamall.dao.classes.ResponsableEnseigneDAO;
 import edu.esprit.tunisiamall.dao.classes.ResponsableEnseigneDAO;
 import edu.esprit.tunisiamall.entities.ResponsableEnseigne;
 import edu.esprit.tunisiamall.utils.*;
+import java.io.File;
+import java.io.FileInputStream;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author dali
  */
 public class Formulairresp extends javax.swing.JFrame {
-
+String s; 
     /**
      * Creates new form Formulairresp
      */
@@ -86,6 +90,8 @@ public class Formulairresp extends javax.swing.JFrame {
         findtxt = new javax.swing.JTextField();
         Modif = new javax.swing.JButton();
         Telephone = new javax.swing.JTextField();
+        jRadioButtonFemmeSexe = new javax.swing.JRadioButton();
+        jRadioButtonHommeSexe = new javax.swing.JRadioButton();
         exit = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         bloc = new javax.swing.JButton();
@@ -93,8 +99,6 @@ public class Formulairresp extends javax.swing.JFrame {
         mailbtt = new javax.swing.JButton();
         qrcodeJtextfield = new javax.swing.JTextField();
         imageJtextField = new javax.swing.JTextField();
-        jRadioButtonFemmeSexe = new javax.swing.JRadioButton();
-        jRadioButtonHommeSexe = new javax.swing.JRadioButton();
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -179,6 +183,13 @@ public class Formulairresp extends javax.swing.JFrame {
         });
         getContentPane().add(Telephone, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 210, 190, 30));
 
+        jRadioButtonFemmeSexe.setText("Femme");
+        getContentPane().add(jRadioButtonFemmeSexe, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
+
+        jRadioButtonHommeSexe.setSelected(true);
+        jRadioButtonHommeSexe.setText("Homme");
+        getContentPane().add(jRadioButtonHommeSexe, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, -1));
+
         exit.setText("Retour");
         exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,13 +236,6 @@ public class Formulairresp extends javax.swing.JFrame {
             }
         });
         getContentPane().add(imageJtextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 260, 190, 30));
-
-        jRadioButtonFemmeSexe.setText("Femme");
-        getContentPane().add(jRadioButtonFemmeSexe, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
-
-        jRadioButtonHommeSexe.setSelected(true);
-        jRadioButtonHommeSexe.setText("Homme");
-        getContentPane().add(jRadioButtonHommeSexe, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 310, -1, -1));
 
         bg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/adminresp.png"))); // NOI18N
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 4, 1010, 710));

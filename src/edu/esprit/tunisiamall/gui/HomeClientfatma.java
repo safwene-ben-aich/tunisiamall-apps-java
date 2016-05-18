@@ -6,8 +6,11 @@
 package edu.esprit.tunisiamall.gui;
 
 import AppPackage.AnimationClass;
+
 import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;
+        
+
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.Graphics;
@@ -71,12 +74,15 @@ import edu.esprit.tunisiamall.entities.Thread;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Point;
+
 import javax.swing.JPanel;
+
 import uk.co.caprica.vlcj.binding.LibVlc;
 import uk.co.caprica.vlcj.player.MediaPlayerFactory;
 import uk.co.caprica.vlcj.player.embedded.EmbeddedMediaPlayer;
 import uk.co.caprica.vlcj.player.embedded.windows.Win32FullScreenStrategy;
 import uk.co.caprica.vlcj.runtime.RuntimeUtil;
+
 /**
  *
  * @author Fatma Jaafar
@@ -3845,7 +3851,7 @@ pos+=3;
     }//GEN-LAST:event_previousrechMouseClicked
 
     private void regardervidMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regardervidMouseClicked
-JFrame frame = new JFrame();
+            JFrame frame = new JFrame();
             frame.setLocation(600, 300);
             frame.setSize(500, 300);
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -3883,7 +3889,7 @@ JFrame frame = new JFrame();
             mediaPlayer.setEnableKeyInputHandling(true);
            
             //Préparer le fichier
-            String Vid="C:\\Users\\dali\\Downloads\\Video\\tm.mp4";
+            String Vid="C:\\Users\\Max\\Downloads\\New folder\\tm.mp4";
             mediaPlayer.prepareMedia(Vid);
             //lire le fichier 
             mediaPlayer.play();
