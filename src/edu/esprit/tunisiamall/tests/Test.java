@@ -9,7 +9,7 @@ import edu.esprit.tunisiamall.entities.ResponsableEnseigne;
 import edu.esprit.tunisiamall.gui.HomeAdmin;
 import edu.esprit.tunisiamall.gui.ResponsableEnseigneGUI;
 import edu.esprit.tunisiamall.gui.LoginGUI;
-import edu.esprit.tunisiamall.gui.LoginChoiseGUI;
+import edu.esprit.tunisiamall.gui.LoginChoiceGUI;
 import edu.esprit.tunisiamall.gui.LoginQRcodeGUI;
 import edu.esprit.tunisiamall.gui.ResponsableEnseigneGUI;
 import org.opencv.core.Core;
@@ -28,7 +28,7 @@ public class Test {
 
    // ShadowedWindow sh=new ShadowedWindow(new BufferedImage);
 
-            LoginChoiseGUI loginGUI = new LoginChoiseGUI();
+            LoginChoiceGUI loginGUI = new LoginChoiceGUI();
           loginGUI.setVisible(true);
   
     /*
