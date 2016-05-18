@@ -966,7 +966,6 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         MesNotesjLabel = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         MesNotesjTextArea = new javax.swing.JTextArea();
-        jLabel9 = new javax.swing.JLabel();
         jPanelProduit = new javax.swing.JPanel();
         jLabelReferences = new javax.swing.JLabel();
         ReferencesProduitjTextField = new javax.swing.JTextField();
@@ -994,7 +993,6 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         jTableProduit = new javax.swing.JTable();
         jButtonModifierProduit = new javax.swing.JButton();
         jButtonSupprimerProduit = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
         jPanelBoutique = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -1015,7 +1013,6 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         TableBoutique = new javax.swing.JTable();
         ComboLocalModif = new javax.swing.JComboBox();
-        jLabel11 = new javax.swing.JLabel();
         jPanelRapport = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         ProduitTable = new javax.swing.JTable();
@@ -1024,7 +1021,6 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         AlertTextArea = new javax.swing.JTextArea();
         LabelStock = new javax.swing.JLabel();
         CP = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -1033,230 +1029,303 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
             }
         });
 
-        jPanelResponsableEnseigne.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         cinResponsableEnseigneTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cinResponsableEnseigneTextFieldActionPerformed(evt);
             }
         });
-        jPanelResponsableEnseigne.add(cinResponsableEnseigneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 75, 143, -1));
-        cinResponsableEnseigneTextField.getAccessibleContext().setAccessibleName("cinTextField");
 
         CinLabel.setText("CIN :");
-        jPanelResponsableEnseigne.add(CinLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 78, -1, -1));
 
         nomResponsableEnseigneTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomResponsableEnseigneTextFieldActionPerformed(evt);
             }
         });
-        jPanelResponsableEnseigne.add(nomResponsableEnseigneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 18, 143, -1));
 
-        modifierResponsableEnseigneButton.setBackground(new java.awt.Color(0, 204, 153));
-        modifierResponsableEnseigneButton.setForeground(new java.awt.Color(255, 255, 255));
         modifierResponsableEnseigneButton.setText("Modifier");
         modifierResponsableEnseigneButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modifierResponsableEnseigneButtonActionPerformed(evt);
             }
         });
-        jPanelResponsableEnseigne.add(modifierResponsableEnseigneButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(785, 13, 120, 40));
 
         nomLabel.setText("Nom :");
-        jPanelResponsableEnseigne.add(nomLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(197, 21, -1, -1));
 
         prenomResponsableEnseigneTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 prenomResponsableEnseigneTextFieldActionPerformed(evt);
             }
         });
-        jPanelResponsableEnseigne.add(prenomResponsableEnseigneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 44, 143, -1));
 
         prenomLabel.setText("Prenom :");
-        jPanelResponsableEnseigne.add(prenomLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 47, -1, -1));
 
         loginResponsableEnseigneTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginResponsableEnseigneTextFieldActionPerformed(evt);
             }
         });
-        jPanelResponsableEnseigne.add(loginResponsableEnseigneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 18, 143, -1));
 
         loginLabel.setText("Login :");
-        jPanelResponsableEnseigne.add(loginLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(407, 21, -1, -1));
 
         passwordResponsableEnseigneTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordResponsableEnseigneTextFieldActionPerformed(evt);
             }
         });
-        jPanelResponsableEnseigne.add(passwordResponsableEnseigneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 44, 143, -1));
 
         passwordLabel.setText("Password :");
-        jPanelResponsableEnseigne.add(passwordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(386, 47, -1, -1));
 
         mailResponsableEnseigneTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mailResponsableEnseigneTextFieldActionPerformed(evt);
             }
         });
-        jPanelResponsableEnseigne.add(mailResponsableEnseigneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 101, 143, -1));
 
         mailLabel.setText("Mail :");
-        jPanelResponsableEnseigne.add(mailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 104, -1, -1));
 
         adresseLabel.setText("Adresse :");
-        jPanelResponsableEnseigne.add(adresseLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(179, 153, -1, -1));
 
         AdressejTextArea.setColumns(20);
         AdressejTextArea.setRows(5);
         jScrollPane1.setViewportView(AdressejTextArea);
 
-        jPanelResponsableEnseigne.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 153, 143, 61));
-
         telephoneLabel.setText("Telephone :");
-        jPanelResponsableEnseigne.add(telephoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(168, 130, -1, -1));
 
         TelephoneResponsableEnseigneTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TelephoneResponsableEnseigneTextFieldActionPerformed(evt);
             }
         });
-        jPanelResponsableEnseigne.add(TelephoneResponsableEnseigneTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 127, 143, -1));
-        jPanelResponsableEnseigne.add(ImagejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 18, 140, 136));
 
-        BloquedjButton.setBackground(new java.awt.Color(0, 204, 153));
-        BloquedjButton.setForeground(new java.awt.Color(255, 255, 255));
         BloquedjButton.setText("Debloquer");
         BloquedjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BloquedjButtonActionPerformed(evt);
             }
         });
-        jPanelResponsableEnseigne.add(BloquedjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(671, 13, 110, 40));
 
         logjTextArea.setColumns(20);
         logjTextArea.setRows(5);
         jScrollPane4.setViewportView(logjTextArea);
 
-        jPanelResponsableEnseigne.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 388, 211));
-
         jLabel1.setText("Historique :");
-        jPanelResponsableEnseigne.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
-        DeleteLogjButton.setBackground(new java.awt.Color(0, 204, 153));
-        DeleteLogjButton.setForeground(new java.awt.Color(255, 255, 255));
         DeleteLogjButton.setText("Vider");
         DeleteLogjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteLogjButtonActionPerformed(evt);
             }
         });
-        jPanelResponsableEnseigne.add(DeleteLogjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 110, 40));
-        jPanelResponsableEnseigne.add(ChargementLogjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(398, 457, -1, -1));
 
-        ModifierPhotoREsponsablejButton.setBackground(new java.awt.Color(0, 204, 153));
-        ModifierPhotoREsponsablejButton.setForeground(new java.awt.Color(255, 255, 255));
         ModifierPhotoREsponsablejButton.setText("Modifier");
         ModifierPhotoREsponsablejButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ModifierPhotoREsponsablejButtonActionPerformed(evt);
             }
         });
-        jPanelResponsableEnseigne.add(ModifierPhotoREsponsablejButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, 110, 40));
 
         TwitterjTextArea.setColumns(20);
         TwitterjTextArea.setRows(5);
         jScrollPane5.setViewportView(TwitterjTextArea);
 
-        jPanelResponsableEnseigne.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(468, 240, 401, 211));
-
         TwitterjLabel.setText("Twitter :");
-        jPanelResponsableEnseigne.add(TwitterjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(457, 220, -1, -1));
-        jPanelResponsableEnseigne.add(ChargementTwiitterjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(902, 457, -1, -1));
 
         MesNotesjLabel.setText("Mes Notes :");
-        jPanelResponsableEnseigne.add(MesNotesjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(468, 81, -1, -1));
 
         MesNotesjTextArea.setColumns(20);
         MesNotesjTextArea.setRows(5);
         jScrollPane6.setViewportView(MesNotesjTextArea);
 
-        jPanelResponsableEnseigne.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(468, 101, 401, 113));
+        javax.swing.GroupLayout jPanelResponsableEnseigneLayout = new javax.swing.GroupLayout(jPanelResponsableEnseigne);
+        jPanelResponsableEnseigne.setLayout(jPanelResponsableEnseigneLayout);
+        jPanelResponsableEnseigneLayout.setHorizontalGroup(
+            jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                        .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ImagejLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ModifierPhotoREsponsablejButton))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                                .addComponent(CinLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(cinResponsableEnseigneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                                .addComponent(prenomLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(prenomResponsableEnseigneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                                .addComponent(nomLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(nomResponsableEnseigneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                                .addComponent(mailLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(mailResponsableEnseigneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                                .addComponent(telephoneLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(TelephoneResponsableEnseigneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                                .addComponent(adresseLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                                        .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(loginLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(passwordLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addGap(161, 161, 161))
+                                    .addComponent(loginResponsableEnseigneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(TwitterjLabel)
+                                        .addComponent(passwordResponsableEnseigneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(BloquedjButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(modifierResponsableEnseigneButton)
+                                .addGap(62, 62, 62))
+                            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                                .addGap(82, 82, 82)
+                                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 401, Short.MAX_VALUE)
+                                    .addComponent(MesNotesjLabel)
+                                    .addComponent(jScrollPane6))
+                                .addContainerGap(51, Short.MAX_VALUE))))
+                    .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                        .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                                .addComponent(DeleteLogjButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ChargementLogjLabel))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ChargementTwiitterjLabel)
+                        .addGap(28, 28, 28))))
+        );
+        jPanelResponsableEnseigneLayout.setVerticalGroup(
+            jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                        .addComponent(ImagejLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ModifierPhotoREsponsablejButton))
+                    .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                        .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(nomResponsableEnseigneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nomLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(prenomResponsableEnseigneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(prenomLabel)))
+                            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(loginResponsableEnseigneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(loginLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(passwordResponsableEnseigneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(passwordLabel)))
+                            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(modifierResponsableEnseigneButton)
+                                    .addComponent(BloquedjButton))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(cinResponsableEnseigneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CinLabel))
+                            .addComponent(MesNotesjLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanelResponsableEnseigneLayout.createSequentialGroup()
+                                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(mailResponsableEnseigneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mailLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TelephoneResponsableEnseigneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(telephoneLabel))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(adresseLabel)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane6))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(TwitterjLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelResponsableEnseigneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DeleteLogjButton)
+                    .addComponent(ChargementLogjLabel)
+                    .addComponent(ChargementTwiitterjLabel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/resp1.png"))); // NOI18N
-        jPanelResponsableEnseigne.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 520));
+        cinResponsableEnseigneTextField.getAccessibleContext().setAccessibleName("cinTextField");
 
         jTabbedPane1.addTab("Mes Infos", jPanelResponsableEnseigne);
 
-        jPanelProduit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabelReferences.setText("References :");
-        jPanelProduit.add(jLabelReferences, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 29, -1, -1));
 
         ReferencesProduitjTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ReferencesProduitjTextFieldActionPerformed(evt);
             }
         });
-        jPanelProduit.add(ReferencesProduitjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 23, 143, -1));
 
         jLabelNom.setText("Nom :");
-        jPanelProduit.add(jLabelNom, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 52, -1, -1));
-        jPanelProduit.add(NomProduitjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 49, 143, -1));
 
         jLabelType.setText("Type :");
-        jPanelProduit.add(jLabelType, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 83, -1, -1));
-        jPanelProduit.add(TypeProduitjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 80, 143, -1));
-        jPanelProduit.add(PrixProduitjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 106, 143, -1));
 
         jLabelPrix.setText("Prix :");
-        jPanelProduit.add(jLabelPrix, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 109, -1, -1));
-        jPanelProduit.add(TauxReductionProduitjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(526, 21, 143, -1));
 
         jLabelTauxReduction.setText("Taux Reduction :");
-        jPanelProduit.add(jLabelTauxReduction, new org.netbeans.lib.awtextra.AbsoluteConstraints(426, 24, -1, -1));
-        jPanelProduit.add(NombrePointProduitjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(526, 49, 143, -1));
 
         jLabelNombrePoint.setText("Nombre point :");
-        jPanelProduit.add(jLabelNombrePoint, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 52, -1, -1));
 
         jLabelDescription.setText("Description :");
-        jPanelProduit.add(jLabelDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(463, 106, -1, -1));
 
         DescriptionProduitjTextArea.setColumns(20);
         DescriptionProduitjTextArea.setRows(5);
         jScrollPane3.setViewportView(DescriptionProduitjTextArea);
 
-        jPanelProduit.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(541, 106, 143, 69));
-
-        AddProduitjButton.setBackground(new java.awt.Color(0, 204, 153));
-        AddProduitjButton.setForeground(new java.awt.Color(255, 255, 255));
         AddProduitjButton.setText("Ajouter");
         AddProduitjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddProduitjButtonActionPerformed(evt);
             }
         });
-        jPanelProduit.add(AddProduitjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 110, 40));
 
         ImageProduitjLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/zara.jpg"))); // NOI18N
-        jPanelProduit.add(ImageProduitjLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 140, 136));
 
         QuantitejLabel.setText("Quantité :");
-        jPanelProduit.add(QuantitejLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(459, 83, -1, -1));
-        jPanelProduit.add(QuantiteProduitjTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(526, 80, 143, -1));
 
-        jButtonScannerProduit.setBackground(new java.awt.Color(0, 204, 153));
-        jButtonScannerProduit.setForeground(new java.awt.Color(255, 255, 255));
         jButtonScannerProduit.setText("Scanner");
         jButtonScannerProduit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonScannerProduitActionPerformed(evt);
             }
         });
-        jPanelProduit.add(jButtonScannerProduit, new org.netbeans.lib.awtextra.AbsoluteConstraints(785, 10, 110, 40));
 
         javax.swing.GroupLayout ScannerCameraProduitjPanelLayout = new javax.swing.GroupLayout(ScannerCameraProduitjPanel);
         ScannerCameraProduitjPanel.setLayout(ScannerCameraProduitjPanelLayout);
@@ -1269,17 +1338,12 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        jPanelProduit.add(ScannerCameraProduitjPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(712, 75, -1, -1));
-
-        ModifierPhotoProduit.setBackground(new java.awt.Color(0, 204, 153));
-        ModifierPhotoProduit.setForeground(new java.awt.Color(255, 255, 255));
         ModifierPhotoProduit.setText("Modifier");
         ModifierPhotoProduit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ModifierPhotoProduitActionPerformed(evt);
             }
         });
-        jPanelProduit.add(ModifierPhotoProduit, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 153, 110, 37));
 
         jTableProduit.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1294,8 +1358,6 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTableProduit);
 
-        jPanelProduit.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 196, 910, 278));
-
         jButtonModifierProduit.setText("Modifier");
         jButtonModifierProduit.setToolTipText("");
         jButtonModifierProduit.addActionListener(new java.awt.event.ActionListener() {
@@ -1303,7 +1365,6 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
                 jButtonModifierProduitActionPerformed(evt);
             }
         });
-        jPanelProduit.add(jButtonModifierProduit, new org.netbeans.lib.awtextra.AbsoluteConstraints(762, 480, -1, -1));
 
         jButtonSupprimerProduit.setText("Supprimer");
         jButtonSupprimerProduit.addActionListener(new java.awt.event.ActionListener() {
@@ -1311,20 +1372,140 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
                 jButtonSupprimerProduitActionPerformed(evt);
             }
         });
-        jPanelProduit.add(jButtonSupprimerProduit, new org.netbeans.lib.awtextra.AbsoluteConstraints(839, 480, -1, -1));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/resp2.png"))); // NOI18N
-        jPanelProduit.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 510));
+        javax.swing.GroupLayout jPanelProduitLayout = new javax.swing.GroupLayout(jPanelProduit);
+        jPanelProduit.setLayout(jPanelProduitLayout);
+        jPanelProduitLayout.setHorizontalGroup(
+            jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelProduitLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(jPanelProduitLayout.createSequentialGroup()
+                        .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelProduitLayout.createSequentialGroup()
+                                .addComponent(ImageProduitjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelProduitLayout.createSequentialGroup()
+                                        .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(jPanelProduitLayout.createSequentialGroup()
+                                                .addGap(50, 50, 50)
+                                                .addComponent(jLabelNom))
+                                            .addGroup(jPanelProduitLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jLabelReferences)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ReferencesProduitjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(NomProduitjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanelProduitLayout.createSequentialGroup()
+                                        .addGap(50, 50, 50)
+                                        .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelProduitLayout.createSequentialGroup()
+                                                .addComponent(jLabelPrix)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(PrixProduitjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelProduitLayout.createSequentialGroup()
+                                                .addComponent(jLabelType)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(TypeProduitjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(42, 42, 42)
+                                .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanelProduitLayout.createSequentialGroup()
+                                        .addComponent(jLabelTauxReduction)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(TauxReductionProduitjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanelProduitLayout.createSequentialGroup()
+                                        .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(QuantitejLabel)
+                                            .addComponent(jLabelNombrePoint))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(NombrePointProduitjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(QuantiteProduitjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelProduitLayout.createSequentialGroup()
+                                .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanelProduitLayout.createSequentialGroup()
+                                        .addComponent(jLabelDescription)
+                                        .addGap(18, 18, 18))
+                                    .addGroup(jPanelProduitLayout.createSequentialGroup()
+                                        .addComponent(ModifierPhotoProduit)
+                                        .addGap(460, 460, 460)))
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelProduitLayout.createSequentialGroup()
+                                .addComponent(AddProduitjButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonScannerProduit))
+                            .addComponent(ScannerCameraProduitjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 39, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelProduitLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButtonModifierProduit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonSupprimerProduit)))
+                .addContainerGap())
+        );
+        jPanelProduitLayout.setVerticalGroup(
+            jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelProduitLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelProduitLayout.createSequentialGroup()
+                        .addComponent(ImageProduitjLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ModifierPhotoProduit))
+                    .addGroup(jPanelProduitLayout.createSequentialGroup()
+                        .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelProduitLayout.createSequentialGroup()
+                                .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabelReferences)
+                                    .addComponent(ReferencesProduitjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(NomProduitjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelNom)))
+                            .addGroup(jPanelProduitLayout.createSequentialGroup()
+                                .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TauxReductionProduitjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AddProduitjButton)
+                                    .addComponent(jButtonScannerProduit)
+                                    .addComponent(jLabelTauxReduction))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(NombrePointProduitjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelNombrePoint))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelProduitLayout.createSequentialGroup()
+                                .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TypeProduitjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabelType)
+                                    .addComponent(QuantitejLabel)
+                                    .addComponent(QuantiteProduitjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelDescription)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabelPrix)
+                                        .addComponent(PrixProduitjTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(ScannerCameraProduitjPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelProduitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonModifierProduit)
+                    .addComponent(jButtonSupprimerProduit))
+                .addContainerGap())
+        );
 
         jTabbedPane1.addTab("Produit", jPanelProduit);
 
-        jPanelBoutique.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabel3.setText("MARQUE :");
-        jPanelBoutique.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 17, 69, -1));
 
         jLabel4.setText("LOCAL    :");
-        jPanelBoutique.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 69, -1));
 
         ComboMarque.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sélectionnez la marque:" }));
         ComboMarque.addActionListener(new java.awt.event.ActionListener() {
@@ -1332,7 +1513,6 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
                 ComboMarqueActionPerformed(evt);
             }
         });
-        jPanelBoutique.add(ComboMarque, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 11, -1, -1));
 
         ComboLocal.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Sélectionnez le Local:" }));
         ComboLocal.addActionListener(new java.awt.event.ActionListener() {
@@ -1340,66 +1520,47 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
                 ComboLocalActionPerformed(evt);
             }
         });
-        jPanelBoutique.add(ComboLocal, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 37, 139, -1));
 
-        AjouterBoutiquejButton.setBackground(new java.awt.Color(0, 204, 153));
-        AjouterBoutiquejButton.setForeground(new java.awt.Color(255, 255, 255));
         AjouterBoutiquejButton.setText("Ajouter");
         AjouterBoutiquejButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AjouterBoutiquejButtonActionPerformed(evt);
             }
         });
-        jPanelBoutique.add(AjouterBoutiquejButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 470, 110, 40));
 
         LabelID.setForeground(new java.awt.Color(255, 0, 0));
-        jPanelBoutique.add(LabelID, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 45, 218, -1));
 
         jLabel5.setText("LOGO     :");
-        jPanelBoutique.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 63, -1, -1));
 
         LogoBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 LogoBtnActionPerformed(evt);
             }
         });
-        jPanelBoutique.add(LogoBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 63, 139, 20));
 
         Lpath.setPreferredSize(new java.awt.Dimension(100, 80));
-        jPanelBoutique.add(Lpath, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 96, 139, 96));
 
         jLabel6.setText("LOCAL :");
-        jPanelBoutique.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 40, 68, 27));
 
         jLabel7.setText("MARQUE :");
-        jPanelBoutique.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(664, 11, -1, 27));
-        jPanelBoutique.add(MarqueTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(752, 14, 168, -1));
 
         jLabel8.setText("LOGO :");
-        jPanelBoutique.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(666, 73, 44, 26));
 
         LogoLabel.setPreferredSize(new java.awt.Dimension(100, 80));
-        jPanelBoutique.add(LogoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(752, 105, 168, 98));
 
-        BSupprimer.setBackground(new java.awt.Color(0, 204, 153));
-        BSupprimer.setForeground(new java.awt.Color(255, 255, 255));
         BSupprimer.setText("Supprimer");
         BSupprimer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BSupprimerActionPerformed(evt);
             }
         });
-        jPanelBoutique.add(BSupprimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 473, 100, 30));
 
-        BModifier.setBackground(new java.awt.Color(0, 204, 153));
-        BModifier.setForeground(new java.awt.Color(255, 255, 255));
         BModifier.setText("Modifier");
         BModifier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BModifierActionPerformed(evt);
             }
         });
-        jPanelBoutique.add(BModifier, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 473, 100, 30));
 
         TableBoutique.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1416,23 +1577,113 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         });
         jScrollPane7.setViewportView(TableBoutique);
 
-        jPanelBoutique.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 910, 200));
-
         ComboLocalModif.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboLocalModifActionPerformed(evt);
             }
         });
-        jPanelBoutique.add(ComboLocalModif, new org.netbeans.lib.awtextra.AbsoluteConstraints(752, 43, 168, -1));
 
-        jLabel11.setBackground(new java.awt.Color(0, 204, 153));
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/resp3.png"))); // NOI18N
-        jPanelBoutique.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 6, 930, 510));
+        javax.swing.GroupLayout jPanelBoutiqueLayout = new javax.swing.GroupLayout(jPanelBoutique);
+        jPanelBoutique.setLayout(jPanelBoutiqueLayout);
+        jPanelBoutiqueLayout.setHorizontalGroup(
+            jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBoutiqueLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBoutiqueLayout.createSequentialGroup()
+                        .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBoutiqueLayout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31))
+                            .addGroup(jPanelBoutiqueLayout.createSequentialGroup()
+                                .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(Lpath, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ComboMarque, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ComboLocal, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LogoBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelBoutiqueLayout.createSequentialGroup()
+                                .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBoutiqueLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel7)
+                                        .addGap(38, 38, 38))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBoutiqueLayout.createSequentialGroup()
+                                        .addGap(31, 31, 31)
+                                        .addComponent(LabelID, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                                        .addGap(178, 178, 178)
+                                        .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)))
+                                .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(MarqueTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                                    .addComponent(ComboLocalModif, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelBoutiqueLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(LogoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanelBoutiqueLayout.createSequentialGroup()
+                        .addComponent(AjouterBoutiquejButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BModifier)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BSupprimer)))
+                .addContainerGap())
+        );
+        jPanelBoutiqueLayout.setVerticalGroup(
+            jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelBoutiqueLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelBoutiqueLayout.createSequentialGroup()
+                        .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelBoutiqueLayout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ComboLocalModif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(MarqueTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(LogoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelBoutiqueLayout.createSequentialGroup()
+                        .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelBoutiqueLayout.createSequentialGroup()
+                                .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ComboMarque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(ComboLocal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanelBoutiqueLayout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(LabelID)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LogoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(13, 13, 13)
+                        .addComponent(Lpath, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelBoutiqueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BModifier)
+                    .addComponent(BSupprimer)
+                    .addComponent(AjouterBoutiquejButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33))
+        );
 
         jTabbedPane1.addTab("Boutique", jPanelBoutique);
-
-        jPanelRapport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ProduitTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1444,19 +1695,13 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
         ));
         jScrollPane8.setViewportView(ProduitTable);
 
-        jPanelRapport.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 287, 910, 216));
-
         jLabel2.setText("Vente par article:");
-        jPanelRapport.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 267, 103, -1));
 
         AlertTextArea.setColumns(20);
         AlertTextArea.setRows(5);
         jScrollPane9.setViewportView(AlertTextArea);
 
-        jPanelRapport.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 212, 209));
-
         LabelStock.setText("Alert Stock:");
-        jPanelRapport.add(LabelStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         javax.swing.GroupLayout CPLayout = new javax.swing.GroupLayout(CP);
         CP.setLayout(CPLayout);
@@ -1469,10 +1714,40 @@ public class ResponsableEnseigneGUI extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanelRapport.add(CP, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 40, 656, 209));
-
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/edu/esprit/tunisiamall/images/resp4.png"))); // NOI18N
-        jPanelRapport.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 510));
+        javax.swing.GroupLayout jPanelRapportLayout = new javax.swing.GroupLayout(jPanelRapport);
+        jPanelRapport.setLayout(jPanelRapportLayout);
+        jPanelRapportLayout.setHorizontalGroup(
+            jPanelRapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRapportLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelRapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 910, Short.MAX_VALUE)
+                    .addGroup(jPanelRapportLayout.createSequentialGroup()
+                        .addGroup(jPanelRapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(LabelStock))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelRapportLayout.createSequentialGroup()
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(CP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanelRapportLayout.setVerticalGroup(
+            jPanelRapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRapportLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(LabelStock)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelRapportLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         jTabbedPane1.addTab("Rapport", jPanelRapport);
 
@@ -2004,9 +2279,6 @@ if(dialogResult == JOptionPane.YES_OPTION){
     private javax.swing.JButton jButtonScannerProduit;
     private javax.swing.JButton jButtonSupprimerProduit;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -2014,7 +2286,6 @@ if(dialogResult == JOptionPane.YES_OPTION){
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelDescription;
     private javax.swing.JLabel jLabelNom;
     private javax.swing.JLabel jLabelNombrePoint;

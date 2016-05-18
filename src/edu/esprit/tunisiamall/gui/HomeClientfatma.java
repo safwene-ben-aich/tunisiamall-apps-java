@@ -1501,7 +1501,7 @@ hideprods();
     private void CLOSEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CLOSEMouseClicked
  //System.exit(0);   
         this.setVisible(false);
-        LoginChoiseGUI log= new LoginChoiseGUI();
+        LoginChoiceGUI log= new LoginChoiceGUI();
         log.setVisible(true);
     }//GEN-LAST:event_CLOSEMouseClicked
 

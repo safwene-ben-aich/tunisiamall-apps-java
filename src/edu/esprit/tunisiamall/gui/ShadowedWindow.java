@@ -74,7 +74,7 @@ public class ShadowedWindow extends JWindow {
             window.setVisible(true);
             Timer timer = new Timer(5000, new ActionListener() {
                 public void actionPerformed(ActionEvent evt) {
-                  LoginChoiseGUI h= new LoginChoiseGUI();
+                  LoginChoiceGUI h= new LoginChoiceGUI();
                   h.show();
                 }
             });
